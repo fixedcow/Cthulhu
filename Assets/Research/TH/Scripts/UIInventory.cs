@@ -65,10 +65,13 @@ public class UIInventory : MonoBehaviour
 	private void Update() {
 		if (_isDragging) {
 			_draggingSlot.transform.position = Input.mousePosition;
-			if (Input.GetMouseButtonUp(0) && _pointedSlotIdx != -1) {
+			if (Input.GetMouseButtonUp(0)) {
+				if(_pointedSlotIdx != -1)
+				{
+					_inventory.SwapItem(_pointedSlotIdx, _dragStartSlotIdx);
+				}
 				_isDragging = false;
 				_draggingSlot.SetActive(false);
-				_inventory.SwapItem(_pointedSlotIdx, _dragStartSlotIdx);
 			}
 		}
 	}
