@@ -11,6 +11,7 @@ public class PlayerMove : MonoBehaviour
 	#region PrivateVariables
 	private Animator _animator;
 	private Rigidbody2D _rb;
+	private PlayerItemGetter _playerItemGetter;
 	[SerializeField] private float _speed;
 
 	private Vector2 _direction;
@@ -30,6 +31,7 @@ public class PlayerMove : MonoBehaviour
 	public void HandleInput()
 	{
 		_rb.velocity = _direction * _speed;
+		_playerItemGetter.PickItem();
 	}
 	#endregion
 
@@ -38,6 +40,7 @@ public class PlayerMove : MonoBehaviour
 	{
 		TryGetComponent(out _rb);
 		TryGetComponent(out _animator);
+		TryGetComponent(out _playerItemGetter);
 	}
 	#endregion
 }
