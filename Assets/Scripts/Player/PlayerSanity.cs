@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerSanity : PlayerStat
 {
 	#region PublicVariables
 	#endregion
@@ -11,22 +12,6 @@ public class Player : MonoBehaviour
 	#endregion
 
 	#region PublicMethod
-	public void Move()
-	{
-
-	}
-	public void Attack()
-	{
-
-	}
-	public void Hit()
-	{
-
-	}
-	public void Die()
-	{
-
-	}
 	#endregion
 
 	#region PrivateMethod
