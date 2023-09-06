@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f57d0e61584885447a842c2050ef36f8, type: 3}
   m_Name: Stone
   m_EditorClassIdentifier: 
-  _itemName: 
-  _itemDescription: 
-  _itemSprite: {fileID: 0}
-  _isStackable: 0
-  _maxStackableNumber: 0
+  ItemID: Stone
+  ItemName: "\uB3CC"
+  ItemDescription: "\uB3CC\uB3CC\uB3CC"
+  itemSprite: {fileID: 21300000, guid: f558e6d3b6f874c4794dd9f0a7f855af, type: 3}
+  isStackable: 0
+  maxStackableNumber: 0
