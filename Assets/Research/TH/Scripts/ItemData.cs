@@ -17,7 +17,7 @@ public class ItemData : ScriptableObject
 	[SerializeField] public Sprite itemSprite;
 
 	[SerializeField] public bool isStackable;
-	[ShowIf("_isStackable", true)]
+	[ShowIf("isStackable", true)]
 	[SerializeField] public int maxStackableNumber;
 	#endregion
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class TestBothObj : MonoBehaviour, IInteractable, IHittable
 {
 	#region PublicVariables
 	#endregion
@@ -15,4 +15,15 @@ public class PlayerController : MonoBehaviour
 
 	#region PrivateMethod
 	#endregion
+	public Vector2 GetPosition() => transform.position;
+
+	public void Hit()
+	{
+
+	}
+
+	public void Interact()
+	{
+
+	}
 }
