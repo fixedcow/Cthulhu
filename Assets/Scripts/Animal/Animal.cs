@@ -2,30 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : PlayerStat
+public class Animal : MonoBehaviour, IHittable
 {
 	#region PublicVariables
 	#endregion
 
 	#region PrivateVariables
-	private Player _player;
+	[SerializeField] private AnimalData data;
+	private int hp;
 	#endregion
 
 	#region PublicMethod
-	public override void Add(int value)
+	public Vector2 GetPosition() => transform.position;
+	public void Hit()
 	{
-		base.Add(value);
-		if(currentValue == minValue)
-		{
-			_player.Die();
-		}
+
 	}
 	#endregion
 
 	#region PrivateMethod
-	private void Awake()
-	{
-		TryGetComponent(out _player);
-	}
 	#endregion
+
 }
