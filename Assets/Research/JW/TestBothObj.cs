@@ -17,7 +17,7 @@ public class TestBothObj : MonoBehaviour, IInteractable, IHittable
 	#endregion
 	public Vector2 GetPosition() => transform.position;
 
-	public void Hit()
+	public void Hit(int damage)
 	{
 
 	}

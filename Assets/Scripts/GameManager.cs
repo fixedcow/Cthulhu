@@ -8,9 +8,11 @@ public class GameManager : Singleton<GameManager>
 	#endregion
 
 	#region PrivateVariables
+	[SerializeField] private Player _player;
 	#endregion
 
 	#region PublicMethod
+	public Player GetPlayer() => _player;
 	#endregion
 
 	#region PrivateMethod
