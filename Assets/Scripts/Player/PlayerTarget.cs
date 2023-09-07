@@ -22,12 +22,11 @@ public class PlayerTarget : MonoBehaviour
 	public void CheckTarget()
 	{
 		RaycastHit2D mouseHit = CheckMouseRay();
-		RaycastHit2D fowardHit = CheckForwardRay();
-		if (mouseHit.collider != null && fowardHit.collider != null && fowardHit.collider == mouseHit.collider)
+		if (mouseHit.collider != null)
 		{
 			ITargetable target;
 			mouseHit.collider.gameObject.TryGetComponent(out target);
-			if (target != null)
+			if (target != null && Vector2.Distance(transform.position, mouseHit.transform.position) < interactableDistance)
 			{
 				_target = target;
 			}
@@ -60,14 +59,6 @@ public class PlayerTarget : MonoBehaviour
 	{
 		RaycastHit2D hit = Physics2D.Raycast(Utils.MousePosition, Vector2.zero
 			, float.MaxValue, 1 << LayerMask.NameToLayer("Target"));
-		return hit;
-	}
-	private RaycastHit2D CheckForwardRay()
-	{
-		Vector2 targetDirection = (Utils.MousePosition - (Vector2)transform.position).normalized;
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDirection
-			, interactableDistance, 1 << LayerMask.NameToLayer("Target"));
-		Debug.DrawRay(transform.position, targetDirection * interactableDistance, Color.red);
 		return hit;
 	}
 	private void HighlightInteractableObject()

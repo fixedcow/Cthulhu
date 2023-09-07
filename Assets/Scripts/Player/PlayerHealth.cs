@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class PlayerHealth : PlayerStat
@@ -13,9 +12,9 @@ public class PlayerHealth : PlayerStat
 	#endregion
 
 	#region PublicMethod
-	public override void ChangeValue(int value)
+	public override void Add(int value)
 	{
-		base.ChangeValue(value);
+		base.Add(value);
 		if(currentValue == minValue)
 		{
 			_player.Die();
