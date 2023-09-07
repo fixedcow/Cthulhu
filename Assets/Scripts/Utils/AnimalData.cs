@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName ="SO/Animal Data", fileName = "New Animal Data")]
-public class AnimalData : MonoBehaviour
+public class AnimalData : ScriptableObject
 {
-	public enum EAttackType
-	{
-		harmless = 0,
-		neutral = 1,
-		threatening = 2
-	}
 	public string race;
-	public EAttackType attackType;
 	public int hpMax;
-	public int speed;
+	public int speedIdle;
+	public int speedRun;
+	public int speedAttack;
 	public int damage;
 	public int attackSpeed;
+	public float recognitionRange;
+	public float attackRange;
 }

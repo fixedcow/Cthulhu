@@ -9,8 +9,8 @@ public class PlayerTarget : MonoBehaviour
 	#endregion
 
 	#region PrivateVariables
-	[SerializeField] private GameObject hittableUI;
-	[SerializeField] private GameObject interactableUI;
+	[SerializeField] private GameObject _hittableUI;
+	[SerializeField] private GameObject _interactableUI;
 
 	private ITargetable _target;
 
@@ -65,22 +65,22 @@ public class PlayerTarget : MonoBehaviour
 	{
 		if(_target is IInteractable)
 		{
-			interactableUI.SetActive(true);
-			interactableUI.transform.position = _target.GetPosition();
+			_interactableUI.SetActive(true);
+			_interactableUI.transform.position = _target.GetPosition();
 		}
 	}
 	private void HighlightAttackableObject()
 	{
 		if (_target is IHittable)
 		{
-			hittableUI.SetActive(true);
-			hittableUI.transform.position = _target.GetPosition();
+			_hittableUI.SetActive(true);
+			_hittableUI.transform.position = _target.GetPosition();
 		}
 	}
 	private void RemoveHighlight()
 	{
-		interactableUI.SetActive(false);
-		hittableUI.SetActive(false);
+		_interactableUI.SetActive(false);
+		_hittableUI.SetActive(false);
 	}
 	#endregion
 }
