@@ -40,14 +40,13 @@ public class UIInventory : MonoBehaviour
 		for (i = 0; i < itemList.Length; i++) {
 			if (_slotList[i] == null) {
 				_slotList[i] = Instantiate(slotPrefab, _slotContentTransform).GetComponent<UIInventorySlot>();
-				Debug.Log(_slotList[i]);
 				if (itemList[i] == null || itemList[i].TargetItem == null)
 					_slotList[i].Init(OnSelectedSlot, OnStartDragSlot, OnSlotPointerEnter);
 				else
-					_slotList[i].Init(i, itemList[i].TargetItem, OnSelectedSlot, OnStartDragSlot, OnSlotPointerEnter);
+					_slotList[i].Init(i, itemList[i], OnSelectedSlot, OnStartDragSlot, OnSlotPointerEnter);
 					
 			} else {
-				_slotList[i].SetSlot(itemList[i] == null, i, itemList[i] == null ? null : itemList[i].TargetItem);
+				_slotList[i].SetSlot(itemList[i] == null, i, itemList[i]);
 			}
 		}
 	}
@@ -56,7 +55,7 @@ public class UIInventory : MonoBehaviour
 	#region PrivateMethod
 	private void Awake() 
 	{
-		//_slotContentTransform = transform.Find("SlotContents").GetComponent<RectTransform>();
+		_slotContentTransform = transform.Find("MainInventory/SlotContents").GetComponent<RectTransform>();
 		_draggingSlot = transform.Find("DraggingSlot").gameObject;
 		_draggingSlot.SetActive(false);
 		_isDragging = false;

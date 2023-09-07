@@ -16,5 +16,5 @@ MonoBehaviour:
   ItemName: "\uB3CC"
   ItemDescription: "\uB3CC\uB3CC\uB3CC"
   itemSprite: {fileID: 21300000, guid: f558e6d3b6f874c4794dd9f0a7f855af, type: 3}
-  isStackable: 0
-  maxStackableNumber: 0
+  isStackable: 1
+  maxStackableNumber: 5
