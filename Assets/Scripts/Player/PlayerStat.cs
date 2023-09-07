@@ -15,9 +15,9 @@ public class PlayerStat : MonoBehaviour
 	#endregion
 
 	#region PublicMethod
-	public virtual void ChangeValue(int value)
+	public virtual void Add(int amount)
 	{
-		currentValue = Mathf.Clamp(currentValue + value, minValue, maxValue);
+		currentValue = Mathf.Clamp(currentValue + amount, minValue, maxValue);
 	}
 	#endregion
 

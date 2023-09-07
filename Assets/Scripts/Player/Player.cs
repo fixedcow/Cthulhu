@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
 	}
 	public void Hit(int amount)
 	{
-		_health.ChangeValue(-amount);
+		_health.Add(-amount);
 	}
 	public void Die()
 	{
