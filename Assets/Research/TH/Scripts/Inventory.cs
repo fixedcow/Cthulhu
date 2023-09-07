@@ -43,7 +43,7 @@ public class Inventory : MonoBehaviour
 		}
 		
 		int appliedQuantity, initQuantity;
-		for (initQuantity = quantity; initQuantity > 0; initQuantity -= appliedQuantity) 
+		for (initQuantity = quantity; initQuantity > 0 && slotIdx != -1; initQuantity -= appliedQuantity) 
 		{
 			if (_slotList[slotIdx] == null) 
 			{
@@ -52,12 +52,12 @@ public class Inventory : MonoBehaviour
 			} 
 			else 
 			{
-				appliedQuantity = item.maxStackableNumber - _slotList[slotIdx].StackedNumber;
+				appliedQuantity = Mathf.Min(initQuantity, item.maxStackableNumber - _slotList[slotIdx].StackedNumber);
 				_slotList[slotIdx].StackedNumber += appliedQuantity;
 			}
 			slotIdx = FindAvailableItemSlotIdx(item, quantity);
 		}
-
+		_uiInventory.UpdateInventory(_slotList);
 		return quantity - initQuantity;
 	}
 
@@ -152,17 +152,13 @@ public class Inventory : MonoBehaviour
 		} else {
 			for (int i = 0; i < _maxItemNumber; i++) 
 			{
-				if (_slotList[i] == null || _slotList[i].TargetItem == null) { continue; }
+				if (_slotList[i] == null) { return i; }
 
 				if (_slotList[i].TargetItem.ItemID != item.ItemID) { continue; }
 
 				if (_slotList[i].StackedNumber < item.maxStackableNumber) 
 				{
 					return i;
-				} 
-				else 
-				{
-					continue;
 				}
 			}
 		}

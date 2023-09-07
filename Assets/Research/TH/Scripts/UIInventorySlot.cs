@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
+using Unity.VisualScripting;
 
 namespace TH.Core {
 
@@ -21,6 +23,7 @@ namespace TH.Core {
 		private float _selectedTime;
 		private bool _isNull;
 		private Image _itemImage;
+		private TextMeshProUGUI _stackedNumberText;
 		#endregion
 
         #region PublicMethod
@@ -32,18 +35,23 @@ namespace TH.Core {
 			SetSlot(true, -1, null);
 		}
 
-		public void Init(int idx, ItemData itemData, Action<int> onSelectedCallback, Action<int> onStartDragCallback, Action<int> onPointerEnterCallback) 
+		public void Init(int idx, InventoryItem item, Action<int> onSelectedCallback, Action<int> onStartDragCallback, Action<int> onPointerEnterCallback) 
 		{
 			_onSelectedCallback = onSelectedCallback;
 			_onStartDragCallback = onStartDragCallback;
 			_onPointerEnterCallback = onPointerEnterCallback;
 
-			SetSlot(false, idx, itemData);
+			SetSlot(false, idx, item);
 		}
 
-		public void SetSlot(bool isNull, int idx, ItemData itemData) {
-			if (_itemImage == null) {
-				_itemImage = transform.Find("Item Image").GetComponent<Image>();
+		public void SetSlot(bool isNull, int idx, InventoryItem item) {
+			if (_itemImage == null) 
+			{
+				_itemImage = transform.Find("ItemImage").GetComponent<Image>();
+			}
+			if (_stackedNumberText == null) 
+			{
+				_stackedNumberText = transform.Find("StackedNumberText").GetComponent<TextMeshProUGUI>();
 			}
 			
 			_slotIdx = idx;
@@ -51,9 +59,17 @@ namespace TH.Core {
 			if (isNull) {
 				_itemImage.color = Color.clear;
 				_itemImage.sprite = null;
+
+				_stackedNumberText.text = "";
 			} else {
 				_itemImage.color = Color.white;
-				_itemImage.sprite = itemData.itemSprite;
+				_itemImage.sprite = item.TargetItem.itemSprite;
+			
+				if (item.StackedNumber == 1) {
+					_stackedNumberText.text = "";
+				} else {
+					_stackedNumberText.text = item.StackedNumber.ToString();
+				}
 			}
 		}
 		

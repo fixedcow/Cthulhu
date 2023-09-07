@@ -20,7 +20,7 @@ public class InventoryItem
 				return;
 			}
 
-			if (_stackedNumber + value > _targetItem.maxStackableNumber) 
+			if (value > _targetItem.maxStackableNumber) 
 			{
 				Debug.LogError("인벤토리에 최대 개수를 초과하여 아이템이 추가되었습니다.");
 				return;
