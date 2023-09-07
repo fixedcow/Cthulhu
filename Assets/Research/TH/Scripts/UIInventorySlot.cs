@@ -63,7 +63,7 @@ namespace TH.Core {
 				_stackedNumberText.text = "";
 			} else {
 				_itemImage.color = Color.white;
-				_itemImage.sprite = item.TargetItem.itemSprite;
+				_itemImage.sprite = item.TargetItem.ItemSprite;
 			
 				if (item.StackedNumber == 1) {
 					_stackedNumberText.text = "";
@@ -100,7 +100,7 @@ namespace TH.Core {
 		private void Update() 
 		{
 			if (_isPointerDown) {
-				if (Time.time - _selectedTime > 0.5f) {
+				if (Time.time - _selectedTime > InventorySystem.Instance.dragDelayTime) {
 					_isPointerDown = false;
 					_onStartDragCallback(_slotIdx);
 				}

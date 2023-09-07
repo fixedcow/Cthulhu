@@ -21,7 +21,7 @@ public class InventoryData
 		_slotList = new InventoryItem[maxItemNumber];
 	}
 
-	public void EveryFrame(InventoryItem[] itemList) {
+	public void DataAccepted() {
 		_hasModifiedThisFrame = false;
 	}
 
@@ -36,7 +36,7 @@ public class InventoryData
 	}
 
 	public bool IsStackable(int targetIdx) {
-		return _slotList[targetIdx].TargetItem.isStackable;
+		return _slotList[targetIdx].TargetItem.IsStackable;
 	}
 
 	public int SafeStackedItemNumber(int targetIdx) {
@@ -56,11 +56,11 @@ public class InventoryData
 		 return 
 		 	_slotList[targetIdx].StackedNumber + _slotList[originalIdx].StackedNumber 
 		 	<= 
-			_slotList[targetIdx].TargetItem.maxStackableNumber;
+			_slotList[targetIdx].TargetItem.MaxStackableNumber;
 	}
 
 	public int MaxStackableNumber(int targetIdx) {
-		return _slotList[targetIdx].TargetItem.maxStackableNumber;
+		return _slotList[targetIdx].TargetItem.MaxStackableNumber;
 	}
 
 	public void AddNewItem(int targetIdx, InventoryItem item) {

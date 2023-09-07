@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
 	
@@ -8,12 +9,24 @@ namespace TH.Core {
 public class Inventory : MonoBehaviour
 {
     #region PublicVariables
+	public bool HasInitialized => _hasInitialized;
 	#endregion
 
 	#region PrivateVariables
-	[SerializeField] private int _maxItemNumber;
-	[SerializeField] private UIInventory _uiInventory;
-	private InventoryData _inventoryData;
+	[SerializeField] private int _maxItemNumber = 2;
+	private InventoryData _inventoryData {
+		get {
+			if (__inventoryData == null) {
+				__inventoryData = new InventoryData(_maxItemNumber);
+			}
+			return __inventoryData;
+		}
+
+		set {
+			__inventoryData = value;
+		}
+	}
+	private InventoryData __inventoryData;
 	private bool _hasInitialized = false;
 	#endregion
 
@@ -33,7 +46,7 @@ public class Inventory : MonoBehaviour
 			return 0;
 		}
 
-		if (item.isStackable == false) 
+		if (item.IsStackable == false) 
 		{
 			_inventoryData.AddNewItem(slotIdx, new InventoryItem(item, 1));
 			return 1;
@@ -44,12 +57,12 @@ public class Inventory : MonoBehaviour
 		{
 			if (_inventoryData.IsNull(slotIdx)) 
 			{
-				appliedQuantity = Mathf.Min(initQuantity, item.maxStackableNumber);
+				appliedQuantity = Mathf.Min(initQuantity, item.MaxStackableNumber);
 				_inventoryData.AddNewItem(slotIdx, new InventoryItem(item, appliedQuantity));
 			} 
 			else 
 			{
-				appliedQuantity = Mathf.Min(initQuantity, item.maxStackableNumber - _inventoryData.StackedItemNumber(slotIdx));
+				appliedQuantity = Mathf.Min(initQuantity, item.MaxStackableNumber - _inventoryData.StackedItemNumber(slotIdx));
 				_inventoryData.AddToExistingItem(slotIdx, appliedQuantity);
 			}
 			slotIdx = FindAvailableItemSlotIdx(item, quantity);
@@ -106,6 +119,11 @@ public class Inventory : MonoBehaviour
 	{
 		return _inventoryData.HasModifiedThisFrame;
 	}
+
+	public InventoryItem[] GetInventoryItemsForUI() {
+		_inventoryData.DataAccepted();
+		return _inventoryData.SlotList.ToArray();
+	}
 	#endregion
     
 	#region PrivateMethod
@@ -129,7 +147,7 @@ public class Inventory : MonoBehaviour
 	{
 		IReadOnlyList<InventoryItem> slotList = _inventoryData.SlotList;
 
-		if (item.isStackable == false) 
+		if (item.IsStackable == false) 
 		{
 			if (quantity > 1) 
 			{
@@ -151,7 +169,7 @@ public class Inventory : MonoBehaviour
 
 				if (slotList[i].TargetItem.ItemID != item.ItemID) { continue; }
 
-				if (slotList[i].StackedNumber < item.maxStackableNumber) 
+				if (slotList[i].StackedNumber < item.MaxStackableNumber) 
 				{
 					return i;
 				}

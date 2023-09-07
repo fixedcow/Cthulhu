@@ -16,11 +16,11 @@ public class ItemData : ScriptableObject
 	[SerializeField] public string ItemDescription;
 	[MultiLineProperty]
 	[SerializeField] public string ItemFlavorText;
-	[SerializeField] public Sprite itemSprite;
+	[SerializeField] public Sprite ItemSprite;
 
-	[SerializeField] public bool isStackable;
-	[ShowIf("isStackable", true)]
-	[SerializeField] public int maxStackableNumber;
+	[SerializeField] public bool IsStackable;
+	[ShowIf("IsStackable", true)]
+	[SerializeField] public int MaxStackableNumber;
 	#endregion
 
 	#region PrivateVariables

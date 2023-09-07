@@ -13,23 +13,22 @@ public class UIInventory : MonoBehaviour
 	#region PrivateVariables
 	private UIInventorySlot[] _slotList;
 	[SerializeField] private RectTransform _slotContentTransform;
-	private int _maxItemNumber;
 	private GameObject _draggingSlot;
-	private bool _isDragging = false;
-	private int _dragStartSlotIdx;
-	private int _pointedSlotIdx;
 
 	private Inventory _inventory;
 	#endregion
 
 	#region PublicMethod
-	public void Init(int maxItemNumber, Inventory inventory) 
+	public void Init(Inventory inventory) 
 	{
-		_maxItemNumber = maxItemNumber;
 		_inventory = inventory;
 	}
 
 	public void UpdateInventory(InventoryItem[] itemList) {
+		if (_slotContentTransform == null) {
+			_slotContentTransform = transform.Find("SlotContents").GetComponent<RectTransform>();
+		}
+
 		GameObject slotPrefab = Resources.Load<GameObject>("UI/UIInventorySlot");
 		
 		if (_slotList == null || _slotList.Length != itemList.Length) {
@@ -39,6 +38,7 @@ public class UIInventory : MonoBehaviour
 		int i;
 		for (i = 0; i < itemList.Length; i++) {
 			if (_slotList[i] == null) {
+				Debug.Log($"슬롯 생성: {i}");
 				_slotList[i] = Instantiate(slotPrefab, _slotContentTransform).GetComponent<UIInventorySlot>();
 				if (itemList[i] == null || itemList[i].TargetItem == null)
 					_slotList[i].Init(OnSelectedSlot, OnStartDragSlot, OnSlotPointerEnter);
@@ -55,24 +55,10 @@ public class UIInventory : MonoBehaviour
 	#region PrivateMethod
 	private void Awake() 
 	{
-		_slotContentTransform = transform.Find("MainInventory/SlotContents").GetComponent<RectTransform>();
-		_draggingSlot = transform.Find("DraggingSlot").gameObject;
-		_draggingSlot.SetActive(false);
-		_isDragging = false;
+		_slotContentTransform = transform.Find("SlotContents").GetComponent<RectTransform>();
 	}
 
 	private void Update() {
-		if (_isDragging) {
-			_draggingSlot.transform.position = Input.mousePosition;
-			if (Input.GetMouseButtonUp(0)) {
-				if(_pointedSlotIdx != -1)
-				{
-					_inventory.SwapItem(_pointedSlotIdx, _dragStartSlotIdx);
-				}
-				_isDragging = false;
-				_draggingSlot.SetActive(false);
-			}
-		}
 	}
 
 	private void OnSelectedSlot(int idx) 
@@ -83,16 +69,17 @@ public class UIInventory : MonoBehaviour
 	private void OnStartDragSlot(int idx) 
 	{
 		Debug.Log($"드래그 시작된 슬롯: {idx}");
-		_draggingSlot.SetActive(true);
-		_dragStartSlotIdx = idx;
-		_isDragging = true;
-		_draggingSlot.transform.Find("Image").GetComponent<Image>().sprite = _inventory.GetItem(idx).TargetItem.itemSprite;
+		InventorySystem.Instance.OnStartDragSlot(_inventory, _inventory.GetItem(idx) == null ? null : _inventory.GetItem(idx).TargetItem, idx);
 	}
 
 	private void OnSlotPointerEnter(int idx) 
 	{
 		Debug.Log($"슬롯에 마우스가 들어옴: {idx}");
-		_pointedSlotIdx = idx;
+		if (idx == -1) {
+			InventorySystem.Instance.OnPointerExitItemSlot();
+			return;
+		}
+		InventorySystem.Instance.OnPointerEnterItemSlot(_inventory, _inventory.GetItem(idx) == null ? null : _inventory.GetItem(idx).TargetItem, idx);
 	}
 	#endregion
 }
