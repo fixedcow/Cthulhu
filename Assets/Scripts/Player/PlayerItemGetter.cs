@@ -13,7 +13,7 @@ public class PlayerItemGetter : MonoBehaviour
 	[SerializeField] private float pickedSpeed;
 	#endregion
 
-	#region PublicMethod
+	#region PublicMethod   
 	public void PickItem()
 	{
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, pickedRadius, 1 << LayerMask.NameToLayer("Item"));
