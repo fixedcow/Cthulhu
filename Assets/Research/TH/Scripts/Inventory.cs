@@ -121,7 +121,7 @@ public class Inventory : MonoBehaviour
 		{
 			_hasInitialized = true;
 
-			_inventoryData = new InventoryData(_maxItemNumber, _uiInventory);
+			_inventoryData = new InventoryData(_maxItemNumber);
 		}
 	}
 

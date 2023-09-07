@@ -13,15 +13,12 @@ public class InventoryData
 
 	#region PrivateVariables
 	private InventoryItem[] _slotList;
-	private UIInventory _uiInventory;
-	private bool _hasUI;
 	private bool _hasModifiedThisFrame = false;
 	#endregion
 
 	#region PublicMethod
-	public InventoryData(int maxItemNumber, UIInventory uiInventory) {
+	public InventoryData(int maxItemNumber) {
 		_slotList = new InventoryItem[maxItemNumber];
-		_uiInventory = uiInventory;
 	}
 
 	public void EveryFrame(InventoryItem[] itemList) {
