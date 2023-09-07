@@ -8,14 +8,13 @@ namespace TH.Core {
 public class Inventory : MonoBehaviour
 {
     #region PublicVariables
-	public InventoryItem[] SlotList => _slotList;
 	#endregion
 
 	#region PrivateVariables
 	[SerializeField] private int _maxItemNumber;
-	private UIInventory _uiInventory;
+	[SerializeField] private UIInventory _uiInventory;
+	private InventoryData _inventoryData;
 	private bool _hasInitialized = false;
-	private InventoryItem[] _slotList;
 	#endregion
 
 	#region PublicMethod
@@ -31,33 +30,30 @@ public class Inventory : MonoBehaviour
 		if (slotIdx == -1) 
 		{
 			Debug.Log("아이템을 추가할 수 있는 슬롯이 없습니다.");
-			_uiInventory.UpdateInventory(_slotList);
 			return 0;
 		}
 
 		if (item.isStackable == false) 
 		{
-			_slotList[slotIdx] = new InventoryItem(item, 1);
-			_uiInventory.UpdateInventory(_slotList);
+			_inventoryData.AddNewItem(slotIdx, new InventoryItem(item, 1));
 			return 1;
 		}
 		
 		int appliedQuantity, initQuantity;
 		for (initQuantity = quantity; initQuantity > 0 && slotIdx != -1; initQuantity -= appliedQuantity) 
 		{
-			if (_slotList[slotIdx] == null) 
+			if (_inventoryData.IsNull(slotIdx)) 
 			{
 				appliedQuantity = Mathf.Min(initQuantity, item.maxStackableNumber);
-				_slotList[slotIdx] = new InventoryItem(item, appliedQuantity);
+				_inventoryData.AddNewItem(slotIdx, new InventoryItem(item, appliedQuantity));
 			} 
 			else 
 			{
-				appliedQuantity = Mathf.Min(initQuantity, item.maxStackableNumber - _slotList[slotIdx].StackedNumber);
-				_slotList[slotIdx].StackedNumber += appliedQuantity;
+				appliedQuantity = Mathf.Min(initQuantity, item.maxStackableNumber - _inventoryData.StackedItemNumber(slotIdx));
+				_inventoryData.AddToExistingItem(slotIdx, appliedQuantity);
 			}
 			slotIdx = FindAvailableItemSlotIdx(item, quantity);
 		}
-		_uiInventory.UpdateInventory(_slotList);
 		return quantity - initQuantity;
 	}
 
@@ -69,47 +65,46 @@ public class Inventory : MonoBehaviour
 	/// <returns>Swap이 성공했는 지 여부를 반환합니다.</returns>
 	public bool SwapItem(int targetIdx, int originalIdx) 
 	{
-		if (_slotList[originalIdx] == null) {
+		if (_inventoryData.IsNull(originalIdx)) {
 			Debug.LogError("원래 아이템이 존재하지 않습니다.");
-			_uiInventory.UpdateInventory(_slotList);
 			return false;
 		}
 
 		// 대상 슬롯이 비어있는 경우
-		if (_slotList[targetIdx] == null) {
-			_slotList[targetIdx] = _slotList[originalIdx];
-			_slotList[originalIdx] = null;
-			_uiInventory.UpdateInventory(_slotList);
+		if (_inventoryData.IsNull(targetIdx)) {
+			_inventoryData.MoveItem(originalIdx, targetIdx);
 			return true;
 		}
 
 		// 대상 슬롯의 아이템이 다른 경우
-		if (_slotList[targetIdx].TargetItem.ItemID != _slotList[originalIdx].TargetItem.ItemID) {
-			InventoryItem temp = _slotList[targetIdx];
-			_slotList[targetIdx] = _slotList[originalIdx];
-			_slotList[originalIdx] = temp;
-			_uiInventory.UpdateInventory(_slotList);
+		if (_inventoryData.HasSameItemType(targetIdx, originalIdx) == false) {
+			_inventoryData.SwapItem(targetIdx, originalIdx);
 			return true;
 		}
 
 		// 대상 슬롯의 아이템이 같은 경우
-		if (_slotList[targetIdx].StackedNumber + _slotList[originalIdx].StackedNumber > _slotList[targetIdx].TargetItem.maxStackableNumber) {
-			int remain = _slotList[targetIdx].StackedNumber + _slotList[originalIdx].StackedNumber - _slotList[targetIdx].TargetItem.maxStackableNumber;
-			_slotList[targetIdx].StackedNumber = _slotList[targetIdx].TargetItem.maxStackableNumber;
-			_slotList[originalIdx].StackedNumber = remain;
-			_uiInventory.UpdateInventory(_slotList);
+		if (_inventoryData.CanMergeItems(targetIdx, originalIdx) == false) {
+			int remain = 
+				_inventoryData.SafeStackedItemNumber(targetIdx) 
+				+ _inventoryData.SafeStackedItemNumber(originalIdx) 
+				- _inventoryData.MaxStackableNumber(targetIdx);
+			
+			_inventoryData.RedistributeItems(targetIdx, originalIdx, _inventoryData.MaxStackableNumber(targetIdx), remain);
 			return true;
 		} else {
-			_slotList[targetIdx].StackedNumber += _slotList[originalIdx].StackedNumber;
-			_slotList[originalIdx] = null;
-			_uiInventory.UpdateInventory(_slotList);
+			_inventoryData.MergeItems(originalIdx, targetIdx);
 			return true;
 		}
 	}
 
 	public InventoryItem GetItem(int idx) 
 	{
-		return _slotList[idx];
+		return _inventoryData.SlotList[idx];
+	}
+
+	public bool HasInventoryDataChanged() 
+	{
+		return _inventoryData.HasModifiedThisFrame;
 	}
 	#endregion
     
@@ -117,8 +112,7 @@ public class Inventory : MonoBehaviour
 	private void Awake()
 	{
 		// private 변수 초기화
-		_slotList = new InventoryItem[_maxItemNumber];
-		_uiInventory = GameObject.FindAnyObjectByType<UIInventory>();
+		
 	}
 
 	private void Update() 
@@ -127,13 +121,14 @@ public class Inventory : MonoBehaviour
 		{
 			_hasInitialized = true;
 
-			_uiInventory.Init(_maxItemNumber, this);
-			_uiInventory.UpdateInventory(_slotList);
+			_inventoryData = new InventoryData(_maxItemNumber, _uiInventory);
 		}
 	}
 
 	private int FindAvailableItemSlotIdx(ItemData item, int quantity) 
 	{
+		IReadOnlyList<InventoryItem> slotList = _inventoryData.SlotList;
+
 		if (item.isStackable == false) 
 		{
 			if (quantity > 1) 
@@ -144,7 +139,7 @@ public class Inventory : MonoBehaviour
 
 			for (int i = 0; i < _maxItemNumber; i++) 
 			{
-				if (_slotList[i] == null) 
+				if (slotList[i] == null) 
 				{
 					return i;
 				}
@@ -152,11 +147,11 @@ public class Inventory : MonoBehaviour
 		} else {
 			for (int i = 0; i < _maxItemNumber; i++) 
 			{
-				if (_slotList[i] == null) { return i; }
+				if (slotList[i] == null) { return i; }
 
-				if (_slotList[i].TargetItem.ItemID != item.ItemID) { continue; }
+				if (slotList[i].TargetItem.ItemID != item.ItemID) { continue; }
 
-				if (_slotList[i].StackedNumber < item.maxStackableNumber) 
+				if (slotList[i].StackedNumber < item.maxStackableNumber) 
 				{
 					return i;
 				}

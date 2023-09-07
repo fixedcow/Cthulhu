@@ -16,13 +16,13 @@ public class InventoryItem
 		set {
 			if (value < 0) 
 			{
-				Debug.LogError("인벤토리에 0보다 작은 개수의 아이템이 추가되었습니다.");
+				Debug.LogError("슬롯에 0보다 작은 개수의 아이템이 추가되었습니다.");
 				return;
 			}
 
 			if (value > _targetItem.maxStackableNumber) 
 			{
-				Debug.LogError("인벤토리에 최대 개수를 초과하여 아이템이 추가되었습니다.");
+				Debug.LogError("슬롯에 최대 개수를 초과하여 아이템이 추가되었습니다.");
 				return;
 			}
 
@@ -37,7 +37,6 @@ public class InventoryItem
 	#endregion
 
 	#region PrivateVariables
-	private bool _isNull;
 	private ItemData _targetItem;
 	private int _stackedNumber;
 	#endregion

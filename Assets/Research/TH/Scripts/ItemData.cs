@@ -14,6 +14,8 @@ public class ItemData : ScriptableObject
 	[SerializeField] public string ItemName;
 	[MultiLineProperty]
 	[SerializeField] public string ItemDescription;
+	[MultiLineProperty]
+	[SerializeField] public string ItemFlavorText;
 	[SerializeField] public Sprite itemSprite;
 
 	[SerializeField] public bool isStackable;

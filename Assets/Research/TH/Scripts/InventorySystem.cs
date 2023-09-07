@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TH.Core {
 
-public class InventorySlot : MonoBehaviour
+public class InventorySystem : Singleton<InventorySystem>
 {
     #region PublicVariables
 	#endregion
