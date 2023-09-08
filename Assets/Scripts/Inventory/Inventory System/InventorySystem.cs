@@ -75,7 +75,7 @@ namespace TH.Core
 			_isDragging = true;
 		}
 
-		public Inventory GetInventory(IOwnInventory inventoryOwner)
+		public Inventory GetInventory(InventoryOwner inventoryOwner)
 		{
 			for (int i = 0; i < inventoryPacks.Length; i++)
 			{
@@ -87,7 +87,7 @@ namespace TH.Core
 			return null;
 		}
 
-		public UIInventory GetUIInventory(IOwnInventory inventoryOwner)
+		public UIInventory GetUIInventory(InventoryOwner inventoryOwner)
 		{
 			for (int i = 0; i < inventoryPacks.Length; i++)
 			{
@@ -173,7 +173,7 @@ namespace TH.Core
 			public Inventory inventory;
 			public UIInventory uiInventory;
 			[SerializeField, SerializeReference]
-			public IOwnInventory inventoryOwner;
+			public InventoryOwner inventoryOwner;
 		}
 	}
 
