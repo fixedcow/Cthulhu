@@ -126,8 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c9fd1776e4e5a84eb3f6ed5a11e3d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickedRadius: 2
-  pickedSpeed: 10
+  _pickedRadius: 2
+  _pickedSpeed: 10
 --- !u!114 &5713167191898180062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,8 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9a5cc9c409bd6f47887a8858dce135b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hittableUI: {fileID: 0}
-  interactableUI: {fileID: 0}
+  _hittableUI: {fileID: 0}
+  _interactableUI: {fileID: 0}
   interactableDistance: 3
 --- !u!114 &5713167191898180058
 MonoBehaviour:
