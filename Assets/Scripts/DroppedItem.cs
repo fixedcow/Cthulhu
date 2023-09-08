@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TH.Core;
 using UnityEngine;
 using DG.Tweening;
-using ReadOnly = Sirenix.OdinInspector.ReadOnlyAttribute;
+using TMPro;
 
 public class DroppedItem : MonoBehaviour
 {
@@ -13,6 +13,7 @@ public class DroppedItem : MonoBehaviour
 	#region PrivateVariables
 	[SerializeField] private ItemData _data;
 	[SerializeField] private int _quantity = 1;
+	private TextMeshPro _quantityText;
 	private SpriteRenderer _sr;
 	private float _shineTimer;
 	[SerializeField] private float _shineDuration;
@@ -27,19 +28,26 @@ public class DroppedItem : MonoBehaviour
 	#region PublicMethod
 	public void PickedBy(PlayerItemGetter getter, float speed)
 	{
-		if (_isPicked == true)
-			return;
-		_getter = getter;
-		_speed = speed;
-		_isPicked = true;
+		if(getter.IsItemAvailableToInventory(_data, _quantity))
+		{
+			if (_isPicked == true)
+				return;
+			_getter = getter;
+			_speed = speed;
+			_isPicked = true;
+		}
+		else if(_isPicked == true)
+		{
+			Initialize();
+		}
 	}
-
 	#endregion
 
 	#region PrivateMethod
 	private void Awake()
 	{
 		TryGetComponent(out _sr);
+		transform.Find("Quantity").TryGetComponent(out _quantityText);
 	}
 	private void OnEnable()
 	{
@@ -47,6 +55,7 @@ public class DroppedItem : MonoBehaviour
 	}
 	private void Update()
 	{
+		UpdateQuantity();
 		ShineSelf();
 		PickedByPlayer();
 		if (_isPicked == true)
@@ -69,15 +78,15 @@ public class DroppedItem : MonoBehaviour
 	}
 	private void PickedByPlayer()
 	{
-		if (Vector2.Distance(transform.position, _player.transform.position) < 0.5f)
+		if (_isPicked == true && Vector2.Distance(transform.position, _player.transform.position) < 0.5f)
 		{
 			AddToInventory();
 		}
 	}
 	private void AddToInventory()
 	{
-/*		int rest = _quantity - _getter.AddItem(_data, _quantity);
-		if(rest > 0)
+		int rest = _quantity - _getter.AddItem(_data, _quantity);
+		if (rest > 0)
 		{
 			_quantity = rest;
 			Initialize();
@@ -85,7 +94,7 @@ public class DroppedItem : MonoBehaviour
 		else
 		{
 			Destroy(gameObject);
-		}*/
+		}
 	}
 	private void ShineSelf()
 	{
@@ -94,6 +103,17 @@ public class DroppedItem : MonoBehaviour
 		if( _shineTimer > _shineCycleDuration * _shineDuration)
 		{
 			_shineTimer = 0f;
+		}
+	}
+	private void UpdateQuantity()
+	{
+		if( _quantity > 1 )
+		{
+			_quantityText.text = "x" + _quantity;
+		}
+		else
+		{
+			_quantityText.text = "";
 		}
 	}
 	#endregion
