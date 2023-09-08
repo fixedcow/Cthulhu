@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TH.Core;
 using UnityEngine;
 using DG.Tweening;
+using ReadOnly = Sirenix.OdinInspector.ReadOnlyAttribute;
 
 public class DroppedItem : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class DroppedItem : MonoBehaviour
 
 	#region PrivateVariables
 	[SerializeField] private ItemData _data;
+	[SerializeField] private int _quantity = 1;
 	private SpriteRenderer _sr;
 	private float _shineTimer;
 	[SerializeField] private float _shineDuration;
@@ -18,14 +20,16 @@ public class DroppedItem : MonoBehaviour
 	private bool _isPicked;
 
 	private Player _player;
+	private PlayerItemGetter _getter;
 	private float _speed;
 	#endregion
 
 	#region PublicMethod
-	public void PickedBy(float speed)
+	public void PickedBy(PlayerItemGetter getter, float speed)
 	{
 		if (_isPicked == true)
 			return;
+		_getter = getter;
 		_speed = speed;
 		_isPicked = true;
 	}
@@ -39,10 +43,7 @@ public class DroppedItem : MonoBehaviour
 	}
 	private void OnEnable()
 	{
-		_isPicked = false;
-		_player = GameManager.Instance.GetPlayer();
-		_speed = 0f;
-		_shineTimer = 0f;
+		Initialize();
 	}
 	private void Update()
 	{
@@ -52,6 +53,14 @@ public class DroppedItem : MonoBehaviour
 		{
 			RunToPlayer();
 		}
+	}
+	private void Initialize()
+	{
+		_player = GameManager.Instance.GetPlayer();
+		_isPicked = false;
+		_speed = 0f;
+		_getter = null;
+		_shineTimer = 0f;
 	}
 	private void RunToPlayer()
 	{
@@ -67,8 +76,16 @@ public class DroppedItem : MonoBehaviour
 	}
 	private void AddToInventory()
 	{
-		// 인벤토리에 Add.
-		Destroy(gameObject);
+/*		int rest = _quantity - _getter.AddItem(_data, _quantity);
+		if(rest > 0)
+		{
+			_quantity = rest;
+			Initialize();
+		}
+		else
+		{
+			Destroy(gameObject);
+		}*/
 	}
 	private void ShineSelf()
 	{

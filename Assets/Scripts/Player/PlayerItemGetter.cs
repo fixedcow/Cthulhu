@@ -5,7 +5,7 @@ using TH.Core;
 using System;
 
 [RequireComponent(typeof(PlayerMove))]
-public class PlayerItemGetter : MonoBehaviour, IOwnInventory
+public class PlayerItemGetter : InventoryOwner
 {
 	#region PublicVariables
 	#endregion
@@ -16,13 +16,13 @@ public class PlayerItemGetter : MonoBehaviour, IOwnInventory
 	#endregion
 
 	#region PublicMethod
-	public void AddItem(Func<ItemData, int, int> AddItemFunc)
+	public override void AddItem(Func<ItemData, int, int> AddItemFunc)
 	{
-
+		base.AddItem(AddItemFunc);
 	}
-	public void OnUseItem(ItemData item, int quantity)
+	public override void OnUseItem(ItemData item, int quantity)
 	{
-
+		base.OnUseItem(item, quantity);
 	}
 	public void PickItem()
 	{
@@ -33,7 +33,7 @@ public class PlayerItemGetter : MonoBehaviour, IOwnInventory
 			collider.TryGetComponent(out item);
 			if(item != null)
 			{
-				item.PickedBy(_pickedSpeed);
+				item.PickedBy(this, _pickedSpeed);
 			}
 		}
 	}
