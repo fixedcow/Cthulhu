@@ -4,5 +4,8 @@ using UnityEngine;
 
 public interface IHittable : ITargetable
 {
-	public void Hit(int damage);
+	public virtual void Hit(int damage)
+	{
+
+	}
 }

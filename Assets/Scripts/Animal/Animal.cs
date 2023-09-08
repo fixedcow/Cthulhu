@@ -17,18 +17,6 @@ public class Animal : MonoBehaviour, IHittable
 	#region PublicMethod
 	public Vector2 GetPosition() => transform.position;
 
-	public void MoveTo(Vector2 destination)
-	{
-
-	}
-	public void Run()
-	{
-
-	}
-	public void Attack()
-	{
-
-	}
 	public void Hit(int damage)
 	{
 		_hp = Mathf.Clamp(_hp - damage, 0, _data.hpMax);

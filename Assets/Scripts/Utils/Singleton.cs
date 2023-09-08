@@ -24,7 +24,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 		}
 		else
 		{
-			Destroy(gameObject);
+			/*Destroy(gameObject);*/
 			return;
 		}
 		Init();
@@ -32,13 +32,13 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 	private static void SetupInstance()
 	{
 		instance = FindObjectOfType<T>();
-		if (instance == null)
+/*		if (instance == null)
 		{
 			GameObject gameObj = new GameObject();
 			gameObj.name = typeof(T).Name;
 			instance = gameObj.AddComponent<T>();
 			DontDestroyOnLoad(gameObj);
-		}
+		}*/
 	}
 	protected virtual void Init()
 	{
