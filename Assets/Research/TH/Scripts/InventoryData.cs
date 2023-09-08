@@ -13,7 +13,7 @@ public class InventoryData
 
 	#region PrivateVariables
 	private InventoryItem[] _slotList;
-	private bool _hasModifiedThisFrame = false;
+	private bool _hasModifiedThisFrame = true;
 	#endregion
 
 	#region PublicMethod
@@ -57,6 +57,51 @@ public class InventoryData
 		 	_slotList[targetIdx].StackedNumber + _slotList[originalIdx].StackedNumber 
 		 	<= 
 			_slotList[targetIdx].TargetItem.MaxStackableNumber;
+	}
+
+	public InventoryItem ExtractItem(int targetIdx) {
+		if (IsNull(targetIdx)) {
+			InventoryDataError("아이템이 존재하지 않는 슬롯에서 아이템을 추출하려고 합니다.");
+			return null;
+		}
+
+		InventoryItem extractedItem = _slotList[targetIdx];
+		_slotList[targetIdx] = null;
+
+		_hasModifiedThisFrame = true;
+
+		return extractedItem;
+	}
+
+	public int DecreaseItem(int targetIdx, int quantity, out ItemData itemData) {
+		if (IsNull(targetIdx)) {
+			InventoryDataError("아이템이 존재하지 않는 슬롯에서 아이템을 감소시키려고 합니다.");
+			itemData = null;
+			return 0;
+		}
+
+		if (IsStackable(targetIdx) == false) {
+			InventoryDataError("스택 불가능한 아이템에 개수가 변경되었습니다.");
+			itemData = null;
+			return 0;
+		}
+
+		if (StackedItemNumber(targetIdx) < quantity) {
+			int remain = StackedItemNumber(targetIdx);
+			InventoryItem extractedItem = ExtractItem(targetIdx);
+			itemData = extractedItem.TargetItem;
+
+			_hasModifiedThisFrame = true;
+
+			return remain;
+		}
+
+		_slotList[targetIdx].StackedNumber -= quantity;
+		itemData = _slotList[targetIdx].TargetItem;
+
+		_hasModifiedThisFrame = true;
+
+		return quantity;
 	}
 
 	public int MaxStackableNumber(int targetIdx) {
@@ -204,7 +249,9 @@ public class InventoryData
     
 	#region PrivateMethod
 	private void InventoryDataError(string msg) {
-		Debug.LogError(msg);
+		if (InventorySystem.Instance.showErrorMsg) {
+			Debug.LogError(msg);
+		}
 	}
 
 	private bool IsBothNull(int targetAIdx, int targetBIdx) {

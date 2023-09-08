@@ -29,11 +29,11 @@ public class ItemInfoPanel : MonoBehaviour
 
 	public void UpdatePosition() {
 		Vector2 mousePosition = Input.mousePosition;
-		mousePosition.y = mousePosition.y - Screen.height - _rectTransform.sizeDelta.y; 
+		mousePosition.y = mousePosition.y - Screen.height; 
 
 		if (mousePosition.x + _rectTransform.sizeDelta.x > Screen.width)
 			mousePosition.x = mousePosition.x - _rectTransform.sizeDelta.x;
-		if (mousePosition.y - _rectTransform.sizeDelta.y < 0)
+		if (mousePosition.y - _rectTransform.sizeDelta.y < - Screen.height)
 			mousePosition.y = mousePosition.y + _rectTransform.sizeDelta.y;
 
 		_rectTransform.anchoredPosition = mousePosition + _offset;

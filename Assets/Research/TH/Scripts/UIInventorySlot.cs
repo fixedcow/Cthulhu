@@ -15,10 +15,10 @@ namespace TH.Core {
         #endregion
 
         #region PrivateVariables
-        private int _slotIdx;
-		private Action<int> _onSelectedCallback;
-		private Action<int> _onStartDragCallback;
-		private Action<int> _onPointerEnterCallback;
+        protected int _slotIdx;
+		protected Action<int> _onSelectedCallback;
+		protected Action<int> _onStartDragCallback;
+		protected Action<int> _onPointerEnterCallback;
 		private bool _isPointerDown;
 		private float _selectedTime;
 		private bool _isNull;
@@ -44,7 +44,7 @@ namespace TH.Core {
 			SetSlot(false, idx, item);
 		}
 
-		public void SetSlot(bool isNull, int idx, InventoryItem item) {
+		public virtual void SetSlot(bool isNull, int idx, InventoryItem item) {
 			if (_itemImage == null) 
 			{
 				_itemImage = transform.Find("ItemImage").GetComponent<Image>();
@@ -92,7 +92,7 @@ namespace TH.Core {
 
 		public void OnPointerExit(PointerEventData eventData)
 		{
-			_onPointerEnterCallback(-1);
+			_onPointerEnterCallback(InventorySystem.NULL_ITEM_ID);
 		}
         #endregion
 

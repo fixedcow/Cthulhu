@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,7 +45,9 @@ public class Inventory : MonoBehaviour
 		int slotIdx = FindAvailableItemSlotIdx(item, quantity);
 		if (slotIdx == -1) 
 		{
-			Debug.Log("아이템을 추가할 수 있는 슬롯이 없습니다.");
+			if (InventorySystem.Instance.showErrorMsg) {
+				Debug.Log("아이템을 추가할 수 있는 슬롯이 없습니다.");
+			}
 			return 0;
 		}
 
@@ -81,7 +84,9 @@ public class Inventory : MonoBehaviour
 	public bool SwapItem(int targetIdx, int originalIdx) 
 	{
 		if (_inventoryData.IsNull(originalIdx)) {
-			Debug.LogError("원래 아이템이 존재하지 않습니다.");
+			if (InventorySystem.Instance.showErrorMsg) {
+				Debug.LogError("원래 아이템이 존재하지 않습니다.");
+			}
 			return false;
 		}
 
@@ -110,6 +115,31 @@ public class Inventory : MonoBehaviour
 			_inventoryData.MergeItems(originalIdx, targetIdx);
 			return true;
 		}
+	}
+
+	public InventoryItem DeleteItem(int targetIdx) {
+		if (_inventoryData.IsNull(targetIdx)) {
+			if (InventorySystem.Instance.showErrorMsg) {
+				Debug.LogError("원래 아이템이 존재하지 않습니다.");
+			}
+			return null;
+		}
+
+		return _inventoryData.ExtractItem(targetIdx);
+	}
+
+	public int DeleteItem(int targetIdx, int quantity, out ItemData targetItemData) 
+	{
+		if (_inventoryData.IsNull(targetIdx)) {
+			if (InventorySystem.Instance.showErrorMsg) {
+				Debug.LogError("원래 아이템이 존재하지 않습니다.");
+			}
+			targetItemData = null;
+			return 0;
+		}
+
+		int deleted = _inventoryData.DecreaseItem(targetIdx, quantity, out targetItemData);
+		return deleted;
 	}
 
 	public InventoryItem GetItem(int idx) 
@@ -153,7 +183,9 @@ public class Inventory : MonoBehaviour
 		{
 			if (quantity > 1) 
 			{
-				Debug.LogError("Stackable이 아닌 아이템에 대해 1개 이상의 아이템을 추가하려고 합니다.");
+				if (InventorySystem.Instance.showErrorMsg) {
+					Debug.LogError("Stackable이 아닌 아이템에 대해 1개 이상의 아이템을 추가하려고 합니다.");
+				}
 				return -1;
 			}
 

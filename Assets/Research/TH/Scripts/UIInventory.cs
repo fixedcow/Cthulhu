@@ -11,25 +11,55 @@ public class UIInventory : MonoBehaviour
 	#endregion
 
 	#region PrivateVariables
-	private UIInventorySlot[] _slotList;
-	[SerializeField] private RectTransform _slotContentTransform;
-	private GameObject _draggingSlot;
+	[SerializeField] protected RectTransform _slotContentTransform;
+	[SerializeField] protected GameObject _inventoryUIPack;
 
-	private Inventory _inventory;
+	protected UIInventorySlot[] _slotList;
+	protected UITrashSlot _trashSlot;
+	protected GameObject _draggingSlot;
+
+	protected Inventory _inventory;
+	protected bool _isInventoryOpen = false;
 	#endregion
 
 	#region PublicMethod
-	public void Init(Inventory inventory) 
+	public virtual void Init(Inventory inventory) 
 	{
 		_inventory = inventory;
+
+		CloseInventory();
+	}
+
+	public virtual void ToggleInventory() {
+		if (_isInventoryOpen == true) {
+			CloseInventory();
+		} else {
+			OpenInventory();
+		}		
+	}
+
+	public virtual void CloseInventory() {
+		if (_inventoryUIPack == null) {
+			_inventoryUIPack = transform.Find("UIPack").gameObject;
+		}
+
+		_inventoryUIPack.SetActive(false);
+	}
+
+	public virtual void OpenInventory() {
+		if (_inventoryUIPack == null) {
+			_inventoryUIPack = transform.Find("UIPack").gameObject;
+		}
+
+		_inventoryUIPack.SetActive(true);
 	}
 
 	public void UpdateInventory(InventoryItem[] itemList) {
 		if (_slotContentTransform == null) {
-			_slotContentTransform = transform.Find("SlotContents").GetComponent<RectTransform>();
+			_slotContentTransform = transform.Find("UIPack/SlotContents").GetComponent<RectTransform>();
 		}
 
-		GameObject slotPrefab = Resources.Load<GameObject>("UI/UIInventorySlot");
+		GameObject slotPrefab = Resources.Load<GameObject>("Prefabs/UI/UIInventorySlot");
 		
 		if (_slotList == null || _slotList.Length != itemList.Length) {
 			_slotList = new UIInventorySlot[itemList.Length];
@@ -52,32 +82,44 @@ public class UIInventory : MonoBehaviour
 	#endregion
     
 	#region PrivateMethod
-	private void Awake() 
+	protected void Awake() 
 	{
-		_slotContentTransform = transform.Find("SlotContents").GetComponent<RectTransform>();
+		_slotContentTransform = transform.Find("UIPack/SlotContents").GetComponent<RectTransform>();
+		_trashSlot = GetComponentInChildren<UITrashSlot>();
+		_trashSlot.Init(InventorySystem.TRASH_ITEM_ID, OnSelectedSlot, OnStartDragSlot, OnSlotPointerEnter);
 	}
 
-	private void Update() {
+	protected void Update() {
 	}
 
-	private void OnSelectedSlot(int idx) 
+	protected void OnSelectedSlot(int idx) 
 	{
-		Debug.Log($"선택된 슬롯: {idx}");
+		if (InventorySystem.Instance.isDebugMode) {
+			Debug.Log($"선택된 슬롯: {idx}");
+		}
 	}
 
-	private void OnStartDragSlot(int idx) 
+	protected void OnStartDragSlot(int idx) 
 	{
-		Debug.Log($"드래그 시작된 슬롯: {idx}");
+		if (InventorySystem.Instance.isDebugMode) {
+			Debug.Log($"드래그 시작된 슬롯: {idx}");
+		}
 		InventorySystem.Instance.OnStartDragSlot(_inventory, _inventory.GetItem(idx) == null ? null : _inventory.GetItem(idx).TargetItem, idx);
 	}
 
-	private void OnSlotPointerEnter(int idx) 
+	protected void OnSlotPointerEnter(int idx) 
 	{
-		if (idx == -1) {
+		if (idx == InventorySystem.NULL_ITEM_ID) {
 			InventorySystem.Instance.OnPointerExitItemSlot();
 			return;
 		}
-		Debug.Log($"슬롯에 마우스가 들어옴: {idx}");
+		if (idx == InventorySystem.TRASH_ITEM_ID) {
+			InventorySystem.Instance.OnPointerEnterItemSlot(_inventory, null, idx);
+			return;
+		}
+		if (InventorySystem.Instance.isDebugMode) {
+			Debug.Log($"슬롯에 마우스가 들어옴: {idx}");
+		}
 		InventorySystem.Instance.OnPointerEnterItemSlot(_inventory, _inventory.GetItem(idx) == null ? null : _inventory.GetItem(idx).TargetItem, idx);
 	}
 	#endregion
