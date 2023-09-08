@@ -152,6 +152,10 @@ public class Inventory : MonoBehaviour
 		return _inventoryData.HasModifiedThisFrame;
 	}
 
+	public bool IsItemAvailableToInventory(ItemData item, int quantity) {
+		return FindAvailableItemSlotIdx(item, quantity) != -1;
+	}
+
 	public InventoryItem[] GetInventoryItemsForUI() {
 		_inventoryData.DataAccepted();
 		return _inventoryData.SlotList.ToArray();

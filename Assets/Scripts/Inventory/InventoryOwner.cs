@@ -20,8 +20,12 @@ namespace TH.Core {
         #endregion
         public virtual void AddItem(Func<ItemData, int, int> AddItemFunc) { }
 
-		public virtual void AddItem(ItemData item, int quantity) { 
-			InventorySystem.Instance.GetInventory(this).AddItem(item, quantity);
+		public virtual int AddItem(ItemData item, int quantity) { 
+			return InventorySystem.Instance.GetInventory(this).AddItem(item, quantity);
+		}
+
+		public virtual bool IsItemAvailableToInventory(ItemData item, int quantity) {
+			return InventorySystem.Instance.GetInventory(this).IsItemAvailableToInventory(item, quantity);
 		}
 
         public virtual void OnUseItem(ItemData item, int quantity) { }
