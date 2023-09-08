@@ -23,7 +23,7 @@ public class PlayerItemGetter : MonoBehaviour
 			collider.TryGetComponent(out item);
 			if(item != null)
 			{
-				item.PickedBy(this, _pickedSpeed);
+				item.PickedBy(_pickedSpeed);
 			}
 		}
 	}
