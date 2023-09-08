@@ -14,6 +14,8 @@ public class Inventory : MonoBehaviour
 
 	#region PrivateVariables
 	[SerializeField] private int _maxItemNumber = 2;
+
+	private InventoryData __inventoryData;
 	private InventoryData _inventoryData {
 		get {
 			if (__inventoryData == null) {
@@ -26,7 +28,7 @@ public class Inventory : MonoBehaviour
 			__inventoryData = value;
 		}
 	}
-	private InventoryData __inventoryData;
+
 	private bool _hasInitialized = false;
 	#endregion
 

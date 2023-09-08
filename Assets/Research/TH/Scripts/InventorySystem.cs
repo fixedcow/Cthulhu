@@ -22,18 +22,19 @@ public class InventorySystem : Singleton<InventorySystem>
 	private Inventory _dragStartInventory;
 
 	private Inventory _pointedInventory;
-	private int _pointedSlotIdx;
+	private int _pointedSlotIdx = -1;
 	#endregion
 
 	#region PublicMethod
 	public void OnPointerEnterItemSlot(Inventory inventory, ItemData item, int slotIdx) {
-		if (item == null) {
-			return;
-		}
+		Debug.Log($"슬롯 포인트: {slotIdx}");
 		
 		_pointedInventory = inventory;
 		_pointedSlotIdx = slotIdx;
 
+		if (item == null) {
+			return;
+		}
 		_itemInfoPanel.gameObject.SetActive(true);
 		_isShowingItemInfoPanel = true;
 		_itemInfoPanel.SetItemInfo(item);
@@ -85,6 +86,7 @@ public class InventorySystem : Singleton<InventorySystem>
 		if (_isDragging) {
 			_draggingItem.transform.position = Input.mousePosition;
 			if (Input.GetMouseButtonUp(0)) {
+				Debug.Log($"드래그 끝남: {_pointedInventory}, {_pointedSlotIdx}");
 				if(_pointedSlotIdx != -1)
 				{
 					if (_pointedInventory == _dragStartInventory) {

@@ -16,6 +16,8 @@ public class ItemInfoPanel : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI _itemFlavorText;
 
 	[SerializeField] private RectTransform _rectTransform;
+
+	[SerializeField] private Vector2 _offset = new Vector3(5, -5);
 	#endregion
 
 	#region PublicMethod
@@ -30,10 +32,11 @@ public class ItemInfoPanel : MonoBehaviour
 		mousePosition.y = mousePosition.y - Screen.height - _rectTransform.sizeDelta.y; 
 
 		if (mousePosition.x + _rectTransform.sizeDelta.x > Screen.width)
-			mousePosition.x = mousePosition.x - _rectTransform.sizeDelta.x + 1;
+			mousePosition.x = mousePosition.x - _rectTransform.sizeDelta.x;
 		if (mousePosition.y - _rectTransform.sizeDelta.y < 0)
-			mousePosition.y = mousePosition.y + _rectTransform.sizeDelta.y - 1;
-		_rectTransform.anchoredPosition = mousePosition;
+			mousePosition.y = mousePosition.y + _rectTransform.sizeDelta.y;
+
+		_rectTransform.anchoredPosition = mousePosition + _offset;
 	}
 	#endregion
     

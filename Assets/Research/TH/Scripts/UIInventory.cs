@@ -38,10 +38,9 @@ public class UIInventory : MonoBehaviour
 		int i;
 		for (i = 0; i < itemList.Length; i++) {
 			if (_slotList[i] == null) {
-				Debug.Log($"슬롯 생성: {i}");
 				_slotList[i] = Instantiate(slotPrefab, _slotContentTransform).GetComponent<UIInventorySlot>();
 				if (itemList[i] == null || itemList[i].TargetItem == null)
-					_slotList[i].Init(OnSelectedSlot, OnStartDragSlot, OnSlotPointerEnter);
+					_slotList[i].Init(i, OnSelectedSlot, OnStartDragSlot, OnSlotPointerEnter);
 				else
 					_slotList[i].Init(i, itemList[i], OnSelectedSlot, OnStartDragSlot, OnSlotPointerEnter);
 					
@@ -74,11 +73,11 @@ public class UIInventory : MonoBehaviour
 
 	private void OnSlotPointerEnter(int idx) 
 	{
-		Debug.Log($"슬롯에 마우스가 들어옴: {idx}");
 		if (idx == -1) {
 			InventorySystem.Instance.OnPointerExitItemSlot();
 			return;
 		}
+		Debug.Log($"슬롯에 마우스가 들어옴: {idx}");
 		InventorySystem.Instance.OnPointerEnterItemSlot(_inventory, _inventory.GetItem(idx) == null ? null : _inventory.GetItem(idx).TargetItem, idx);
 	}
 	#endregion

@@ -27,12 +27,12 @@ namespace TH.Core {
 		#endregion
 
         #region PublicMethod
-		public void Init(Action<int> onSelectedCallback, Action<int> onStartDragCallback, Action<int> onPointerEnterCallback) {
+		public void Init(int idx, Action<int> onSelectedCallback, Action<int> onStartDragCallback, Action<int> onPointerEnterCallback) {
 			_onSelectedCallback = onSelectedCallback;
 			_onStartDragCallback = onStartDragCallback;
 			_onPointerEnterCallback = onPointerEnterCallback;
 
-			SetSlot(true, -1, null);
+			SetSlot(true, idx, null);
 		}
 
 		public void Init(int idx, InventoryItem item, Action<int> onSelectedCallback, Action<int> onStartDragCallback, Action<int> onPointerEnterCallback) 
