@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 [RequireComponent(typeof(Player), typeof(Rigidbody2D), typeof(Animator))]
 public class PlayerMove : MonoBehaviour
@@ -20,6 +21,8 @@ public class PlayerMove : MonoBehaviour
 	#region PublicMethod
 	public void Move(Vector2 direction)
 	{
+		int dirX = direction.x > 0 ? -1 : 1;
+		transform.localScale = new Vector3(dirX, 1, 1); 
 		_animator.SetBool("move", true);
 		_direction = direction;
 	}
@@ -34,7 +37,7 @@ public class PlayerMove : MonoBehaviour
 		_playerItemGetter.PickItem();
 	}
 	#endregion
-
+	 
 	#region PrivateMethod
 	private void Awake()
 	{
