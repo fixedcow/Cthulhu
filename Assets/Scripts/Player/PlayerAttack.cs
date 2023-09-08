@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Player), typeof(Animator))]
+[RequireComponent(typeof(Player), typeof(Animator), typeof(PlayerTarget))]
 public class PlayerAttack : MonoBehaviour
 {
 	#region PublicVariables
 	#endregion
 
 	#region PrivateVariables
-	private Animator animator;
+	private Animator _animator;
+	private PlayerTarget _target;
 
-	[SerializeField] private float _damage;
+	[SerializeField] private int _damage;
 	[SerializeField] private float _speed;
 
 	private bool _inputExist;
@@ -28,10 +29,17 @@ public class PlayerAttack : MonoBehaviour
 	}
 	public void HandleInput()
 	{
-		if (_inputExist == false)
+		if (_inputExist == false || _animator.GetBool("attack") == true)
 			return;
 
-		animator.SetBool("attack", true);
+		_animator.SetBool("attack", true);
+		ITargetable target = _target.GetTarget();
+		if(target is IHittable)
+		{
+			IHittable targetHit = target as IHittable;
+			targetHit.Hit(_damage);
+		}
+
 		Debug.Log("Attack!");
 	}
 	#endregion
@@ -39,7 +47,8 @@ public class PlayerAttack : MonoBehaviour
 	#region PrivateMethod
 	private void Awake()
 	{
-		TryGetComponent(out animator);
+		TryGetComponent(out _target);
+		TryGetComponent(out _animator);
 	}
 	#endregion
 }

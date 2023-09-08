@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Chicken
   m_EditorClassIdentifier: 
   race: "\uB2ED"
-  attackType: 0
   hpMax: 5
-  speed: 3
+  speedIdle: 0
+  speedRun: 0
+  speedAttack: 0
   damage: 0
   attackSpeed: 0
+  recognitionRange: 0
+  attackRange: 0
