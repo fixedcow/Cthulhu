@@ -6,6 +6,5 @@ public interface IHittable : ITargetable
 {
 	public virtual void Hit(int damage)
 	{
-		wait
 	}
 }
