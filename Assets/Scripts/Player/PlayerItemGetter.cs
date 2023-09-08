@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TH.Core;
+using System;
 
 [RequireComponent(typeof(PlayerMove))]
-public class PlayerItemGetter : MonoBehaviour
+public class PlayerItemGetter : MonoBehaviour, IOwnInventory
 {
 	#region PublicVariables
 	#endregion
@@ -13,7 +15,15 @@ public class PlayerItemGetter : MonoBehaviour
 	[SerializeField] private float _pickedSpeed;
 	#endregion
 
-	#region PublicMethod   
+	#region PublicMethod
+	public void AddItem(Func<ItemData, int, int> AddItemFunc)
+	{
+
+	}
+	public void OnUseItem(ItemData item, int quantity)
+	{
+
+	}
 	public void PickItem()
 	{
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _pickedRadius, 1 << LayerMask.NameToLayer("Item"));
