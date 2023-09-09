@@ -38,6 +38,8 @@ public class DropItem : MonoBehaviour
 		}
 		else if(_isPicked == true)
 		{
+			Vector3 direction = (transform.position - _player.transform.position).normalized;
+			transform.DOJump(transform.position + direction, 0.3f, 1, 0.3f);
 			Initialize();
 		}
 	}
