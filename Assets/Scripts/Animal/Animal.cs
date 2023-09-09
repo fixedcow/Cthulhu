@@ -14,6 +14,7 @@ public class Animal : MonoBehaviour, IHittable
 	private SpriteRenderer _sr;
 	private Animator _animator;
 	private AnimalMove _move;
+	private DropItemSpawner _drop;
 	private int _hp;
 	[SerializeField] private Vector2 hittablePointA = new Vector2(-0.5f, 0.5f);
 	[SerializeField] private Vector2 hittablePointB = new Vector2(0.5f, -0.5f);
@@ -36,7 +37,8 @@ public class Animal : MonoBehaviour, IHittable
 	}
 	public void Die()
 	{
-
+		_drop.Drop();
+		Destroy(gameObject);
 	}
 	public void Idle()
 	{
@@ -47,6 +49,7 @@ public class Animal : MonoBehaviour, IHittable
 	#region PrivateMethod
 	private void Awake()
 	{
+		TryGetComponent(out _drop);
 		TryGetComponent(out _move);
 		transform.Find("Renderer").TryGetComponent(out _sr);
 		transform.Find("Renderer").TryGetComponent(out _animator);
@@ -54,6 +57,7 @@ public class Animal : MonoBehaviour, IHittable
 	private void Start()
 	{
 		_hp = _data.hpMax;
+		_move.SetSpeed(_data.speedIdle);
 	}
 	private void DisableHitEffect()
 	{
