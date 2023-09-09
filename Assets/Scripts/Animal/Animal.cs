@@ -12,13 +12,17 @@ public class Animal : MonoBehaviour, IHittable
 	#region PrivateVariables
 	[SerializeField] private AnimalData _data;
 	private SpriteRenderer _sr;
+	private Animator _animator;
 	private AnimalMove _move;
 	private int _hp;
+	[SerializeField] private Vector2 hittablePointA = new Vector2(-0.5f, 0.5f);
+	[SerializeField] private Vector2 hittablePointB = new Vector2(0.5f, -0.5f);
 	#endregion
 
 	#region PublicMethod
 	public Vector2 GetPosition() => transform.position;
-
+	public Vector2 GetHittableUIPositionA() => (Vector2)transform.position + hittablePointA;
+	public Vector2 GetHittableUIPositionB() => (Vector2)transform.position + hittablePointB;
 	public void Hit(int damage)
 	{
 		_sr.material.EnableKeyword("HITEFFECT_ON");
@@ -34,6 +38,10 @@ public class Animal : MonoBehaviour, IHittable
 	{
 
 	}
+	public void Idle()
+	{
+		_move.RandomMove();
+	}
 	#endregion
 
 	#region PrivateMethod
@@ -41,6 +49,7 @@ public class Animal : MonoBehaviour, IHittable
 	{
 		TryGetComponent(out _move);
 		transform.Find("Renderer").TryGetComponent(out _sr);
+		transform.Find("Renderer").TryGetComponent(out _animator);
 	}
 	private void Start()
 	{
@@ -51,5 +60,4 @@ public class Animal : MonoBehaviour, IHittable
 		_sr.material.DisableKeyword("HITEFFECT_ON");
 	}
 	#endregion
-
 }

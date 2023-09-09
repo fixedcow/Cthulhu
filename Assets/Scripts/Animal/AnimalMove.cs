@@ -18,7 +18,7 @@ public class AnimalMove : MonoBehaviour
 	#region PublicMethod
 	public void SetSpeed(int speed) => _ai.maxSpeed = speed;
 	[Button]
-	public void IdleRandomMove()
+	public void RandomMove()
 	{
 		_destination.target = null;
 		_ai.SetPath(RandomPath.Construct(transform.position, 5));
