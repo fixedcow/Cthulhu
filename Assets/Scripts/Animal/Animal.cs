@@ -14,6 +14,7 @@ public class Animal : MonoBehaviour, IHittable
 	private SpriteRenderer _sr;
 	private Animator _animator;
 	private AnimalMove _move;
+	private DropItemSpawner _drop;
 	private int _hp;
 	[SerializeField] private Vector2 hittablePointA = new Vector2(-0.5f, 0.5f);
 	[SerializeField] private Vector2 hittablePointB = new Vector2(0.5f, -0.5f);
@@ -54,6 +55,7 @@ public class Animal : MonoBehaviour, IHittable
 	private void Start()
 	{
 		_hp = _data.hpMax;
+		_move.SetSpeed(_data.speedIdle);
 	}
 	private void DisableHitEffect()
 	{

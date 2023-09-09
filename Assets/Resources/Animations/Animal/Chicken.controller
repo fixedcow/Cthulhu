@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1533c414a2802e640a7e4a7355afd0de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleTimer: 3
+  idleTimer: 8
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -55,13 +55,7 @@ AnimatorController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Chicken
   serializedVersion: 5
-  m_AnimatorParameters:
-  - m_Name: run
-    m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+  m_AnimatorParameters: []
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -99,6 +93,6 @@ AnimatorState:
   m_Motion: {fileID: 7400000, guid: 758ae04fa155eef43b634642581cc199, type: 2}
   m_Tag: 
   m_SpeedParameter: 
-  m_MirrorParameter: run
+  m_MirrorParameter: move
   m_CycleOffsetParameter: 
   m_TimeParameter: 
