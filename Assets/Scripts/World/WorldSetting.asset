@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cf0ddad42a91124bb03417bc30de0c2, type: 3}
+  m_Name: WorldSetting
+  m_EditorClassIdentifier: 
+  worldSetting:
+    areaSize: 12
+    sectionSettings:
+    - sectionPrefab: {fileID: 0}
+      spawnBerrySettings: []
+      spawnMineSettings:
+      - objectID: 
+        isSpawnOnLoad: 0
+        initialSpawnCount: 0
+        spawnCountMax: 0
+        cycleCoefficientOnMax: 0
+        spawnCycleMin: 0
+        spawnCycleMax: 0
+        distributePrecision: 0
+      spawnAnimalSettings: []
+    - sectionPrefab: {fileID: 0}
+      spawnBerrySettings: []
+      spawnMineSettings: []
+      spawnAnimalSettings: []
+    - sectionPrefab: {fileID: 0}
+      spawnBerrySettings: []
+      spawnMineSettings: []
+      spawnAnimalSettings: []
+    - sectionPrefab: {fileID: 0}
+      spawnBerrySettings: []
+      spawnMineSettings: []
+      spawnAnimalSettings: []
+    - sectionPrefab: {fileID: 0}
+      spawnBerrySettings: []
+      spawnMineSettings: []
+      spawnAnimalSettings: []
+    - sectionPrefab: {fileID: 0}
+      spawnBerrySettings: []
+      spawnMineSettings: []
+      spawnAnimalSettings: []
+    - sectionPrefab: {fileID: 0}
+      spawnBerrySettings: []
+      spawnMineSettings: []
+      spawnAnimalSettings: []
+    - sectionPrefab: {fileID: 0}
+      spawnBerrySettings: []
+      spawnMineSettings: []
+      spawnAnimalSettings: []
