@@ -8,10 +8,9 @@ public class AnimalData : ScriptableObject
 	public string race;
 	public int hpMax;
 	public int speedIdle;
-	public int speedRun;
 	public int speedAttack;
 	public int damage;
-	public int attackSpeed;
+	public int attackCooldown;
 	public float recognitionRange;
 	public float attackRange;
 }
