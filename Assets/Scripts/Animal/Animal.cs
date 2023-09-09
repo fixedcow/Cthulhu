@@ -37,7 +37,8 @@ public class Animal : MonoBehaviour, IHittable
 	}
 	public void Die()
 	{
-
+		_drop.Drop();
+		Destroy(gameObject);
 	}
 	public void Idle()
 	{
@@ -48,6 +49,7 @@ public class Animal : MonoBehaviour, IHittable
 	#region PrivateMethod
 	private void Awake()
 	{
+		TryGetComponent(out _drop);
 		TryGetComponent(out _move);
 		transform.Find("Renderer").TryGetComponent(out _sr);
 		transform.Find("Renderer").TryGetComponent(out _animator);

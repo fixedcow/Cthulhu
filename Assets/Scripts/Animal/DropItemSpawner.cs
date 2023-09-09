@@ -10,7 +10,6 @@ public class DropItemSpawner : MonoBehaviour
 	#endregion
 
 	#region PrivateVariables
-	private ParticleSystem _ps;
 	[SerializeField] private GameObject _itemPrefab;
 	[SerializeField] [HorizontalGroup] private int _minCount;
 	[SerializeField] [HorizontalGroup] private int _maxCount;
@@ -20,7 +19,7 @@ public class DropItemSpawner : MonoBehaviour
 	[Button]
 	public void Drop()
 	{
-		_ps.Play();
+		EffectManager.Instance.SpawnDropEffect(transform.position);
 		int rand = Random.Range(_minCount, _maxCount);
 		for(int i = 0; i < rand; ++i)
 		{
@@ -31,9 +30,5 @@ public class DropItemSpawner : MonoBehaviour
 	#endregion
 
 	#region PrivateMethod
-	private void Awake()
-	{
-		transform.Find("Item Spawn Particle").TryGetComponent(out _ps);
-	}
 	#endregion
 }
