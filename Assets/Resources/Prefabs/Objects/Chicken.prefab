@@ -96,8 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemPrefab: {fileID: 2028844412345052050, guid: 44ffc0984fc77484d8199d01a0a46f68, type: 3}
-  _dropCountMin: 0
-  _dropCountMax: 0
+  _minCount: 1
+  _maxCount: 2
 --- !u!114 &6196460229344891790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,7 +284,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1260883678, guid: ddd47be46a27d2d418311a4bd702eaad, type: 3}
+  m_Sprite: {fileID: -563045034, guid: 7f07f8ba6c4afbd44a82d07bf790818b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
