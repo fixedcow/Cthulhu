@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TH.Core;
 using UnityEngine;
 
 [CreateAssetMenu(menuName ="SO/Animal Data", fileName = "New Animal Data")]
