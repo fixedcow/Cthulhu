@@ -88,7 +88,9 @@ public class DroppedItem : MonoBehaviour
 		int rest = _quantity - _getter.AddItem(_data, _quantity);
 		if (rest > 0)
 		{
+			Vector3 direction = (transform.position - _player.transform.position).normalized;
 			_quantity = rest;
+			transform.DOJump(transform.position + direction, 0.3f, 1, 0.3f);
 			Initialize();
 		}
 		else
