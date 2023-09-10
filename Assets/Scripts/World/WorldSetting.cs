@@ -48,12 +48,12 @@ public class WorldSetting
 				spawnBerrySettings.Add(new SpawnObjectSetting(spawnObjectSetting));
 			}
 
-			spawnMineSettings = new List<SpawnObjectSetting>(sectionSetting.spawnMineSettings);
+			spawnMineSettings = new List<SpawnObjectSetting>();
 			foreach (SpawnObjectSetting spawnObjectSetting in sectionSetting.spawnMineSettings) {
 				spawnMineSettings.Add(new SpawnObjectSetting(spawnObjectSetting));
 			}
 
-			spawnAnimalSettings = new List<AnimalSpawnObjectSetting>(sectionSetting.spawnAnimalSettings);
+			spawnAnimalSettings = new List<AnimalSpawnObjectSetting>();
 			foreach (AnimalSpawnObjectSetting animalSpawnObjectSetting in sectionSetting.spawnAnimalSettings) {
 				spawnAnimalSettings.Add(new AnimalSpawnObjectSetting(animalSpawnObjectSetting));
 			}
@@ -77,7 +77,7 @@ public class WorldSetting
 	}
 
 	[Serializable]
-	public class SpawnObjectSetting {
+	public class  SpawnObjectSetting {
 		#region PublicVariables
 		[InfoBox("스폰 될 오브젝트 아이디")]
 		public string objectID;
@@ -101,7 +101,7 @@ public class WorldSetting
 		#endregion
 
 		#region PrivateVariables
-		private static int[] precisions = new int[] { 2, 3, 4 };
+		private static int[] precisions = new int[] { 2, 3, 4, 6 };
 		#endregion
 
 		#region PublicMethod

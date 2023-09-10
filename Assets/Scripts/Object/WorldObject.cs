@@ -10,6 +10,7 @@ using Sirenix.OdinInspector;
 public class WorldObject : MonoBehaviour, IHittable
 {
 	#region PublicVariables
+	public string ObjectID => _objectID;
 	#endregion
 
 	#region PrivateVariables
@@ -63,7 +64,7 @@ public class WorldObject : MonoBehaviour, IHittable
 	}
 	private void OnDestroy()
 	{
-		//_onObjectDestroyed(_objectID, _areaPos);
+		_onObjectDestroyed(_objectID, _areaPos);
 	}
 	private void DisableHitEffect()
 	{

@@ -2872,3 +2872,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a862afed5ba8a0c44baeb5baadcf906b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _areaTilemap: {fileID: 355717104411145343}
