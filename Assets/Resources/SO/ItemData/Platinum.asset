@@ -15,7 +15,8 @@ MonoBehaviour:
   itemData:
     ItemID: Platinum
     ItemName: "\uBC31\uAE08"
-    ItemDescription: 
+    ItemDescription: "\uAE08\uBCF4\uB2E4 \uC778\uC9C0\uB3C4\uAC00 \uB0AE\uC9C0\uB9CC,
+      \uB354 \uBE44\uC2FC \uAC12\uC5D0 \uD314\uB9BD\uB2C8\uB2E4."
     ItemFlavorText: "\"\uBC31\uAE08\uC774 \uAE08\uBCF4\uB2E4 \uC2FC\uB370 \uC65C
       \uB354 \uBE44\uC308?\""
     ItemSprite: {fileID: 0}
