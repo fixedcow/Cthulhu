@@ -498,8 +498,8 @@ GameObject:
   m_Component:
   - component: {fileID: 85352458}
   - component: {fileID: 85352457}
+  - component: {fileID: 85352461}
   - component: {fileID: 85352460}
-  - component: {fileID: 85352456}
   - component: {fileID: 85352459}
   m_Layer: 6
   m_Name: ore
@@ -508,20 +508,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &85352456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 85352455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2f11591831c9824d9982748addfdc09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hittablePointA: {x: -0.5, y: 0.5}
-  hittablePointB: {x: 0.5, y: -0.5}
 --- !u!212 &85352457
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -642,6 +628,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &85352461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85352455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e15d2f4b5030b024093f9cd0e6fe5513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectID: Stone
+  hittablePointA: {x: -0.5, y: 0.5}
+  hittablePointB: {x: 0.5, y: -0.5}
 --- !u!1 &119742639
 GameObject:
   m_ObjectHideFlags: 0
@@ -7028,6 +7029,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1507440904}
     m_Modifications:
+    - target: {fileID: 3671295232971574, guid: 091026656203dc947958ddcd3ebf6dfc, type: 3}
+      propertyPath: _objectID
+      value: Rabbit
+      objectReference: {fileID: 0}
     - target: {fileID: 1783747899460726418, guid: 091026656203dc947958ddcd3ebf6dfc, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -7074,6 +7079,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1783747899460726420, guid: 091026656203dc947958ddcd3ebf6dfc, type: 3}
       propertyPath: m_Name
+      value: Rabbit
+      objectReference: {fileID: 0}
+    - target: {fileID: 1783747899460726431, guid: 091026656203dc947958ddcd3ebf6dfc, type: 3}
+      propertyPath: _objectID
       value: Rabbit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7154,14 +7163,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1507440904}
     m_Modifications:
-    - target: {fileID: 2091408082334864124, guid: 0d142d4302da90e479eacdbfcc8aea1f, type: 3}
-      propertyPath: _objectID
-      value: Chicken
-      objectReference: {fileID: 0}
-    - target: {fileID: 6196460229344891782, guid: 0d142d4302da90e479eacdbfcc8aea1f, type: 3}
-      propertyPath: _objectID
-      value: Chicken
-      objectReference: {fileID: 0}
     - target: {fileID: 6196460229344891787, guid: 0d142d4302da90e479eacdbfcc8aea1f, type: 3}
       propertyPath: m_RootOrder
       value: 0
