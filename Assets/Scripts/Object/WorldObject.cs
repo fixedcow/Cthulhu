@@ -6,6 +6,7 @@ using DG.Tweening;
 using TH.Core;
 using Sirenix.OdinInspector;
 
+[RequireComponent(typeof(DropItemSpawner))]
 public class WorldObject : MonoBehaviour, IHittable
 {
 	#region PublicVariables
@@ -59,6 +60,10 @@ public class WorldObject : MonoBehaviour, IHittable
 	{
 		TryGetComponent(out _drop);
 		transform.Find("Renderer").TryGetComponent(out _sr);
+
+		//TEST
+		_hp = WorldManager.Instance.GetObjectData(_objectID).hpMax;
+		//TEST END
 	}
 	private void OnDestroy()
 	{
