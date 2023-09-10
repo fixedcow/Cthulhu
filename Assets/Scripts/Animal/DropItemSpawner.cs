@@ -23,8 +23,7 @@ public class DropItemSpawner : MonoBehaviour
 			, WorldManager.Instance.GetObjectData(_objectID).dropQuantityMax);
 		for(int i = 0; i < rand; ++i)
 		{
-			GameObject item = Instantiate(WorldManager.Instance.GetItemPrefab(_objectID), transform.position, Quaternion.identity);
-			item.transform.DOJump((Vector2)transform.position + new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)), 0.3f, Random.Range(1, 3), 0.3f);
+			Instantiate(WorldManager.Instance.GetItemPrefab(_objectID), transform.position, Quaternion.identity);
 		}
 	}
 	public void SetObjectID(string objectID) => _objectID = objectID;
