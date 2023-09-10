@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace TH.Core {
@@ -16,9 +17,9 @@ public class WorldManager : Singleton<WorldManager>
 	[SerializeField] private List<ItemDataWrapper> _originalItemDataList;
 	[SerializeField] private WorldSettingWrapper _originalWorldSetting;
 
-	[SerializeField] private Dictionary<string, ObjectData> _objectDataDict;
-	[SerializeField] private Dictionary<string, ItemData> _itemDataDict;
-	[SerializeField] private WorldSetting _worldSetting;
+	private Dictionary<string, ObjectData> _objectDataDict;
+	private Dictionary<string, ItemData> _itemDataDict;
+	private WorldSetting _worldSetting;
 
 	private Dictionary<int, List<Area>> _areaDict;
 	#endregion
@@ -28,15 +29,30 @@ public class WorldManager : Singleton<WorldManager>
 		return _worldSetting.sectionSettings[section];
 	}
 
+	public GameObject GetItemPrefab(string objectId)
+	{
+		return _objectDataDict[objectId].dropItem;
+	}
+
+	public ItemData GetItemData(string itemId) 
+	{
+		return _itemDataDict[itemId];	
+	}
+
 	public int GetAreaSize() {
 		return _worldSetting.areaSize;
 	}
 	#endregion
     
 	#region PrivateMethod
+	protected override void Init()
+	{
+		GenerateWorld();
+	}
+
 	private void GenerateWorld() {
 		LoadInitialSettings();
-		GenerateTiles();
+		//GenerateTiles();
 	}
 
 	private void LoadInitialSettings() {
@@ -44,11 +60,13 @@ public class WorldManager : Singleton<WorldManager>
 		foreach (var data in _originalObjectDataList) {
 			objectDataList.Add(new ObjectData(data.objectData));
 		}
+		_objectDataDict = objectDataList.ToDictionary(o => o.objectID);
 		
 		List<ItemData> itemDataList = new List<ItemData>();
 		foreach (var data in _originalItemDataList) {
 			itemDataList.Add(new ItemData(data.itemData));
 		}
+		_itemDataDict = itemDataList.ToDictionary(i => i.ItemID);
 
 		_worldSetting = new WorldSetting(_originalWorldSetting.worldSetting);
 	}
