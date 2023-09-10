@@ -20,7 +20,7 @@ public class WorldObject : MonoBehaviour, IHittable
 	private Action<string, Vector2Int> _onObjectDestroyed;
 
 	private SpriteRenderer _sr;
-	private DropItemSpawner _drop;
+	protected DropItemSpawner _drop;
 	protected int _hp;
 	[SerializeField] private Vector2 hittablePointA = new Vector2(-0.5f, 0.5f);
 	[SerializeField] private Vector2 hittablePointB = new Vector2(0.5f, -0.5f);

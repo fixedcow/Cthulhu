@@ -54,6 +54,7 @@ public class DropItem : MonoBehaviour
 	private void OnEnable()
 	{
 		Initialize();
+		transform.DOJump((Vector2)transform.position + new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)), 0.3f, Random.Range(1, 3), 0.3f);
 	}
 	private void Update()
 	{
