@@ -58,7 +58,7 @@ public class WorldManager : Singleton<WorldManager>
 
 	private void GenerateWorld() {
 		LoadInitialSettings();
-		//GenerateTiles();
+		GenerateTiles();
 	}
 
 	private void LoadInitialSettings() {

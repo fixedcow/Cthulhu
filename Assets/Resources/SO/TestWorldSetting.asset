@@ -15,35 +15,35 @@ MonoBehaviour:
   worldSetting:
     areaSize: 12
     sectionSettings:
-    - sectionPrefab: {fileID: 0}
+    - sectionPrefab: {fileID: 281087186028740551, guid: e3238060a85b1824fb6f1022253795d5, type: 3}
       spawnBerrySettings: []
       spawnMineSettings: []
       spawnAnimalSettings: []
-    - sectionPrefab: {fileID: 0}
+    - sectionPrefab: {fileID: 281087186028740551, guid: e3238060a85b1824fb6f1022253795d5, type: 3}
       spawnBerrySettings: []
       spawnMineSettings: []
       spawnAnimalSettings: []
-    - sectionPrefab: {fileID: 0}
+    - sectionPrefab: {fileID: 281087186028740551, guid: e3238060a85b1824fb6f1022253795d5, type: 3}
       spawnBerrySettings: []
       spawnMineSettings: []
       spawnAnimalSettings: []
-    - sectionPrefab: {fileID: 0}
+    - sectionPrefab: {fileID: 281087186028740551, guid: e3238060a85b1824fb6f1022253795d5, type: 3}
       spawnBerrySettings: []
       spawnMineSettings: []
       spawnAnimalSettings: []
-    - sectionPrefab: {fileID: 0}
+    - sectionPrefab: {fileID: 281087186028740551, guid: e3238060a85b1824fb6f1022253795d5, type: 3}
       spawnBerrySettings: []
       spawnMineSettings: []
       spawnAnimalSettings: []
-    - sectionPrefab: {fileID: 0}
+    - sectionPrefab: {fileID: 281087186028740551, guid: e3238060a85b1824fb6f1022253795d5, type: 3}
       spawnBerrySettings: []
       spawnMineSettings: []
       spawnAnimalSettings: []
-    - sectionPrefab: {fileID: 0}
+    - sectionPrefab: {fileID: 281087186028740551, guid: e3238060a85b1824fb6f1022253795d5, type: 3}
       spawnBerrySettings: []
       spawnMineSettings: []
       spawnAnimalSettings: []
-    - sectionPrefab: {fileID: 0}
+    - sectionPrefab: {fileID: 281087186028740551, guid: e3238060a85b1824fb6f1022253795d5, type: 3}
       spawnBerrySettings: []
       spawnMineSettings: []
       spawnAnimalSettings: []

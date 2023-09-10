@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Stone
   m_EditorClassIdentifier: 
   objectData:
-    objectID: StoneMine
+    objectID: Stone
     objectName: "\uB3CC \uAD11\uC11D"
+    hpMax: 0
     objectPrefab: {fileID: 0}
     dropItem: {fileID: 2028844412345052050, guid: 44ffc0984fc77484d8199d01a0a46f68, type: 3}
-    dropQuantity: 1
+    dropQuantityMin: 2
+    dropQuantityMax: 3
