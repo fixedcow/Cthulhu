@@ -29,7 +29,7 @@ public class PlayerItemGetter : InventoryOwner
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _pickedRadius, 1 << LayerMask.NameToLayer("Item"));
 		foreach(Collider2D collider in colliders)
 		{
-			DroppedItem item;
+			DropItem item;
 			collider.TryGetComponent(out item);
 			if(item != null)
 			{
