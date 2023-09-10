@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7289200842222015078
+--- !u!1 &1884942414314837844
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7289200842222015077}
-  - component: {fileID: 7289200842222015076}
-  - component: {fileID: 7289200842222015079}
-  - component: {fileID: 7289200842222015082}
+  - component: {fileID: 1884942414314837847}
+  - component: {fileID: 1884942414314837846}
+  - component: {fileID: 1884942414314837845}
+  - component: {fileID: 1884942414314837848}
   m_Layer: 0
   m_Name: Renderer
   m_TagString: Untagged
@@ -19,28 +19,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7289200842222015077
+--- !u!4 &1884942414314837847
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7289200842222015078}
+  m_GameObject: {fileID: 1884942414314837844}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7289200842314205200}
+  m_Father: {fileID: 1884942414340115746}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7289200842222015076
+--- !u!212 &1884942414314837846
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7289200842222015078}
+  m_GameObject: {fileID: 1884942414314837844}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -233613541
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -171670940, guid: 1bb9e5a85ca43984490bb25dbde56809, type: 3}
+  m_Sprite: {fileID: -1602434764, guid: 6b8920966b11ff74cb5e6ab8f744aa47, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,17 +86,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &7289200842222015079
+--- !u!95 &1884942414314837845
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7289200842222015078}
+  m_GameObject: {fileID: 1884942414314837844}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6d9d3523b158bd248944d59b93eb504d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8df8821275c852a4c9eb1584783732e8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -107,13 +107,13 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7289200842222015082
+--- !u!114 &1884942414314837848
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7289200842222015078}
+  m_GameObject: {fileID: 1884942414314837844}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
@@ -123,7 +123,7 @@ MonoBehaviour:
   normalStrength: 5
   normalSmoothing: 1
   computingNormal: 0
---- !u!1 &7289200842314205206
+--- !u!1 &1884942414340115748
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,46 +131,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7289200842314205200}
-  - component: {fileID: 7289200842314205203}
-  - component: {fileID: 6770726648937874711}
-  - component: {fileID: 7289200842314205213}
-  - component: {fileID: 7289200842314205214}
-  - component: {fileID: 9071480889184318900}
-  - component: {fileID: 7289200842314205205}
-  - component: {fileID: 7289200842314205204}
-  - component: {fileID: 7289200842314205207}
-  - component: {fileID: 7289200842314205201}
+  - component: {fileID: 1884942414340115746}
+  - component: {fileID: 1884942414340115745}
+  - component: {fileID: 2519390896016064549}
+  - component: {fileID: 1884942414340115759}
+  - component: {fileID: 1884942414340115756}
+  - component: {fileID: 208440355203444870}
+  - component: {fileID: 1884942414340115751}
+  - component: {fileID: 1884942414340115750}
+  - component: {fileID: 1884942414340115749}
+  - component: {fileID: 1884942414340115747}
   m_Layer: 6
-  m_Name: Cow
+  m_Name: Human (F)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7289200842314205200
+--- !u!4 &1884942414340115746
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7289200842314205206}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 1884942414340115748}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7289200842222015077}
+  - {fileID: 1884942414314837847}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &7289200842314205203
+--- !u!58 &1884942414340115745
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7289200842314205206}
+  m_GameObject: {fileID: 1884942414340115748}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -180,71 +180,71 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.6
---- !u!114 &6770726648937874711
+--- !u!114 &2519390896016064549
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7289200842314205206}
+  m_GameObject: {fileID: 1884942414340115748}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3635d486c5512824fabfb7252cd73e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackRange: 1
-  _recognitionIn: 5
-  _recognitionOut: 12
-  timeToNextDestinationSetting: 9
---- !u!114 &7289200842314205213
+  _attackRange: 1.5
+  _recognitionIn: 9
+  _recognitionOut: 16
+  timeToNextDestinationSetting: 7
+--- !u!114 &1884942414340115759
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7289200842314205206}
+  m_GameObject: {fileID: 1884942414340115748}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdf0bb98c36ee8a468a4232c631a4aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectID: Cow
+  _objectID: Human
   hittablePointA: {x: -0.5, y: 0.5}
   hittablePointB: {x: 0.5, y: -0.5}
---- !u!114 &7289200842314205214
+--- !u!114 &1884942414340115756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7289200842314205206}
+  m_GameObject: {fileID: 1884942414340115748}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de20f936eae2c0c488b5748821e36623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectID: Cow
-  _idleMoveDistance: 3000
---- !u!114 &9071480889184318900
+  _objectID: Human
+  _idleMoveDistance: 5000
+--- !u!114 &208440355203444870
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7289200842314205206}
+  m_GameObject: {fileID: 1884942414340115748}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d886a0b240db3ed43a6cae5275a2d9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectID: Cow
---- !u!114 &7289200842314205205
+  _objectID: Human
+--- !u!114 &1884942414340115751
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7289200842314205206}
+  m_GameObject: {fileID: 1884942414340115748}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
@@ -266,13 +266,13 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &7289200842314205204
+--- !u!114 &1884942414340115750
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7289200842314205206}
+  m_GameObject: {fileID: 1884942414340115748}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
@@ -308,13 +308,13 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 1
---- !u!114 &7289200842314205207
+--- !u!114 &1884942414340115749
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7289200842314205206}
+  m_GameObject: {fileID: 1884942414340115748}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 560112f876f5746c780eca0d404e7139, type: 3}
@@ -335,13 +335,13 @@ MonoBehaviour:
   wallAvoidFalloff: 1
   priority: 0.5
   debug: 0
---- !u!114 &7289200842314205201
+--- !u!114 &1884942414340115747
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7289200842314205206}
+  m_GameObject: {fileID: 1884942414340115748}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
