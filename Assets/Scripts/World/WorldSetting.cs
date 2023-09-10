@@ -39,6 +39,8 @@ public class WorldSetting
 		public List<SpawnObjectSetting> spawnMineSettings = new List<SpawnObjectSetting>();
 		public List<AnimalSpawnObjectSetting> spawnAnimalSettings = new List<AnimalSpawnObjectSetting>();
 		
+		private Dictionary<string, SpawnObjectSetting> spawnObjectSettingDict;
+
 		public SectionSetting(SectionSetting sectionSetting) {
 			sectionPrefab = sectionSetting.sectionPrefab;
 			spawnBerrySettings = new List<SpawnObjectSetting>();
@@ -55,6 +57,22 @@ public class WorldSetting
 			foreach (AnimalSpawnObjectSetting animalSpawnObjectSetting in sectionSetting.spawnAnimalSettings) {
 				spawnAnimalSettings.Add(new AnimalSpawnObjectSetting(animalSpawnObjectSetting));
 			}
+
+			spawnObjectSettingDict = new Dictionary<string, SpawnObjectSetting>();
+
+			foreach (SpawnObjectSetting spawnObjectSetting in spawnBerrySettings) {
+				spawnObjectSettingDict.Add(spawnObjectSetting.objectID, spawnObjectSetting);
+			}
+			foreach (SpawnObjectSetting spawnObjectSetting in spawnMineSettings) {
+				spawnObjectSettingDict.Add(spawnObjectSetting.objectID, spawnObjectSetting);
+			}
+			foreach (SpawnObjectSetting spawnObjectSetting in spawnAnimalSettings) {
+				spawnObjectSettingDict.Add(spawnObjectSetting.objectID, spawnObjectSetting);
+			}
+		}
+
+		public SpawnObjectSetting GetSpawnObjectSetting(string objectID) {
+			return spawnObjectSettingDict[objectID];
 		}
 	}
 
@@ -117,6 +135,12 @@ public class WorldSetting
 		#region PrivateVariables
 		#endregion
 	}
+
+	[Serializable]
+	public class MineSpawnObjectSetting: SpawnObjectSetting {
+		public MineSpawnObjectSetting(MineSpawnObjectSetting mineSpawnObjectSetting) : base(mineSpawnObjectSetting) { }
+	}
+	
 }
 
 }

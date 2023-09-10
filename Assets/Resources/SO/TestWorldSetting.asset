@@ -19,7 +19,15 @@ MonoBehaviour:
       spawnBerrySettings: []
       spawnMineSettings: []
       spawnAnimalSettings: []
-    - sectionPrefab: {fileID: 281087186028740551, guid: e3238060a85b1824fb6f1022253795d5, type: 3}
+    - sectionPrefab: {fileID: 4285130682464014634, guid: 882c9ad74262f6641a967d249e4c57d2, type: 3}
+      spawnBerrySettings: []
+      spawnMineSettings: []
+      spawnAnimalSettings: []
+    - sectionPrefab: {fileID: 6305996840126458707, guid: 03f6f449bd078a24ea5cbb39efe022bc, type: 3}
+      spawnBerrySettings: []
+      spawnMineSettings: []
+      spawnAnimalSettings: []
+    - sectionPrefab: {fileID: 4285130682464014634, guid: 882c9ad74262f6641a967d249e4c57d2, type: 3}
       spawnBerrySettings: []
       spawnMineSettings: []
       spawnAnimalSettings: []
@@ -27,7 +35,7 @@ MonoBehaviour:
       spawnBerrySettings: []
       spawnMineSettings: []
       spawnAnimalSettings: []
-    - sectionPrefab: {fileID: 281087186028740551, guid: e3238060a85b1824fb6f1022253795d5, type: 3}
+    - sectionPrefab: {fileID: 6305996840126458707, guid: 03f6f449bd078a24ea5cbb39efe022bc, type: 3}
       spawnBerrySettings: []
       spawnMineSettings: []
       spawnAnimalSettings: []
@@ -35,15 +43,7 @@ MonoBehaviour:
       spawnBerrySettings: []
       spawnMineSettings: []
       spawnAnimalSettings: []
-    - sectionPrefab: {fileID: 281087186028740551, guid: e3238060a85b1824fb6f1022253795d5, type: 3}
-      spawnBerrySettings: []
-      spawnMineSettings: []
-      spawnAnimalSettings: []
-    - sectionPrefab: {fileID: 281087186028740551, guid: e3238060a85b1824fb6f1022253795d5, type: 3}
-      spawnBerrySettings: []
-      spawnMineSettings: []
-      spawnAnimalSettings: []
-    - sectionPrefab: {fileID: 281087186028740551, guid: e3238060a85b1824fb6f1022253795d5, type: 3}
+    - sectionPrefab: {fileID: 4285130682464014634, guid: 882c9ad74262f6641a967d249e4c57d2, type: 3}
       spawnBerrySettings: []
       spawnMineSettings: []
       spawnAnimalSettings: []
