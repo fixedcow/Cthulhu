@@ -20,7 +20,7 @@ public class ChickenIdleState : StateMachineBehaviour
 		timer += Time.deltaTime;
 		if(timer > idleTimer)
 		{
-			timer = 0;
+			timer = Random.Range(-0.5f, 0.5f);
 			_animal.Idle();
 		}
     }

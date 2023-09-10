@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6196460229344891787}
   - component: {fileID: 6196460229344891784}
+  - component: {fileID: 3460092474019434604}
   - component: {fileID: 6196460229344891782}
   - component: {fileID: 6196460229344891781}
   - component: {fileID: 2091408082334864124}
@@ -56,6 +57,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.6
+--- !u!114 &3460092474019434604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6196460229344891789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3635d486c5512824fabfb7252cd73e01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackRange: 0
+  _recognitionIn: 0
+  _recognitionOut: 0
+  timeToNextDestinationSetting: 8
 --- !u!114 &6196460229344891782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,6 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de20f936eae2c0c488b5748821e36623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _objectID: Chicken
+  _idleMoveDistance: 3000
 --- !u!114 &2091408082334864124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,12 +301,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -563045034, guid: 7f07f8ba6c4afbd44a82d07bf790818b, type: 3}
+  m_Sprite: {fileID: 1307260039, guid: 7f07f8ba6c4afbd44a82d07bf790818b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

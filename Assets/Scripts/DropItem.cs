@@ -28,6 +28,7 @@ public class DropItem : MonoBehaviour
 	#region PublicMethod
 	public void PickedBy(PlayerItemGetter getter, float speed)
 	{
+		transform.DOKill();
 		if(getter.IsItemAvailableToInventory(WorldManager.Instance.GetItemData(itemID), _quantity))
 		{
 			if (_isPicked == true)
@@ -54,6 +55,7 @@ public class DropItem : MonoBehaviour
 	private void OnEnable()
 	{
 		Initialize();
+		transform.DOJump((Vector2)transform.position + new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)), 0.3f, Random.Range(1, 3), 0.3f);
 	}
 	private void Update()
 	{

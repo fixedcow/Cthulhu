@@ -39,6 +39,8 @@ public class WorldSetting
 		public List<SpawnObjectSetting> spawnMineSettings = new List<SpawnObjectSetting>();
 		public List<AnimalSpawnObjectSetting> spawnAnimalSettings = new List<AnimalSpawnObjectSetting>();
 		
+		private Dictionary<string, SpawnObjectSetting> spawnObjectSettingDict;
+
 		public SectionSetting(SectionSetting sectionSetting) {
 			sectionPrefab = sectionSetting.sectionPrefab;
 			spawnBerrySettings = new List<SpawnObjectSetting>();
@@ -46,20 +48,36 @@ public class WorldSetting
 				spawnBerrySettings.Add(new SpawnObjectSetting(spawnObjectSetting));
 			}
 
-			spawnMineSettings = new List<SpawnObjectSetting>(sectionSetting.spawnMineSettings);
+			spawnMineSettings = new List<SpawnObjectSetting>();
 			foreach (SpawnObjectSetting spawnObjectSetting in sectionSetting.spawnMineSettings) {
 				spawnMineSettings.Add(new SpawnObjectSetting(spawnObjectSetting));
 			}
 
-			spawnAnimalSettings = new List<AnimalSpawnObjectSetting>(sectionSetting.spawnAnimalSettings);
+			spawnAnimalSettings = new List<AnimalSpawnObjectSetting>();
 			foreach (AnimalSpawnObjectSetting animalSpawnObjectSetting in sectionSetting.spawnAnimalSettings) {
 				spawnAnimalSettings.Add(new AnimalSpawnObjectSetting(animalSpawnObjectSetting));
 			}
+
+			spawnObjectSettingDict = new Dictionary<string, SpawnObjectSetting>();
+
+			foreach (SpawnObjectSetting spawnObjectSetting in spawnBerrySettings) {
+				spawnObjectSettingDict.Add(spawnObjectSetting.objectID, spawnObjectSetting);
+			}
+			foreach (SpawnObjectSetting spawnObjectSetting in spawnMineSettings) {
+				spawnObjectSettingDict.Add(spawnObjectSetting.objectID, spawnObjectSetting);
+			}
+			foreach (SpawnObjectSetting spawnObjectSetting in spawnAnimalSettings) {
+				spawnObjectSettingDict.Add(spawnObjectSetting.objectID, spawnObjectSetting);
+			}
+		}
+
+		public SpawnObjectSetting GetSpawnObjectSetting(string objectID) {
+			return spawnObjectSettingDict[objectID];
 		}
 	}
 
 	[Serializable]
-	public class SpawnObjectSetting {
+	public class  SpawnObjectSetting {
 		#region PublicVariables
 		[InfoBox("스폰 될 오브젝트 아이디")]
 		public string objectID;
@@ -83,7 +101,7 @@ public class WorldSetting
 		#endregion
 
 		#region PrivateVariables
-		private static int[] precisions = new int[] { 2, 3, 4 };
+		private static int[] precisions = new int[] { 2, 3, 4, 6 };
 		#endregion
 
 		#region PublicMethod
@@ -117,6 +135,12 @@ public class WorldSetting
 		#region PrivateVariables
 		#endregion
 	}
+
+	[Serializable]
+	public class MineSpawnObjectSetting: SpawnObjectSetting {
+		public MineSpawnObjectSetting(MineSpawnObjectSetting mineSpawnObjectSetting) : base(mineSpawnObjectSetting) { }
+	}
+	
 }
 
 }

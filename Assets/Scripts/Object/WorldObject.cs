@@ -10,6 +10,7 @@ using Sirenix.OdinInspector;
 public class WorldObject : MonoBehaviour, IHittable
 {
 	#region PublicVariables
+	public string ObjectID => _objectID;
 	#endregion
 
 	#region PrivateVariables
@@ -19,7 +20,7 @@ public class WorldObject : MonoBehaviour, IHittable
 	private Action<string, Vector2Int> _onObjectDestroyed;
 
 	private SpriteRenderer _sr;
-	private DropItemSpawner _drop;
+	protected DropItemSpawner _drop;
 	protected int _hp;
 	[SerializeField] private Vector2 hittablePointA = new Vector2(-0.5f, 0.5f);
 	[SerializeField] private Vector2 hittablePointB = new Vector2(0.5f, -0.5f);
@@ -60,14 +61,10 @@ public class WorldObject : MonoBehaviour, IHittable
 	{
 		TryGetComponent(out _drop);
 		transform.Find("Renderer").TryGetComponent(out _sr);
-
-		//TEST
-		_hp = WorldManager.Instance.GetObjectData(_objectID).hpMax;
-		//TEST END
 	}
 	private void OnDestroy()
 	{
-		//_onObjectDestroyed(_objectID, _areaPos);
+		_onObjectDestroyed(_objectID, _areaPos);
 	}
 	private void DisableHitEffect()
 	{

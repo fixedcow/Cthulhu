@@ -1106,7 +1106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 355717104411145338}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -54.25, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2824,6 +2824,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5402854793296194877}
   - component: {fileID: 6563371630298745915}
+  - component: {fileID: 1478700764367313169}
   m_Layer: 0
   m_Name: RedGround
   m_TagString: Untagged
@@ -2859,3 +2860,16 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &1478700764367313169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6305996840126458707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a862afed5ba8a0c44baeb5baadcf906b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _areaTilemap: {fileID: 355717104411145343}

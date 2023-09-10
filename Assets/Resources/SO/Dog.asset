@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71adaf5656db9e49b6b186a2b64f388, type: 3}
+  m_Name: Dog
+  m_EditorClassIdentifier: 
+  objectData:
+    objectID: Dog
+    objectName: "\uAC31\uC5BC\uC950"
+    hpMax: 18
+    objectPrefab: {fileID: 3363129529776074785, guid: f25f9d609001ce6498ebf1e538309fb1, type: 3}
+    dropItem: {fileID: 2028844412345052050, guid: 44ffc0984fc77484d8199d01a0a46f68, type: 3}
+    dropQuantityMin: 1
+    dropQuantityMax: 2
+    speedIdle: 4
+    speedAttack: 6
+    damage: 0
+    attackCooldown: 0
+    recognitionRangeIn: 5
+    recognitionRangeOut: 9
+    attackRange: 1

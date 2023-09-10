@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1783747899460726418}
   - component: {fileID: 1783747899460726417}
+  - component: {fileID: 6030490474377838248}
   - component: {fileID: 1783747899460726431}
   - component: {fileID: 1783747899460726428}
   - component: {fileID: 3671295232971574}
@@ -179,6 +180,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.6
+--- !u!114 &6030490474377838248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783747899460726420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3635d486c5512824fabfb7252cd73e01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackRange: 0
+  _recognitionIn: 0
+  _recognitionOut: 0
+  timeToNextDestinationSetting: 5
 --- !u!114 &1783747899460726431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf0bb98c36ee8a468a4232c631a4aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _data: {fileID: 11400000, guid: 26e693df579625a41bc0c65e0a20c18e, type: 2}
+  _objectID: Rabbit
   hittablePointA: {x: -0.5, y: 0.5}
   hittablePointB: {x: 0.5, y: -0.5}
 --- !u!114 &1783747899460726428
@@ -206,6 +223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de20f936eae2c0c488b5748821e36623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _objectID: Rabbit
+  _idleMoveDistance: 7000
 --- !u!114 &3671295232971574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,9 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d886a0b240db3ed43a6cae5275a2d9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectID: StoneMine
-  _minCount: 2
-  _maxCount: 3
+  _objectID: Rabbit
 --- !u!114 &1783747899460726423
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71adaf5656db9e49b6b186a2b64f388, type: 3}
+  m_Name: Human
+  m_EditorClassIdentifier: 
+  objectData:
+    objectID: Human
+    objectName: "\uACE0\uBBFC\uC815"
+    hpMax: 50
+    objectPrefab: {fileID: 0}
+    dropItem: {fileID: 0}
+    dropQuantityMin: 1
+    dropQuantityMax: 1
+    speedIdle: 3
+    speedAttack: 5
+    damage: 0
+    attackCooldown: 0
+    recognitionRangeIn: 9
+    recognitionRangeOut: 16
+    attackRange: 1.5
