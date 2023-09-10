@@ -17,28 +17,30 @@ MonoBehaviour:
     sectionSettings:
     - sectionPrefab: {fileID: 0}
       spawnBerrySettings: []
-      spawnMineSettings:
+      spawnMineSettings: []
+      spawnAnimalSettings: []
+    - sectionPrefab: {fileID: 0}
+      spawnBerrySettings: []
+      spawnMineSettings: []
+      spawnAnimalSettings: []
+    - sectionPrefab: {fileID: 0}
+      spawnBerrySettings: []
+      spawnMineSettings: []
+      spawnAnimalSettings: []
+    - sectionPrefab: {fileID: 0}
+      spawnBerrySettings: []
+      spawnMineSettings: []
+      spawnAnimalSettings:
       - objectID: 
         isSpawnOnLoad: 0
         initialSpawnCount: 0
         spawnCountMax: 0
-        cycleCoefficientOnMax: 0
+        cycleCoefficientOnMax: 1
         spawnCycleMin: 0
         spawnCycleMax: 0
         distributePrecision: 0
-      spawnAnimalSettings: []
-    - sectionPrefab: {fileID: 0}
-      spawnBerrySettings: []
-      spawnMineSettings: []
-      spawnAnimalSettings: []
-    - sectionPrefab: {fileID: 0}
-      spawnBerrySettings: []
-      spawnMineSettings: []
-      spawnAnimalSettings: []
-    - sectionPrefab: {fileID: 0}
-      spawnBerrySettings: []
-      spawnMineSettings: []
-      spawnAnimalSettings: []
+        spawnConditionOnSection: 0
+        spawnConditionOnOpenedAreaNumber: 0
     - sectionPrefab: {fileID: 0}
       spawnBerrySettings: []
       spawnMineSettings: []
