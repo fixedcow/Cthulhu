@@ -2,6 +2,7 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
+using TH.Core;
 using UnityEngine;
 
 public class DropItemSpawner : MonoBehaviour
@@ -10,7 +11,7 @@ public class DropItemSpawner : MonoBehaviour
 	#endregion
 
 	#region PrivateVariables
-	[SerializeField] private GameObject _itemPrefab;
+	[SerializeField] private string objectID;
 	[SerializeField] [HorizontalGroup] private int _minCount;
 	[SerializeField] [HorizontalGroup] private int _maxCount;
 	#endregion
@@ -23,7 +24,7 @@ public class DropItemSpawner : MonoBehaviour
 		int rand = Random.Range(_minCount, _maxCount);
 		for(int i = 0; i < rand; ++i)
 		{
-			GameObject item = Instantiate(_itemPrefab, transform.position, Quaternion.identity);
+			GameObject item = Instantiate(WorldManager.Instance.GetItemPrefab(objectID), transform.position, Quaternion.identity);
 			item.transform.DOJump((Vector2)transform.position + new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)), 0.3f, Random.Range(1, 3), 0.3f);
 		}
 	}

@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 827da7d438f7ac348a2b18deb645b4bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _data: {fileID: 11400000, guid: 357f52fee873bc9419aa6b7ebb0bad79, type: 2}
+  itemID: Stone
   _quantity: 1
   _shineDuration: 1
   _shineCycleDuration: 3

@@ -12,7 +12,7 @@ public class WorldSetting
 {
     #region PublicVariables
 	[SerializeField] public int areaSize = 12;
-	[ListDrawer(HideAddButton = true, HideRemoveButton = true, ShowIndexLabels = true), InfoBox("각 티어 별 스폰 정보를 설정합니다.")]
+	[ListDrawer(HideRemoveButton = true, ShowIndexLabels = true), InfoBox("각 티어 별 스폰 정보를 설정합니다.")]
 	[SerializeField] public SectionSetting[] sectionSettings = new SectionSetting[8];
 	#endregion
 
