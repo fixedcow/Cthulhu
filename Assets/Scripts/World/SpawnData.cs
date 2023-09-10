@@ -20,6 +20,7 @@ public class SpawnData
 	private int _unitSize;
 	private int _precision;
 	private bool _hasSpawnStarted = false;
+	private bool _isCountMax = false;
 	#endregion
 
 	#region PublicMethod
@@ -52,6 +53,12 @@ public class SpawnData
 			if (spawnPos.x != -1) {
 				return true;
 			}
+		}
+
+		if (_isCountMax == true && AllCount() < _area.GetMaxSpawnCount(_objectID)) {
+			_lastSpawnTime = Time.time;
+			_spawnInterval = NextSpawnCycle();
+			_isCountMax = false;
 		}
 
 		spawnPos = new Vector2Int(-1, -1);
@@ -89,6 +96,8 @@ public class SpawnData
 		if (AllCount() >= _area.GetMaxSpawnCount(_objectID)) {
 			min *= _area.GetCoefficient(_objectID);
 			max *= _area.GetCoefficient(_objectID);
+			
+			_isCountMax = true;
 		}
 
 		return Random.Range(min, max);
@@ -101,7 +110,7 @@ public class SpawnData
 		for (int i = 0; i < _precision; i++) {
 			for (int j = 0; j < _precision; j++) {
 				int unitAreaCount = GetUnitAreaObjectCount(i, j);
-				if (unitAreaCount < leastCount) {
+				if (Random.value > 0.4 ? (unitAreaCount < leastCount) : (unitAreaCount <= leastCount)) {
 					leastCount = unitAreaCount;
 					leastUnitPos = new Vector2Int(i, j);
 				}

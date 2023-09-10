@@ -101,7 +101,7 @@ public class WorldSetting
 		#endregion
 
 		#region PrivateVariables
-		private static int[] precisions = new int[] { 2, 3, 4 };
+		private static int[] precisions = new int[] { 2, 3, 4, 6 };
 		#endregion
 
 		#region PublicMethod
