@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 	private PlayerAttack _attack;
 	private PlayerInteract _interact;
 	private PlayerTarget _target;
+	private PlayerItemHandler _itemHandler;
 
 	private bool _canAct = true;
 	#endregion
@@ -33,7 +34,7 @@ public class Player : MonoBehaviour
 	}
 	public void Attack()
 	{
-		if (_canAct == false)
+		if (_canAct == false || _itemHandler.IsHandleSomething() == true)
 			return;
 
 		_attack.Attack();
@@ -68,6 +69,7 @@ public class Player : MonoBehaviour
 		TryGetComponent(out _attack);
 		TryGetComponent(out _interact);
 		TryGetComponent(out _target);
+		transform.Find("Item Handler").TryGetComponent(out _itemHandler);
 	}
 	private void Update()
 	{
