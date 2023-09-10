@@ -3,35 +3,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TH.Core {
-
-[Serializable]
-public class ObjectData
+namespace TH.Core
 {
-    #region PublicVariables
-	public string objectID;
-	public string objectName;
-	public GameObject objectPrefab;
-	public GameObject dropItem;
-	public int dropQuantity; 
-	#endregion
 
-	#region PrivateVariables
-	#endregion
-
-	#region PublicMethod
-	public ObjectData(ObjectData data)
+	[Serializable]
+	public class ObjectData
 	{
-		objectID = data.objectID;
-		objectName = data.objectName;
-		objectPrefab = data.objectPrefab;
-		dropItem = data.dropItem;
-		dropQuantity = data.dropQuantity;
+		#region PublicVariables
+		public string objectID;
+		public string objectName;
+		public int hpMax;
+		public GameObject objectPrefab;
+		public GameObject dropItem;
+		public int dropQuantityMin;
+		public int dropQuantityMax;
+		#endregion
+
+		#region PrivateVariables
+		#endregion
+
+		#region PublicMethod
+		public ObjectData(ObjectData data)
+		{
+			objectID = data.objectID;
+			objectName = data.objectName;
+			objectPrefab = data.objectPrefab;
+			dropItem = data.dropItem;
+			dropQuantityMin = data.dropQuantityMin;
+			dropQuantityMax = data.dropQuantityMax;
+
+		}
+		#endregion
+
+		#region PrivateMethod
+		#endregion
 	}
-	#endregion
-    
-	#region PrivateMethod
-	#endregion
-}
 
 }

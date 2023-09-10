@@ -1,3 +1,5 @@
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +16,12 @@ public class WorldManager : Singleton<WorldManager>
 	[SerializeField] private int _areaPadding = 2;
 
 	[SerializeField] private List<ObjectDataWrapper> _originalObjectDataList;
+	[SerializeField] private List<AnimalDataWrapper> _originalAnimalDataList;
 	[SerializeField] private List<ItemDataWrapper> _originalItemDataList;
 	[SerializeField] private WorldSettingWrapper _originalWorldSetting;
 
-	private Dictionary<string, ObjectData> _objectDataDict;
-	private Dictionary<string, ItemData> _itemDataDict;
+	[ShowInInspector] private Dictionary<string, ObjectData> _objectDataDict;
+	[ShowInInspector] private Dictionary<string, ItemData> _itemDataDict;
 	private WorldSetting _worldSetting;
 
 	private Dictionary<int, List<Area>> _areaDict;
@@ -28,7 +31,10 @@ public class WorldManager : Singleton<WorldManager>
 	public WorldSetting.SectionSetting GetSectionSetting(int section) {
 		return _worldSetting.sectionSettings[section];
 	}
-
+	public ObjectData GetObjectData(string objectId)
+	{
+		return _objectDataDict[objectId];
+	}
 	public GameObject GetItemPrefab(string objectId)
 	{
 		return _objectDataDict[objectId].dropItem;
@@ -52,13 +58,17 @@ public class WorldManager : Singleton<WorldManager>
 
 	private void GenerateWorld() {
 		LoadInitialSettings();
-		//GenerateTiles();
+		GenerateTiles();
 	}
 
 	private void LoadInitialSettings() {
 		List<ObjectData> objectDataList = new List<ObjectData>();
 		foreach (var data in _originalObjectDataList) {
 			objectDataList.Add(new ObjectData(data.objectData));
+		}
+		foreach (var data in _originalAnimalDataList)
+		{
+			objectDataList.Add((new AnimalData(data.objectData)));
 		}
 		_objectDataDict = objectDataList.ToDictionary(o => o.objectID);
 		
