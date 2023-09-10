@@ -52,8 +52,8 @@ public class Animal : WorldObject
 	{
 		base.Awake();
 		TryGetComponent(out _move);
-		transform.Find("Renderer").TryGetComponent(out _animator);
 		TryGetComponent(out _ai);
+		transform.Find("Renderer").TryGetComponent(out _animator);
 	}
 	#endregion
 }

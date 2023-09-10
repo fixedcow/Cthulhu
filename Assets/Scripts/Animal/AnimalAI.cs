@@ -18,6 +18,8 @@ public class AnimalAI : MonoBehaviour
 	private Animator _animator;
 	private Collider2D _collider;
 	private bool _chase;
+	private float timer;
+	[SerializeField] private float timeToNextDestinationSetting;
 	#endregion
 
 	#region PublicMethod
@@ -35,12 +37,14 @@ public class AnimalAI : MonoBehaviour
 	{
 		transform.Find("Renderer").TryGetComponent(out _animator);
 		TryGetComponent(out _animal);
+		timer = 0f;
 	}
 	private void Update()
 	{
 		_collider = Physics2D.OverlapCircle(transform.position, _recognitionOut, 1 << LayerMask.NameToLayer("Player"));
 		if (_collider != null)
 		{
+			timer = 0f;
 			float distance = Vector2.Distance(transform.position, _collider.transform.position);
 			if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") == false && distance < _attackRange)
 			{
@@ -54,6 +58,15 @@ public class AnimalAI : MonoBehaviour
 			else if(_chase == true && distance > _recognitionOut)
 			{
 				_chase = false;
+				_animal.Idle();
+			}
+		}
+		else
+		{
+			timer += Time.deltaTime;
+			if(timer > timeToNextDestinationSetting)
+			{
+				timer = 0;
 				_animal.Idle();
 			}
 		}
