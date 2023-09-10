@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Sea
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: -279737899, guid: 11034deeea8b1174eabcb4270842246d, type: 3}
+  - {fileID: -1598886783, guid: 11034deeea8b1174eabcb4270842246d, type: 3}
+  - {fileID: -420622098, guid: 11034deeea8b1174eabcb4270842246d, type: 3}
+  - {fileID: -279737899, guid: 11034deeea8b1174eabcb4270842246d, type: 3}
   m_MinSpeed: 1
   m_MaxSpeed: 1
   m_AnimationStartTime: 0
