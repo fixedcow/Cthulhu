@@ -22,6 +22,8 @@ public class Animal : WorldObject
 		base.Init(id, areaPos, onObjectDestroyed);
 		AnimalData data = WorldManager.Instance.GetObjectData(_objectID) as AnimalData;
 		_move.SetSpeed(data.speedIdle);
+		_drop.SetObjectID(_objectID);
+		_move.SetObjectID(_objectID);
 	}
 	public void Idle()
 	{

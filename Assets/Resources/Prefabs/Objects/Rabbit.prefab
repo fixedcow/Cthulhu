@@ -206,6 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de20f936eae2c0c488b5748821e36623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _objectID: Rabbit
+  _idleMoveDistance: 7000
 --- !u!114 &3671295232971574
 MonoBehaviour:
   m_ObjectHideFlags: 0
