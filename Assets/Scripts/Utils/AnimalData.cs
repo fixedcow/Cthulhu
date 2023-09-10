@@ -11,7 +11,8 @@ public class AnimalData : ObjectData
 	public int speedAttack;
 	public int damage;
 	public int attackCooldown;
-	public float recognitionRange;
+	public float recognitionRangeIn;
+	public float recognitionRangeOut;
 	public float attackRange;
 
 	public AnimalData(AnimalData data) : base(data)
@@ -20,7 +21,8 @@ public class AnimalData : ObjectData
 		speedAttack = data.speedAttack;
 		damage = data.damage;
 		attackCooldown = data.attackCooldown;
-		recognitionRange = data.recognitionRange;
+		recognitionRangeIn = data.recognitionRangeIn;
+		recognitionRangeOut = data.recognitionRangeOut;
 		attackRange = data.attackRange;
 	}
 }

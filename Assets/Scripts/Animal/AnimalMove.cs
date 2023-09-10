@@ -15,7 +15,7 @@ public class AnimalMove : MonoBehaviour
 	#region PrivateVariables
 	[SerializeField] private string _objectID; // 월드 매니저 이니셜라이즈 안 하면 제대로 값이 안 들어가서 임시로 Serialize 시켜둠
 	private Animator _animator;
-	private AIPath _ai;
+	private AIPath _aiPath;
 	private AIDestinationSetter _destination;
 
 	[SerializeField] private int _idleMoveDistance;
@@ -23,18 +23,18 @@ public class AnimalMove : MonoBehaviour
 
 	#region PublicMethod
 	public void SetObjectID(string id) => _objectID = id;
-	public void SetSpeed(int speed) => _ai.maxSpeed = speed;
+	public void SetSpeed(int speed) => _aiPath.maxSpeed = speed;
 	public void RandomMove()
 	{
-		_ai.maxSpeed = ((AnimalData)WorldManager.Instance.GetObjectData(_objectID)).speedIdle;
+		_aiPath.maxSpeed = ((AnimalData)WorldManager.Instance.GetObjectData(_objectID)).speedIdle;
 		_animator.SetBool("move", true);
 		_destination.target = null;
-		_ai.SetPath(RandomPath.Construct(transform.position, _idleMoveDistance));
+		_aiPath.SetPath(RandomPath.Construct(transform.position, _idleMoveDistance));
 
 	}
 	public void ChasePlayer()
 	{
-		_ai.maxSpeed = ((AnimalData)WorldManager.Instance.GetObjectData(_objectID)).speedAttack;
+		_aiPath.maxSpeed = ((AnimalData)WorldManager.Instance.GetObjectData(_objectID)).speedAttack;
 		_animator.SetBool("move", true);
 		_destination.target = GameManager.Instance.GetPlayer().transform;
 	}
@@ -43,7 +43,7 @@ public class AnimalMove : MonoBehaviour
 	#region PrivateMethod
 	private void Awake()
 	{
-		TryGetComponent(out _ai);
+		TryGetComponent(out _aiPath);
 		TryGetComponent(out _destination);
 		transform.Find("Renderer").TryGetComponent(out _animator);
 	}
@@ -58,7 +58,7 @@ public class AnimalMove : MonoBehaviour
 	}
 	private void SetDirectionByDestination()
 	{
-		if(_ai.destination.x > transform.position.x)
+		if(_aiPath.destination.x > transform.position.x)
 		{
 			_animator.transform.localScale = new Vector3(-1, 1, 1);
 		}
@@ -69,7 +69,7 @@ public class AnimalMove : MonoBehaviour
 	}
 	private void StopAnimationWhenReachedDestination()
 	{
-		if (_ai.reachedDestination == true)
+		if (_aiPath.reachedDestination == true)
 		{
 			_animator.SetBool("move", false);
 		}
