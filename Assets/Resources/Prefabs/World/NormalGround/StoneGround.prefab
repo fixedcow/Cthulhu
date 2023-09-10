@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a862afed5ba8a0c44baeb5baadcf906b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _areaTilemap: {fileID: 6460747391997185722}
 --- !u!1 &6460747391264527611
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ MonoBehaviour:
     objectID: Stone
     objectName: "\uB3CC \uAD11\uC11D"
     hpMax: 0
-    objectPrefab: {fileID: 0}
+    objectPrefab: {fileID: 4140599075507272636, guid: cac3c7a5c33a6ca4881cb29a0f732e3d, type: 3}
     dropItem: {fileID: 2028844412345052050, guid: 44ffc0984fc77484d8199d01a0a46f68, type: 3}
     dropQuantityMin: 2
     dropQuantityMax: 3

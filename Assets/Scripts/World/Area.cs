@@ -3,20 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using SectionSetting = TH.Core.WorldSetting.SectionSetting;
+using SpawnObjectSetting = TH.Core.WorldSetting.SpawnObjectSetting;
+using AnimalSpawnObjectSetting = TH.Core.WorldSetting.AnimalSpawnObjectSetting;
+using UnityEngine.Tilemaps;
 
 namespace TH.Core {
 
 public class Area : MonoBehaviour
 {
     #region PublicVariables 
-	public IReadOnlyList<IReadOnlyList<string>> SpawnObjectData => _spawnObjectData.AsReadOnly();
+	public IReadOnlyList<IReadOnlyList<WorldObject>> SpawnObjectData => _spawnObjectData.AsReadOnly();
+	public bool HasOpened => _hasOpened;
 	#endregion
 
 	#region PrivateVariables
 	private int _section;
 	private int _areaIdx;
 	private SectionSetting _sectionSetting;
-	private List<List<string>> _spawnObjectData;
+	private List<List<WorldObject>> _spawnObjectData;
+
+	private List<SpawnData> _berrySpawnDatas = new List<SpawnData>();
+	private List<SpawnData> _mineSpawnDatas = new List<SpawnData>();
+	private List<SpawnData> _animalSpawnDatas = new List<SpawnData>();
+	
+	[SerializeField] private Tilemap _areaTilemap;
+
+	private bool _hasOpened = false;
 
 	#endregion
 
@@ -26,15 +38,89 @@ public class Area : MonoBehaviour
 		_section = section;
 		_areaIdx = areaIdx;
 		_sectionSetting = sectionSetting;
+
+		int areaSize = WorldManager.Instance.GetAreaSize();
+		_spawnObjectData = new List<List<WorldObject>>(areaSize);
+		for (int i = 0; i < areaSize; i++) {
+			_spawnObjectData.Add(new List<WorldObject>(areaSize));
+			for (int j = 0; j < areaSize; j++) {
+				_spawnObjectData[i].Add(null);
+			}
+		}
+
+		_hasOpened = false;
+		_areaTilemap.gameObject.SetActive(false);
 	}
 
-	public void SpawnOnLoad() {
-		int areaSize = WorldManager.Instance.GetAreaSize();
-		_spawnObjectData = new List<List<string>>(areaSize);
-		for (int i = 0; i < areaSize; i++) {
-			_spawnObjectData.Add(new List<string>(areaSize));
-			for (int j = 0; j < areaSize; j++) {
-				_spawnObjectData[i].Add("");
+	public void Open() {
+		_hasOpened = true;
+		_areaTilemap.gameObject.SetActive(true);
+		StartSpawn();
+	}
+
+	public void StartSpawn() {
+		foreach (SpawnObjectSetting spawnObjectSetting in _sectionSetting.spawnBerrySettings) {
+			SpawnData spawnData = new SpawnData(
+				this, 
+				spawnObjectSetting.objectID, 
+				Random.Range(spawnObjectSetting.spawnCycleMin, spawnObjectSetting.spawnCycleMax),
+				spawnObjectSetting.distributePrecision
+			);
+			_berrySpawnDatas.Add(spawnData);
+
+			if (spawnObjectSetting.isSpawnOnLoad == true) {
+				for (int i = 0; i < spawnObjectSetting.initialSpawnCount; i++) {
+					Vector2Int spawnPos = spawnData.NextSpawnPos();
+					if (spawnPos.x == -1) {
+						break;
+					} else {
+						_spawnObjectData[spawnPos.x][spawnPos.y] = SpawnObject(spawnData.ObjectID, spawnPos);
+					}
+				}
+			}
+		}
+
+		foreach (SpawnObjectSetting spawnObjectSetting in _sectionSetting.spawnMineSettings) {
+			SpawnData spawnData = new SpawnData(
+				this, 
+				spawnObjectSetting.objectID, 
+				Random.Range(spawnObjectSetting.spawnCycleMin, spawnObjectSetting.spawnCycleMax),
+				spawnObjectSetting.distributePrecision
+			);
+			
+			_mineSpawnDatas.Add(spawnData);
+
+			if (spawnObjectSetting.isSpawnOnLoad == true) {
+				for (int i = 0; i < spawnObjectSetting.initialSpawnCount; i++) {
+					Vector2Int spawnPos = spawnData.NextSpawnPos();
+					if (spawnPos.x == -1) {
+						break;
+					} else {
+						_spawnObjectData[spawnPos.x][spawnPos.y] = SpawnObject(spawnData.ObjectID, spawnPos);
+					}
+				}
+			}
+		}
+
+		foreach (AnimalSpawnObjectSetting animalSpawnObjectSetting in _sectionSetting.spawnAnimalSettings) {
+			SpawnData spawnData = new SpawnData(
+				this, 
+				animalSpawnObjectSetting.objectID, 
+				Random.Range(animalSpawnObjectSetting.spawnCycleMin, animalSpawnObjectSetting.spawnCycleMax),
+				animalSpawnObjectSetting.distributePrecision
+			);
+			
+			_animalSpawnDatas.Add(spawnData);
+
+			if (animalSpawnObjectSetting.isSpawnOnLoad == true) {
+				for (int i = 0; i < animalSpawnObjectSetting.initialSpawnCount; i++) {
+					Vector2Int spawnPos = spawnData.NextSpawnPos();
+					if (spawnPos.x == -1) {
+						break;
+					} else {
+						_spawnObjectData[spawnPos.x][spawnPos.y] = SpawnObject(spawnData.ObjectID, spawnPos);
+					}
+				}
 			}
 		}
 	}
@@ -56,7 +142,64 @@ public class Area : MonoBehaviour
 	}
 	#endregion
     
-	#region PrivateMethod
+	#region PrivateMethod;
+	private void Update() 
+	{
+		if (_hasOpened == false) {
+			return;
+		}
+
+		foreach (SpawnData spawnData in _berrySpawnDatas) {
+			if (spawnData.HasSpawnStarted == false) {
+				spawnData.StartSpawn();
+			}
+
+			if (spawnData.CheckSpawn(out Vector2Int spawnPos)) {
+				_spawnObjectData[spawnPos.x][spawnPos.y] = SpawnObject(spawnData.ObjectID, spawnPos);
+			}
+		}
+
+		foreach (SpawnData spawnData in _mineSpawnDatas) {
+			if (spawnData.HasSpawnStarted == false) {
+				spawnData.StartSpawn();
+			}
+
+			if (spawnData.CheckSpawn(out Vector2Int spawnPos)) {
+				_spawnObjectData[spawnPos.x][spawnPos.y] = SpawnObject(spawnData.ObjectID, spawnPos);
+			}
+		}
+
+		foreach (SpawnData spawnData in _animalSpawnDatas) {
+			if (spawnData.HasSpawnStarted == false) {
+				int spawnConditionSection = _sectionSetting.spawnAnimalSettings.Find(s => s.objectID == spawnData.ObjectID).spawnConditionOnSection;
+				int spawnConditionCount = _sectionSetting.spawnAnimalSettings.Find(s => s.objectID == spawnData.ObjectID).spawnConditionOnOpenedAreaNumber;
+				if (WorldManager.Instance.GetOpenedAreaCount(spawnConditionSection) >= spawnConditionCount) {
+					spawnData.StartSpawn();
+				}
+			}
+
+			if (spawnData.CheckSpawn(out Vector2Int spawnPos)) {
+				_spawnObjectData[spawnPos.x][spawnPos.y] = SpawnObject(spawnData.ObjectID, spawnPos);
+			}
+		}
+	}
+
+	private WorldObject SpawnObject(string objectID, Vector2Int spawnPos) {
+		ObjectData objectData = WorldManager.Instance.GetObjectData(objectID);
+		WorldObject worldObject = Instantiate(objectData.objectPrefab, _areaTilemap.transform).GetComponent<WorldObject>();
+		worldObject.transform.localPosition = GetRealPos(spawnPos.x, spawnPos.y);
+		worldObject.Init(objectID, spawnPos, OnObjectDestroyed);
+		return worldObject;
+	}
+
+	private Vector2 GetRealPos(int x, int y) {
+		Vector2Int tilePos = new Vector2Int(x - (WorldManager.Instance.GetAreaSize() / 2), y - (WorldManager.Instance.GetAreaSize() / 2));
+		return _areaTilemap.GetCellCenterLocal((Vector3Int)tilePos);
+	}
+
+	private void OnObjectDestroyed(string objectID, Vector2Int areaPos) {
+		_spawnObjectData[areaPos.x][areaPos.y] = null;
+	}
 	#endregion
 }
 
