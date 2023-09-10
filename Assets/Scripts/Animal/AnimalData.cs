@@ -10,7 +10,6 @@ public class AnimalData : ObjectData
 	public int speedIdle;
 	public int speedAttack;
 	public int damage;
-	public int attackCooldown;
 	public float recognitionRangeIn;
 	public float recognitionRangeOut;
 	public float attackRange;
@@ -20,7 +19,6 @@ public class AnimalData : ObjectData
 		speedIdle = data.speedIdle;
 		speedAttack = data.speedAttack;
 		damage = data.damage;
-		attackCooldown = data.attackCooldown;
 		recognitionRangeIn = data.recognitionRangeIn;
 		recognitionRangeOut = data.recognitionRangeOut;
 		attackRange = data.attackRange;
