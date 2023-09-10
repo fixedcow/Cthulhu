@@ -1,44 +1,27 @@
 using DG.Tweening;
 using Pathfinding;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TH.Core;
 
-public class Animal : MonoBehaviour, IHittable
+public class Animal : WorldObject
 {
 	#region PublicVariables
 	#endregion
 
 	#region PrivateVariables
-	[SerializeField] private AnimalData _data;
-	private SpriteRenderer _sr;
 	private Animator _animator;
 	private AnimalMove _move;
-	private DropItemSpawner _drop;
-	private int _hp;
-	[SerializeField] private Vector2 hittablePointA = new Vector2(-0.5f, 0.5f);
-	[SerializeField] private Vector2 hittablePointB = new Vector2(0.5f, -0.5f);
 	#endregion
 
 	#region PublicMethod
-	public Vector2 GetPosition() => transform.position;
-	public Vector2 GetHittableUIPositionA() => (Vector2)transform.position + hittablePointA;
-	public Vector2 GetHittableUIPositionB() => (Vector2)transform.position + hittablePointB;
-	public void Hit(int damage)
+	public override void Init(string id, Vector2Int areaPos, Action<string, Vector2Int> onObjectDestroyed)
 	{
-		_sr.material.EnableKeyword("HITEFFECT_ON");
-		Invoke(nameof(DisableHitEffect), 0.13f);
-		_sr.transform.DOShakePosition(0.13f, 0.4f);
-		_hp = Mathf.Clamp(_hp - damage, 0, _data.hpMax);
-		if(_hp == 0)
-		{
-			Die();
-		}
-	}
-	public void Die()
-	{
-		_drop.Drop();
-		Destroy(gameObject);
+		base.Init(id, areaPos, onObjectDestroyed);
+		AnimalData data = WorldManager.Instance.GetObjectData(_objectID) as AnimalData;
+		_move.SetSpeed(data.speedIdle);
 	}
 	public void Idle()
 	{
@@ -47,21 +30,11 @@ public class Animal : MonoBehaviour, IHittable
 	#endregion
 
 	#region PrivateMethod
-	private void Awake()
+	protected override void Awake()
 	{
-		TryGetComponent(out _drop);
+		base.Awake();
 		TryGetComponent(out _move);
-		transform.Find("Renderer").TryGetComponent(out _sr);
 		transform.Find("Renderer").TryGetComponent(out _animator);
-	}
-	private void Start()
-	{
-		_hp = _data.hpMax;
-		_move.SetSpeed(_data.speedIdle);
-	}
-	private void DisableHitEffect()
-	{
-		_sr.material.DisableKeyword("HITEFFECT_ON");
 	}
 	#endregion
 }
