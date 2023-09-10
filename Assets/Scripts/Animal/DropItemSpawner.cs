@@ -11,7 +11,7 @@ public class DropItemSpawner : MonoBehaviour
 	#endregion
 
 	#region PrivateVariables
-	[SerializeField] private string _objectID;
+	[SerializeField] private string _objectID; // 월드 매니저 이니셜라이즈 안 하면 제대로 값이 안 들어가서 임시로 Serialize 시켜둠
 	#endregion
 
 	#region PublicMethod
@@ -23,10 +23,10 @@ public class DropItemSpawner : MonoBehaviour
 			, WorldManager.Instance.GetObjectData(_objectID).dropQuantityMax);
 		for(int i = 0; i < rand; ++i)
 		{
-			GameObject item = Instantiate(WorldManager.Instance.GetItemPrefab(_objectID), transform.position, Quaternion.identity);
-			item.transform.DOJump((Vector2)transform.position + new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)), 0.3f, Random.Range(1, 3), 0.3f);
+			Instantiate(WorldManager.Instance.GetItemPrefab(_objectID), transform.position, Quaternion.identity);
 		}
 	}
+	public void SetObjectID(string objectID) => _objectID = objectID;
 	#endregion
 
 	#region PrivateMethod
