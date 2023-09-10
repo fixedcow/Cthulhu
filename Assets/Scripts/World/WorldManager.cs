@@ -68,7 +68,7 @@ public class WorldManager : Singleton<WorldManager>
 		}
 		foreach (var data in _originalAnimalDataList)
 		{
-			objectDataList.Add((new AnimalData(data.objectData)));
+			objectDataList.Add(new AnimalData(data.objectData));
 		}
 		_objectDataDict = objectDataList.ToDictionary(o => o.objectID);
 		
