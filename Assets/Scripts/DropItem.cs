@@ -28,6 +28,7 @@ public class DropItem : MonoBehaviour
 	#region PublicMethod
 	public void PickedBy(PlayerItemGetter getter, float speed)
 	{
+		transform.DOKill();
 		if(getter.IsItemAvailableToInventory(WorldManager.Instance.GetItemData(itemID), _quantity))
 		{
 			if (_isPicked == true)
