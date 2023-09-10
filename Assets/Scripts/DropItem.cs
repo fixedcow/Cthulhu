@@ -11,7 +11,7 @@ public class DropItem : MonoBehaviour
 	#endregion
 
 	#region PrivateVariables
-	[SerializeField] private ItemData _data;
+	[SerializeField] private string itemID;
 	[SerializeField] private int _quantity = 1;
 	private TextMeshPro _quantityText;
 	private SpriteRenderer _sr;
@@ -28,7 +28,7 @@ public class DropItem : MonoBehaviour
 	#region PublicMethod
 	public void PickedBy(PlayerItemGetter getter, float speed)
 	{
-		if(getter.IsItemAvailableToInventory(_data, _quantity))
+		if(getter.IsItemAvailableToInventory(WorldManager.Instance.GetItemData(itemID), _quantity))
 		{
 			if (_isPicked == true)
 				return;
@@ -87,7 +87,7 @@ public class DropItem : MonoBehaviour
 	}
 	private void AddToInventory()
 	{
-		int rest = _quantity - _getter.AddItem(_data, _quantity);
+		int rest = _quantity - _getter.AddItem(WorldManager.Instance.GetItemData(itemID), _quantity);
 		if (rest > 0)
 		{
 			Vector3 direction = (transform.position - _player.transform.position).normalized;

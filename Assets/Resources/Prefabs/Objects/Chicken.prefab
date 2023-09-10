@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf0bb98c36ee8a468a4232c631a4aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _data: {fileID: 11400000, guid: 7df7224dfa8cb7840b935cff3b039ad8, type: 2}
+  _objectID: Chicken
   hittablePointA: {x: -0.5, y: 0.5}
   hittablePointB: {x: 0.5, y: -0.5}
 --- !u!114 &6196460229344891781
@@ -95,9 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d886a0b240db3ed43a6cae5275a2d9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemPrefab: {fileID: 2028844412345052050, guid: 44ffc0984fc77484d8199d01a0a46f68, type: 3}
-  _minCount: 1
-  _maxCount: 2
+  _objectID: Chicken
 --- !u!114 &6196460229344891790
 MonoBehaviour:
   m_ObjectHideFlags: 0
