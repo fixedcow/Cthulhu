@@ -48,6 +48,15 @@ public class WorldManager : Singleton<WorldManager>
 	public int GetAreaSize() {
 		return _worldSetting.areaSize;
 	}
+
+	public int GetOpenedAreaCount(int section) {
+		return _areaDict[section].FindAll(a => a.HasOpened).Count;
+	}
+
+	[Button]
+	public void OpenArea(int section, int areaIdx) {
+		_areaDict[section][areaIdx].Open();
+	}
 	#endregion
     
 	#region PrivateMethod
@@ -59,6 +68,7 @@ public class WorldManager : Singleton<WorldManager>
 	private void GenerateWorld() {
 		LoadInitialSettings();
 		GenerateTiles();
+		_areaDict[0][0].Open();
 	}
 
 	private void LoadInitialSettings() {
