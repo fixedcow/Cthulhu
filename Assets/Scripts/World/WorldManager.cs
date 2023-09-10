@@ -24,7 +24,7 @@ public class WorldManager : Singleton<WorldManager>
 	[ShowInInspector] private Dictionary<string, ItemData> _itemDataDict;
 	private WorldSetting _worldSetting;
 
-	private Dictionary<int, List<Area>> _areaDict;
+	[ShowInInspector] private Dictionary<int, List<Area>> _areaDict;
 	#endregion
 
 	#region PublicMethod
@@ -108,7 +108,6 @@ public class WorldManager : Singleton<WorldManager>
 					areaList.Add(area);
 					areaIdx++;
 				} else {
-					int sectionAreaSideNum = (2 * i) - 1;
 					int startX;
 					int startY;
 					if (j == 0) {
@@ -116,19 +115,19 @@ public class WorldManager : Singleton<WorldManager>
 						startY = leftUpperMostY;
 					} else if (j == 1) {
 						startX = leftUpperMostX + gap;
-						startY = leftUpperMostY - (gap * i);
+						startY = leftUpperMostY - (gap * (i + 1));
 					} else if (j == 2) {
 						startX = leftUpperMostX;
 						startY = leftUpperMostY - gap;
 					} else {
-						startX = leftUpperMostX + (gap * i);
+						startX = leftUpperMostX + (gap * (i + 1));
 						startY = leftUpperMostY - gap;
 					}
 
-					for (int k = 0; k < sectionAreaSideNum; k++) {
+					for (int k = 0; k < i; k++) {
 						Area area = Instantiate(_worldSetting.sectionSettings[i].sectionPrefab).GetComponent<Area>();
-						int x = startX + (k % 2 == 0 ? gap * k : 0);
-						int y = startY + (k % 2 == 0 ? 0 : -gap * k);
+						int x = startX + (j / 2 == 0 ? gap * k : 0);
+						int y = startY + (j / 2 == 0 ? 0 : -gap * k);
 						area.transform.position = new Vector3(x, y, 0);
 						
 						area.Init(i, areaIdx, GetSectionSetting(i));
@@ -136,6 +135,18 @@ public class WorldManager : Singleton<WorldManager>
 						areaIdx++;
 					}
 				}	
+			}
+			if (i == 7) {
+				for (int j = 0; j < 4; j++) {
+					Area area = Instantiate(_worldSetting.sectionSettings[i].sectionPrefab).GetComponent<Area>();
+					int x = leftUpperMostX + (j % 2 == 0 ? 0 : (gap * (i+1)));
+					int y = leftUpperMostY + (j / 2 == 0 ? 0 : -(gap * (i+1)));
+					area.transform.position = new Vector3(x, y, 0);
+
+					area.Init(i, areaIdx, GetSectionSetting(i));
+					areaList.Add(area);
+					areaIdx++;
+				} 
 			}
 			_areaDict.Add(i, areaList);
 		}
