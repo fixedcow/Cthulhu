@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d886a0b240db3ed43a6cae5275a2d9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemPrefab: {fileID: 2028844412345052050, guid: 44ffc0984fc77484d8199d01a0a46f68, type: 3}
+  objectID: StoneMine
   _minCount: 1
   _maxCount: 2
 --- !u!114 &6196460229344891790

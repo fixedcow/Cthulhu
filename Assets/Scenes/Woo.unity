@@ -1416,6 +1416,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1507440904}
     m_Modifications:
+    - target: {fileID: 3671295232971574, guid: 091026656203dc947958ddcd3ebf6dfc, type: 3}
+      propertyPath: objectID
+      value: StoneMine
+      objectReference: {fileID: 0}
     - target: {fileID: 1783747899460726418, guid: 091026656203dc947958ddcd3ebf6dfc, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -6551,6 +6555,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a833eb2b7e666b44794f039710730dc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2124602823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2124602825}
+  - component: {fileID: 2124602824}
+  m_Layer: 0
+  m_Name: WorldManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2124602824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124602823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df92a4bbb73d27f4c83ac5d883c0efa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _areaPadding: 2
+  _originalObjectDataList:
+  - {fileID: 11400000, guid: ba1c0cb41d6ce6a45b80acbed32e499f, type: 2}
+  _originalItemDataList:
+  - {fileID: 11400000, guid: 4cdb0d28636d5584c95fe2af3ea085d6, type: 2}
+  _originalWorldSetting: {fileID: 11400000, guid: d2da248b54ec3fd4b93eec6a3406b451, type: 2}
+--- !u!4 &2124602825
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124602823}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.64388454, y: 0.030662205, z: -5.5128527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2125097834
 GameObject:
   m_ObjectHideFlags: 0
