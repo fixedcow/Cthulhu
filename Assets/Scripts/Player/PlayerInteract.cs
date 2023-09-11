@@ -24,6 +24,7 @@ public class PlayerInteract : MonoBehaviour
             if (currentIndex != -1)
             {
 				targetInteract.Interact(_itemHandler.GetCurrentInventoryIndex());
+				EffectManager.Instance.SpawnDropEffect(_itemHandler.transform.position);
 				_itemHandler.PutIn();
 			}
 		}
