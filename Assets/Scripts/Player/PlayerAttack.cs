@@ -39,8 +39,6 @@ public class PlayerAttack : MonoBehaviour
 			IHittable targetHit = target as IHittable;
 			targetHit.Hit(_damage);
 		}
-
-		Debug.Log("Attack!");
 	}
 	#endregion
 
