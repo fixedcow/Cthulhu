@@ -63,7 +63,7 @@ public class OfferingManager : Singleton<OfferingManager>
 		}
 
 		static string Description() {
-			return "자그마한 자비를 비옵니다.";
+			return "미약한 제게 자그마한 자비를 베푸소서.";
 		}
 
 		static void RealAction() {
@@ -118,6 +118,38 @@ public class OfferingManager : Singleton<OfferingManager>
 
 		static void RealAction() {
 			WorldManager.Instance.SetBerrySpawnGold(true);
+		}
+
+		return new PresentFunction.Inner(Name, Description, RealAction);
+	}
+
+	public static PresentFunction.Inner AddPlayerMaxHealth() {
+		static string Name() {
+			return "최대체력 +20";
+		}
+
+		static string Description() {
+			return "그분께서 내려주신 자비에 피로 보답하리라.";
+		}
+
+		static void RealAction() {
+			GameManager.Instance.GetPlayer().AddMaxHealth(20);
+		}
+
+		return new PresentFunction.Inner(Name, Description, RealAction);
+	}
+
+	public static PresentFunction.Inner AddPlayerMaxSanity() {
+		static string Name() {
+			return "최대정신력 +20";
+		}
+
+		static string Description() {
+			return "공포는 나의 힘이요 혼란은 나의 오랜 친구니라.";
+		}
+
+		static void RealAction() {
+			GameManager.Instance.GetPlayer().AddMaxSanity(20);
 		}
 
 		return new PresentFunction.Inner(Name, Description, RealAction);
