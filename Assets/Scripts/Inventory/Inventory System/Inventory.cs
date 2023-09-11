@@ -178,12 +178,15 @@ public class Inventory : MonoBehaviour
 			_selectedItemIdx++;
 			if (_selectedItemIdx == _maxItemNumber) {
 				_selectedItemIdx = -1;
+
+				InventorySystem.Instance.GetInventoryOwner(this).OnSelectItem(_selectedItemIdx);
 				break;
 			}
 			if (_inventoryData.IsNull(_selectedItemIdx)) {
 				continue;
 			}
 			
+			InventorySystem.Instance.GetInventoryOwner(this).OnSelectItem(_selectedItemIdx);
 			break;
 		}
 		Debug.Log(SelectedItemIdx);
@@ -199,6 +202,7 @@ public class Inventory : MonoBehaviour
 
 		if (_selectedItemIdx == idx) {
 			_selectedItemIdx = -1;
+			InventorySystem.Instance.GetInventoryOwner(this).OnSelectItem(_selectedItemIdx);
 			return;
 		}
 
@@ -207,6 +211,7 @@ public class Inventory : MonoBehaviour
 		}
 
 		_selectedItemIdx = idx;
+		InventorySystem.Instance.GetInventoryOwner(this).OnSelectItem(_selectedItemIdx);
 	}
 	#endregion
     

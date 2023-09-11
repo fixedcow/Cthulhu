@@ -102,6 +102,17 @@ namespace TH.Core
 			return null;
 		}
 
+		public IOwnInventory GetInventoryOwner(Inventory inventory) {
+			for (int i = 0; i < inventoryPacks.Length; i++)
+			{
+				if (inventoryPacks[i].inventory == inventory)
+				{
+					return inventoryPacks[i].inventoryOwner;
+				}
+			}
+			return null;
+		}
+
 		public UIInventory GetUIInventory(InventoryOwner inventoryOwner)
 		{
 			for (int i = 0; i < inventoryPacks.Length; i++)
