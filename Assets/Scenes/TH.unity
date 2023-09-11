@@ -613,6 +613,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4835345706159445006, guid: b7dfe72caad29f344a91e48053cf2d24, type: 3}
+      propertyPath: _maxItemNumber
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4835345707011749968, guid: b7dfe72caad29f344a91e48053cf2d24, type: 3}
       propertyPath: serializationData.Prefab
       value: 
