@@ -13,10 +13,16 @@ public class OfferingData : ScriptableObject
 	const string EXPAND_INVENTORY_BY_TWO = "Expand Inventory +2";
 	const string EXPAND_INVENTORY_BY_FOUR = "Expand Inventory +4";
 	const string MULTIPLY_MAX_STACKABLE_OBJECT_ALL = "Multiply Max Stackable Object All";
+	const string MULTIPLY_MAX_STACKABLE_OBJECT_COPPER = "Multiply Max Stackable Object Copper";
+	const string MAKE_BERRY_SPAWN_GOLD = "Make Berry Spawn Gold";
 
 	readonly static Dictionary<string, Func<PresentFunction.Inner>> presentFunctionPool = new Dictionary<string, Func<PresentFunction.Inner>>() {
 		{ EXPAND_INVENTORY_BY_ONE, OfferingManager.ExpandInventoryByOne },
+		{ EXPAND_INVENTORY_BY_TWO, OfferingManager.ExpandInventoryByTwo },
+		{ EXPAND_INVENTORY_BY_FOUR, OfferingManager.ExpandInventoryByFour },
 		{ MULTIPLY_MAX_STACKABLE_OBJECT_ALL, OfferingManager.DoubleMaxStackableObjectAll },
+		{ MULTIPLY_MAX_STACKABLE_OBJECT_COPPER, OfferingManager.DoubleMaxStackableCopper },
+		{ MAKE_BERRY_SPAWN_GOLD, OfferingManager.MakeBerrySpawnGold },
 	};
 
     #region PublicVariables
@@ -66,7 +72,11 @@ public class OfferingData : ScriptableObject
 
 		public static readonly List<string> presentPool = new List<string>() {
 			EXPAND_INVENTORY_BY_ONE,
+			EXPAND_INVENTORY_BY_TWO,
+			EXPAND_INVENTORY_BY_FOUR,
 			MULTIPLY_MAX_STACKABLE_OBJECT_ALL,
+			MULTIPLY_MAX_STACKABLE_OBJECT_COPPER,
+			MAKE_BERRY_SPAWN_GOLD,
 		};
 
 		private PresentFunction GetPresentFunction() {

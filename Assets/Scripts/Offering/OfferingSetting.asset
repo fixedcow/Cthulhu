@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tier1Presents:
   - cthulhuPresent: Expand Inventory +1
-  - cthulhuPresent: Multiply Max Stackable Object All
+  - cthulhuPresent: Multiply Max Stackable Object Copper
+  - cthulhuPresent: Make Berry Spawn Gold
   tier2Presents: []
   tier3Presents: []
