@@ -16,7 +16,7 @@ MonoBehaviour:
     objectID: GoldOre
     objectName: "\uAE08\uAD11\uC11D"
     hpMax: 0
-    objectPrefab: {fileID: 0}
-    dropItem: {fileID: 0}
+    objectPrefab: {fileID: 2255431142226483610, guid: 084523d174dce834a90f9d73c766ed74, type: 3}
+    dropItem: {fileID: 5741747455277260671, guid: d4b8c894f24f67b439993e5c65b23f18, type: 3}
     dropQuantityMin: 0
     dropQuantityMax: 0

@@ -16,7 +16,7 @@ MonoBehaviour:
     objectID: SilverOre
     objectName: "\uC740\uAD11\uC11D"
     hpMax: 0
-    objectPrefab: {fileID: 0}
-    dropItem: {fileID: 0}
+    objectPrefab: {fileID: 4200398557421104230, guid: 4e3c64f083321464baff45aaa7e88ddd, type: 3}
+    dropItem: {fileID: 9102318915285977844, guid: f732657623faa0342b81aa9b62201492, type: 3}
     dropQuantityMin: 0
     dropQuantityMax: 0
