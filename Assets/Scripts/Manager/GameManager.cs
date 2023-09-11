@@ -21,6 +21,7 @@ public class GameManager : Singleton<GameManager>
 	public void AddGold(int amount)
 	{
 		_gold += amount;
+		UIManager.Instance.Gold.UpdateAmount(_gold);
 	}
 	public void AddPoint(int amount)
 	{
@@ -29,5 +30,9 @@ public class GameManager : Singleton<GameManager>
 	#endregion
 
 	#region PrivateMethod
+	private void Start()
+	{
+		UIManager.Instance.Gold.UpdateAmount(_gold);
+	}
 	#endregion
 }
