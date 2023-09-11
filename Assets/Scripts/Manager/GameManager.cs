@@ -7,6 +7,7 @@ using Pathfinding;
 public class GameManager : Singleton<GameManager>
 {
 	#region PublicVariables
+	public int Gold => _gold;
 	#endregion
 
 	#region PrivateVariables

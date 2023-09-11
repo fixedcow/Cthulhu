@@ -37,11 +37,20 @@ public class TileTradeTrigger : MonoBehaviour
 	}
 	private void ShowPopup()
 	{
-
+		Area target = GetTargetArea();
+		Debug.Log(target);
+		if(target != null)
+		{
+			target.ShowTradeText(_direction);
+		}
 	}
 	private void HidePopUp()
 	{
-
+		Area target = GetTargetArea();
+		if (target != null)
+		{
+			target.HideTradeText();
+		}
 	}
 	private Area GetTargetArea()
 	{

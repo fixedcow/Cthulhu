@@ -152,10 +152,10 @@ public class WorldManager : Singleton<WorldManager>
 		
 		List<Area> area0List = new List<Area>();
 		Area area0 = Instantiate(_worldSetting.sectionSettings[0].sectionPrefab).GetComponent<Area>();
-		area0.Init(0, 0, Vector2Int.zero, GetSectionSetting(0));
+		area0.Init(0, 0, new Vector2Int(wholeWorldUnitSize /2, wholeWorldUnitSize / 2), GetSectionSetting(0));
 		area0List.Add(area0);
 		_areaDict.Add(0, area0List);
-		_areaList[0][0] = area0;
+		_areaList[wholeWorldUnitSize / 2][wholeWorldUnitSize / 2] = area0;
 
 		int gap = _worldSetting.areaSize + _areaPadding;
 		int areaIdx;

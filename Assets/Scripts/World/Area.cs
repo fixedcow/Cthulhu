@@ -34,6 +34,7 @@ public class Area : MonoBehaviour
 	
 	[SerializeField] private Tilemap _areaTilemap;
 	private TileTradeTriggerGroup _triggerGroup;
+	private TileTradeText _tradeText;
 
 	private bool _hasOpened = false;
 
@@ -58,6 +59,8 @@ public class Area : MonoBehaviour
 
 		transform.Find("Trigger").TryGetComponent(out _triggerGroup);
 		_triggerGroup.SetArea(_unitPos);
+		transform.Find("TradeText").TryGetComponent(out _tradeText);
+		//_tradeText.SetPrice();
 
 		_hasOpened = false;
 		_areaTilemap.gameObject.SetActive(false);
@@ -135,6 +138,17 @@ public class Area : MonoBehaviour
 				}
 			}
 		}
+	}
+
+	public void ShowTradeText(Vector2Int properPosition)
+	{
+		_tradeText.SetAlpha(1f);
+		_tradeText.gameObject.transform.localPosition = Vector2.zero;
+		_tradeText.gameObject.transform.position -= (Vector3)(Vector2)properPosition * 5;
+	}
+	public void HideTradeText()
+	{
+		_tradeText.SetAlpha(0f);
 	}
 
 	public float GetMinSpawnCycle(string objectID) {
