@@ -9,10 +9,11 @@ namespace TH.Core {
 
 public class WorldManager : Singleton<WorldManager>
 {
-    #region PublicVariables
-	#endregion
+	#region PublicVariables
+		#endregion
 
 	#region PrivateVariables
+	[SerializeField] private AstarPath _aStar;
 	[SerializeField] private int _areaPadding = 2;
 
 	[SerializeField] private List<ObjectDataWrapper> _originalObjectDataList;
@@ -68,6 +69,7 @@ public class WorldManager : Singleton<WorldManager>
 	private void GenerateWorld() {
 		LoadInitialSettings();
 		GenerateTiles();
+		_aStar.Scan();
 		_areaDict[0][0].Open();
 	}
 

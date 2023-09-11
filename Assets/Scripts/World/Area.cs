@@ -15,6 +15,8 @@ public class Area : MonoBehaviour
     #region PublicVariables 
 	public IReadOnlyList<IReadOnlyList<WorldObject>> SpawnObjectData => _spawnObjectData.AsReadOnly();
 	public bool HasOpened => _hasOpened;
+	public int Section { get { return _section; } }
+	public int AreaIdx { get { return _areaIdx; } }
 	#endregion
 
 	#region PrivateVariables
