@@ -10,9 +10,10 @@ using PresentFunction = TH.Core.OfferingData.PresentFunction;
 
 namespace TH.Core {
 
-public class OfferingManager : MonoBehaviour
+public class OfferingManager : Singleton<OfferingManager>
 {
     #region PublicVariables
+	public OfferingData OfferingData => _offeringData;
 	#endregion
 
 	#region PrivateVariables
@@ -29,7 +30,7 @@ public class OfferingManager : MonoBehaviour
 		}
 
 		static string Description() {
-			return "은혜와 축복으로 이루어진 이 작은 소원을 이루어주시기를.";
+			return "그분의 자비로 이 작은 소원을 이루어주시기를.";
 		}
 
 		static void RealAction() {
@@ -42,11 +43,11 @@ public class OfferingManager : MonoBehaviour
 
 	public static PresentFunction.Inner DoubleMaxStackableObjectAll() {
 		static string Name() {
-			return "최대 스택 가능 개수 x2";
+			return "인벤토리 스택 개수 x2";
 		}
 
 		static string Description() {
-			return "더 많은 축복과 풍성한 삶을 선물해 주시기를 간절히 기도합니다.";
+			return "더욱 풍성한 삶을 선물해 주시기를 간청하나이다.";
 		}
 
 		static void RealAction() {
@@ -56,18 +57,34 @@ public class OfferingManager : MonoBehaviour
 		return new PresentFunction.Inner(Name, Description, RealAction);
 	}
 
-	public static PresentFunction.Inner ExpandInventoryByTwo() {
+	public static PresentFunction.Inner DoubleMaxStackableCopper() {
 		static string Name() {
-			return "인벤토리 +1";
+			return "구리 스택 개수 x2";
 		}
 
 		static string Description() {
-			return "은혜와 축복으로 이루어진 이 작은 소원을 이루어주시기를.";
+			return "자그마한 자비를 비옵니다.";
+		}
+
+		static void RealAction() {
+			WorldManager.Instance.MultiplyMaxStackableNumber("Copper", 2);
+		}
+
+		return new PresentFunction.Inner(Name, Description, RealAction);
+	}
+
+	public static PresentFunction.Inner ExpandInventoryByTwo() {
+		static string Name() {
+			return "인벤토리 +2";
+		}
+
+		static string Description() {
+			return "그분의 공포는 유한한 공간 너머에 있나니.";
 		}
 
 		static void RealAction() {
 			InventoryOwner player = FindObjectOfType<InventoryOwner>();
-			InventorySystem.Instance.GetInventory(player).ExpandInventory(1);
+			InventorySystem.Instance.GetInventory(player).ExpandInventory(2);
 		}
 
 		return new PresentFunction.Inner(Name, Description, RealAction);
@@ -75,16 +92,32 @@ public class OfferingManager : MonoBehaviour
 
 	public static PresentFunction.Inner ExpandInventoryByFour() {
 		static string Name() {
-			return "인벤토리 +1";
+			return "인벤토리 +4";
 		}
 
 		static string Description() {
-			return "은혜와 축복으로 이루어진 이 작은 소원을 이루어주시기를.";
+			return "그분의 능력에는 한계가 없음이라.";
 		}
 
 		static void RealAction() {
 			InventoryOwner player = FindObjectOfType<InventoryOwner>();
-			InventorySystem.Instance.GetInventory(player).ExpandInventory(1);
+			InventorySystem.Instance.GetInventory(player).ExpandInventory(4);
+		}
+
+		return new PresentFunction.Inner(Name, Description, RealAction);
+	}
+
+	public static PresentFunction.Inner MakeBerrySpawnGold() {
+		static string Name() {
+			return "베리 대신 금";
+		}
+
+		static string Description() {
+			return "찬양하라! 작은 열매도 그분의 손길에 놀라 빛나리라.";
+		}
+
+		static void RealAction() {
+			WorldManager.Instance.SetBerrySpawnGold(true);
 		}
 
 		return new PresentFunction.Inner(Name, Description, RealAction);
