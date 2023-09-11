@@ -16,7 +16,16 @@ public class PlayerInteract : MonoBehaviour
 	#region PublicMethod
 	public void Interact()
 	{
-
+		ITargetable target = _target.GetTarget();
+		if (target is IHittable)
+		{
+			IInteractable targetInteract = target as IInteractable;
+			int currentIndex = _handler.GetCurrentInventoryIndex();
+            if (currentIndex != -1)
+            {
+				targetInteract.Interact(_handler.GetCurrentInventoryIndex());
+			}
+		}
 	}
 	#endregion
 

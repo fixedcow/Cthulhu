@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TH.Core;
 using UnityEngine;
+using TMPro;
 
 public class PlayerItemHandler : MonoBehaviour
 {
@@ -14,32 +15,55 @@ public class PlayerItemHandler : MonoBehaviour
 	private SpriteRenderer _sr;
 	private Sequence _handleSeq;
 	private Inventory _inventory;
+	private TextMeshPro _quantityText;
+	/// <summary>
+	/// 인벤토리에 선택한 개체가 없을 경우 -1 반환.
+	/// </summary>
 	private int _inventoryIndex;
 
 	private bool _handleSomething;
 	#endregion
 
 	#region PublicMethod
-	/// <summary>
-	/// 설명입니다.
-	/// </summary>
-	/// <returns>이건 반환값 ㅋㅋ.</returns>
 	public int GetCurrentInventoryIndex() => _inventoryIndex;
 	public bool IsHandleSomething() => _handleSomething;
-	[Button]
-	public void Handle(int inventoryIndex)
+	public void HandleItem(int inventoryIndex)
+	{
+		if(inventoryIndex != -1)
+		{
+			PutOut(inventoryIndex);
+		}
+		else
+		{
+			PutIn();
+		}
+	}
+	public void PutOut(int inventoryIndex)
 	{
 		_inventoryIndex = inventoryIndex;
-		_sr.sprite = _inventory.GetItem(_inventoryIndex).TargetItem.ItemSprite;
+		InventoryItem item = GetInventory().GetItem(_inventoryIndex);
+		_sr.sprite = item.TargetItem.ItemSprite;
+		if(item.StackedNumber > 1)
+		{
+			_quantityText.text = "x" + item.StackedNumber.ToString();
+		}
+		else
+		{
+			_quantityText.text = "";
+		}
 		_handleSomething = true;
 		_handleSeq.Restart();
 	}
-	[Button]
 	public void PutIn()
 	{
+		_quantityText.text = "";
 		_inventoryIndex = -1;
 		_sr.sprite = null;
 		_handleSomething = false;
+	}
+	public void SetDirectionX(Vector3 dir)
+	{
+		transform.localScale = dir;
 	}
 	#endregion
 
@@ -47,11 +71,18 @@ public class PlayerItemHandler : MonoBehaviour
 	private void Awake()
 	{
 		TryGetComponent(out _sr);
+		transform.Find("Quantity").TryGetComponent(out _quantityText);
 		_handleSeq = DOTween.Sequence()
 			.SetAutoKill(false)
 			.Pause()
 			.Append(transform.DOLocalMoveY(0.6f, 0.5f))
 			.SetLoops(-1, LoopType.Yoyo);
+	}
+
+	private Inventory GetInventory()
+	{
+		_inventory ??= InventorySystem.Instance.GetInventory(GetComponentInParent<InventoryOwner>());
+		return _inventory;
 	}
 	#endregion
 }
