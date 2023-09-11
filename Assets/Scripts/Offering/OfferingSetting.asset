@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tier1Presents:
   - cthulhuPresent: Expand Inventory +1
-  - cthulhuPresent: Multiply Max Stackable Object Copper
+  - cthulhuPresent: Double Max Stackable Object Copper
   - cthulhuPresent: Double Max Stackable Object Chicken
   tier2Presents:
   - cthulhuPresent: Expand Inventory +2
