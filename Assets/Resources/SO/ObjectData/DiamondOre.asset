@@ -16,7 +16,7 @@ MonoBehaviour:
     objectID: DiamondOre
     objectName: "\uB2E4\uC774\uC544\uBAAC\uB4DC \uAD11\uC11D"
     hpMax: 0
-    objectPrefab: {fileID: 0}
-    dropItem: {fileID: 0}
+    objectPrefab: {fileID: 7041558337920343598, guid: 652f4646a40d82d4484369b238b3fe48, type: 3}
+    dropItem: {fileID: 4759755106217076460, guid: 07fff864b623dcc4f93b0e40d77a465c, type: 3}
     dropQuantityMin: 0
     dropQuantityMax: 0
