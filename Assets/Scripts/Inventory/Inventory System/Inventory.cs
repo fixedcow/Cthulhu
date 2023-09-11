@@ -31,6 +31,7 @@ public class Inventory : MonoBehaviour
 	}
 
 	private bool _hasInitialized = false;
+	private int _selectedItemIdx = -1;
 	#endregion
 
 	#region PublicMethod
@@ -176,6 +177,21 @@ public class Inventory : MonoBehaviour
 			_hasInitialized = true;
 
 			_inventoryData = new InventoryData(_maxItemNumber);
+		}
+	}
+
+	private void SelectNextItem() {
+		if (_selectedItemIdx == -1) {
+			_selectedItemIdx = 0;
+		} else {
+			for (int i = 0; i < _maxItemNumber; i++) {
+				if (_inventoryData.IsNull((_selectedItemIdx + 1) % _maxItemNumber)) {
+					_selectedItemIdx = (_selectedItemIdx + 1) % _maxItemNumber;
+					continue;
+				}
+				
+				break;
+			}
 		}
 	}
 

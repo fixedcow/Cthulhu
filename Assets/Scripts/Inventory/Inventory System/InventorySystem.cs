@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -17,6 +16,20 @@ namespace TH.Core
 
 		public const int NULL_ITEM_ID = -1;
 		public const int TRASH_ITEM_ID = -2;
+
+		public static readonly Dictionary<int, KeyCode> KEY_CODE_TABLE = new Dictionary<int, KeyCode>()
+		{
+			{0, KeyCode.Alpha0},
+			{1, KeyCode.Alpha1},
+			{2, KeyCode.Alpha2},
+			{3, KeyCode.Alpha3},
+			{4, KeyCode.Alpha4},
+			{5, KeyCode.Alpha5},
+			{6, KeyCode.Alpha6},
+			{7, KeyCode.Alpha7},
+			{8, KeyCode.Alpha8},
+			{9, KeyCode.Alpha9},
+		};
 		#endregion
 
 		#region PrivateVariables
