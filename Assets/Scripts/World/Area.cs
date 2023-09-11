@@ -138,19 +138,19 @@ public class Area : MonoBehaviour
 	}
 
 	public float GetMinSpawnCycle(string objectID) {
-		return _sectionSetting.GetSpawnObjectSetting(objectID).spawnCycleMin;
+		return WorldManager.Instance.GetSectionSetting(_section).GetSpawnObjectSetting(objectID).spawnCycleMin;
 	}
 
 	public float GetMaxSpawnCycle(string objectID) {
-		return _sectionSetting.GetSpawnObjectSetting(objectID).spawnCycleMax;
+		return WorldManager.Instance.GetSectionSetting(_section).GetSpawnObjectSetting(objectID).spawnCycleMax;
 	}
 
 	public int GetMaxSpawnCount(string objectID) {
-		return _sectionSetting.GetSpawnObjectSetting(objectID).spawnCountMax;
+		return WorldManager.Instance.GetSectionSetting(_section).GetSpawnObjectSetting(objectID).spawnCountMax;
 	}
 
 	public float GetCoefficient(string objectID) {
-		return _sectionSetting.GetSpawnObjectSetting(objectID).cycleCoefficientOnMax;
+		return WorldManager.Instance.GetSectionSetting(_section).GetSpawnObjectSetting(objectID).cycleCoefficientOnMax;
 	}
 	#endregion
     
