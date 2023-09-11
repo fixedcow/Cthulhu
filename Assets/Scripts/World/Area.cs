@@ -223,6 +223,7 @@ public class Area : MonoBehaviour
 
 	private WorldObject SpawnObject(string objectID, Vector2Int spawnPos) {
 		ObjectData objectData = WorldManager.Instance.GetObjectData(objectID);
+		Debug.Log($"Spawn {objectID} with {objectData}");
 		WorldObject worldObject = Instantiate(objectData.objectPrefab, _areaTilemap.transform).GetComponent<WorldObject>();
 		worldObject.transform.localPosition = GetRealPos(spawnPos.x, spawnPos.y);
 		worldObject.Init(objectID, spawnPos, OnObjectDestroyed);

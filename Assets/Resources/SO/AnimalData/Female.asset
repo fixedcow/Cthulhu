@@ -16,7 +16,7 @@ MonoBehaviour:
     objectID: Female
     objectName: "\uC5EC\uC790 \uC0AC\uB78C"
     hpMax: 50
-    objectPrefab: {fileID: 1884942414340115748, guid: 512983a367b521f4f84a72854edfb92d, type: 3}
+    objectPrefab: {fileID: 1884942414340115748, guid: d348c5479765a4b418518d3bc6e9efaf, type: 3}
     dropItem: {fileID: 7775789133191640094, guid: 9e06aaaedf68ceb4eb2353a944cf2629, type: 3}
     dropQuantityMin: 1
     dropQuantityMax: 1

@@ -1625,6 +1625,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GUI Interactable
       objectReference: {fileID: 0}
+    - target: {fileID: 2060639591913875973, guid: 3b8603fd38544e444b22d6ffc779bbec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b8603fd38544e444b22d6ffc779bbec, type: 3}
 --- !u!1001 &3360447798411615542
