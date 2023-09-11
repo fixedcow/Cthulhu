@@ -263,6 +263,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a20819b0870264793841ec296dc04b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tier1Presents: []
+  tier2Presents: []
+  tier3Presents: []
 --- !u!4 &299500802
 Transform:
   m_ObjectHideFlags: 0
@@ -613,14 +616,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4835345706159445006, guid: b7dfe72caad29f344a91e48053cf2d24, type: 3}
-      propertyPath: _maxItemNumber
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4835345707011749968, guid: b7dfe72caad29f344a91e48053cf2d24, type: 3}
-      propertyPath: serializationData.Prefab
-      value: 
-      objectReference: {fileID: 4835345707011749968, guid: b7dfe72caad29f344a91e48053cf2d24, type: 3}
     - target: {fileID: 4835345707011749968, guid: b7dfe72caad29f344a91e48053cf2d24, type: 3}
       propertyPath: inventoryPacks.Array.data[0].inventoryOwner
       value: 
