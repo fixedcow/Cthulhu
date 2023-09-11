@@ -1,32 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class PlayerHealth : PlayerStat
+public class UIGold : MonoBehaviour
 {
 	#region PublicVariables
 	#endregion
 
 	#region PrivateVariables
-	private Player _player;
+	private TextMeshProUGUI _text;
 	#endregion
 
 	#region PublicMethod
-	public override void Add(int value)
+	public void UpdateAmount(int amount)
 	{
-		base.Add(value);
-		UIManager.Instance.Health.UpdateGauge(currentValue);
-		if (currentValue == minValue)
-		{
-			_player.Die();
-		}
+		_text.text = amount.ToString();
 	}
 	#endregion
 
 	#region PrivateMethod
 	private void Awake()
 	{
-		TryGetComponent(out _player);
+		transform.Find("Text").TryGetComponent(out _text);
 	}
 	#endregion
 }

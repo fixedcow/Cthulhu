@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public abstract class UIGauge : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public abstract class UIGauge : MonoBehaviour
 
     #region PrivateVariables
     private Image image;
+	private TextMeshProUGUI _text;
 
     protected int currentValue;
     protected int minValue = 0;
@@ -23,12 +25,20 @@ public abstract class UIGauge : MonoBehaviour
         this.currentValue = currentValue;
         float modifiedValue = 1 - ((float)currentValue / maxValue);
         image.material.SetFloat("_ClipUvRight", modifiedValue);
+		_text.text = currentValue.ToString();
     }
+	public void SetMaxValue(int value)
+	{
+		maxValue = value;
+		float modifiedValue = 1 - ((float)currentValue / maxValue);
+		image.material.SetFloat("_ClipUvRight", modifiedValue);
+	}
     #endregion
     #region PrivateMethod
     private void Awake()
     {
-        TryGetComponent(out image);
+		transform.Find("Text").TryGetComponent(out _text);
+        transform.Find("Fill").TryGetComponent(out image);
     }
     #endregion
 }
