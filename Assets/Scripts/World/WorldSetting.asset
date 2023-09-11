@@ -248,9 +248,99 @@ MonoBehaviour:
         spawnConditionOnSection: 4
         spawnConditionOnOpenedAreaNumber: 1
     - sectionPrefab: {fileID: 6305996840126458707, guid: 03f6f449bd078a24ea5cbb39efe022bc, type: 3}
-      spawnBerrySettings: []
-      spawnMineSettings: []
-      spawnAnimalSettings: []
+      spawnBerrySettings:
+      - objectID: Berry
+        isSpawnOnLoad: 0
+        initialSpawnCount: 0
+        spawnCountMax: 2
+        cycleCoefficientOnMax: 5
+        spawnCycleMin: 30
+        spawnCycleMax: 40
+        distributePrecision: 3
+      spawnMineSettings:
+      - objectID: Copper
+        isSpawnOnLoad: 0
+        initialSpawnCount: 3
+        spawnCountMax: 3
+        cycleCoefficientOnMax: 2
+        spawnCycleMin: 20
+        spawnCycleMax: 30
+        distributePrecision: 2
+      - objectID: Silver
+        isSpawnOnLoad: 1
+        initialSpawnCount: 1
+        spawnCountMax: 5
+        cycleCoefficientOnMax: 1.5
+        spawnCycleMin: 20
+        spawnCycleMax: 30
+        distributePrecision: 0
+      - objectID: Gold
+        isSpawnOnLoad: 1
+        initialSpawnCount: 1
+        spawnCountMax: 4
+        cycleCoefficientOnMax: 2
+        spawnCycleMin: 30
+        spawnCycleMax: 32
+        distributePrecision: 2
+      - objectID: Platinum
+        isSpawnOnLoad: 0
+        initialSpawnCount: 0
+        spawnCountMax: 4
+        cycleCoefficientOnMax: 5
+        spawnCycleMin: 40
+        spawnCycleMax: 45
+        distributePrecision: 3
+      spawnAnimalSettings:
+      - objectID: Dog
+        isSpawnOnLoad: 1
+        initialSpawnCount: 1
+        spawnCountMax: 3
+        cycleCoefficientOnMax: 2
+        spawnCycleMin: 20
+        spawnCycleMax: 30
+        distributePrecision: 2
+        spawnConditionOnSection: 3
+        spawnConditionOnOpenedAreaNumber: 3
+      - objectID: Cow
+        isSpawnOnLoad: 0
+        initialSpawnCount: 0
+        spawnCountMax: 4
+        cycleCoefficientOnMax: 3
+        spawnCycleMin: 30
+        spawnCycleMax: 40
+        distributePrecision: 2
+        spawnConditionOnSection: 4
+        spawnConditionOnOpenedAreaNumber: 1
+      - objectID: Female
+        isSpawnOnLoad: 0
+        initialSpawnCount: 0
+        spawnCountMax: 2
+        cycleCoefficientOnMax: 5.5
+        spawnCycleMin: 35
+        spawnCycleMax: 45
+        distributePrecision: 3
+        spawnConditionOnSection: 5
+        spawnConditionOnOpenedAreaNumber: 2
+      - objectID: Male
+        isSpawnOnLoad: 0
+        initialSpawnCount: 0
+        spawnCountMax: 2
+        cycleCoefficientOnMax: 4
+        spawnCycleMin: 30
+        spawnCycleMax: 40
+        distributePrecision: 3
+        spawnConditionOnSection: 5
+        spawnConditionOnOpenedAreaNumber: 3
+      - objectID: Rabbit
+        isSpawnOnLoad: 0
+        initialSpawnCount: 0
+        spawnCountMax: 4
+        cycleCoefficientOnMax: 2.5
+        spawnCycleMin: 10
+        spawnCycleMax: 20
+        distributePrecision: 0
+        spawnConditionOnSection: 3
+        spawnConditionOnOpenedAreaNumber: 1
     - sectionPrefab: {fileID: 2156253339605112777, guid: 744a0f4c2ee8d6b439f8229cb65c4a74, type: 3}
       spawnBerrySettings: []
       spawnMineSettings: []
