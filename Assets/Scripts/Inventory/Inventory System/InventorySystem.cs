@@ -19,7 +19,7 @@ namespace TH.Core
 
 		public static readonly Dictionary<int, KeyCode> KEY_CODE_TABLE = new Dictionary<int, KeyCode>()
 		{
-			{0, KeyCode.Alpha0},
+			{10, KeyCode.Alpha0},
 			{1, KeyCode.Alpha1},
 			{2, KeyCode.Alpha2},
 			{3, KeyCode.Alpha3},
@@ -30,6 +30,8 @@ namespace TH.Core
 			{8, KeyCode.Alpha8},
 			{9, KeyCode.Alpha9},
 		};
+
+		public static readonly KeyCode NEXT_KEYCODE = KeyCode.Tab;
 		#endregion
 
 		#region PrivateVariables

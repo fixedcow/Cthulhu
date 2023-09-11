@@ -20,6 +20,7 @@ public class UIInventory : MonoBehaviour
 
 	protected Inventory _inventory;
 	protected bool _isInventoryOpen = false;
+	protected bool _hasInitialized = false;
 	#endregion
 
 	#region PublicMethod
@@ -78,6 +79,10 @@ public class UIInventory : MonoBehaviour
 				_slotList[i].SetSlot(itemList[i] == null, i, itemList[i]);
 			}
 		}
+
+		if (_hasInitialized == false) {
+			_hasInitialized = true;
+		}
 	}
 	#endregion
     
@@ -89,7 +94,7 @@ public class UIInventory : MonoBehaviour
 		_trashSlot.Init(InventorySystem.TRASH_ITEM_ID, OnSelectedSlot, OnStartDragSlot, OnSlotPointerEnter);
 	}
 
-	protected void Update() {
+	protected virtual void Update() {
 	}
 
 	protected void OnSelectedSlot(int idx) 

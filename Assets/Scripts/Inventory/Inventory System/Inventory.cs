@@ -11,6 +11,8 @@ public class Inventory : MonoBehaviour
 {
     #region PublicVariables
 	public bool HasInitialized => _hasInitialized;
+	public int MaxItemNumber => _maxItemNumber;
+	public int SelectedItemIdx => _selectedItemIdx;
 	#endregion
 
 	#region PrivateVariables
@@ -161,6 +163,42 @@ public class Inventory : MonoBehaviour
 		_inventoryData.DataAccepted();
 		return _inventoryData.SlotList.ToArray();
 	}
+
+	public void SelectNextItem() {
+		for (int i = -1; i < _maxItemNumber; i++) {
+			_selectedItemIdx++;
+			if (_selectedItemIdx == _maxItemNumber) {
+				_selectedItemIdx = -1;
+				break;
+			}
+			if (_inventoryData.IsNull(_selectedItemIdx)) {
+				continue;
+			}
+			
+			break;
+		}
+		Debug.Log(SelectedItemIdx);
+	}
+
+	public void SelectItemIdx(int idx) {
+		if (idx > _maxItemNumber - 1) {
+			if (InventorySystem.Instance.showErrorMsg) {
+				Debug.LogError("인벤토리 인덱스 오류");
+			}
+			return;
+		}
+
+		if (_selectedItemIdx == idx) {
+			_selectedItemIdx = -1;
+			return;
+		}
+
+		if (_inventoryData.IsNull(idx)) {
+			return;
+		}
+
+		_selectedItemIdx = idx;
+	}
 	#endregion
     
 	#region PrivateMethod
@@ -177,21 +215,6 @@ public class Inventory : MonoBehaviour
 			_hasInitialized = true;
 
 			_inventoryData = new InventoryData(_maxItemNumber);
-		}
-	}
-
-	private void SelectNextItem() {
-		if (_selectedItemIdx == -1) {
-			_selectedItemIdx = 0;
-		} else {
-			for (int i = 0; i < _maxItemNumber; i++) {
-				if (_inventoryData.IsNull((_selectedItemIdx + 1) % _maxItemNumber)) {
-					_selectedItemIdx = (_selectedItemIdx + 1) % _maxItemNumber;
-					continue;
-				}
-				
-				break;
-			}
 		}
 	}
 
