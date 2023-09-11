@@ -63,6 +63,10 @@ public class UIInventory : MonoBehaviour
 		GameObject slotPrefab = Resources.Load<GameObject>("Prefabs/UI/UIInventorySlot");
 		
 		if (_slotList == null || _slotList.Length != itemList.Length) {
+			foreach (Transform child in _slotContentTransform) {
+				Destroy(child.gameObject);
+			}
+
 			_slotList = new UIInventorySlot[itemList.Length];
 		}
 
