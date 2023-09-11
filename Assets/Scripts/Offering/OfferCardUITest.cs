@@ -14,14 +14,14 @@ public class OfferCardUITest : MonoBehaviour, IPointerClickHandler, IPointerEnte
 	#endregion
 
 	#region PrivateVariables
-	private Action _action;
+	private Action<int> _action;
 	private Action<int> _onClick;
 	private int _index;
 	private bool _isClicked;
 	#endregion
 
 	#region PublicMethod
-	public void SetText(string title, string description, Action action, Action<int> onClick, int index) {
+	public void SetText(string title, string description, Action<int> action, Action<int> onClick, int index) {
 		_action = action;
 		_onClick = onClick;
 		_index = index;
@@ -37,7 +37,7 @@ public class OfferCardUITest : MonoBehaviour, IPointerClickHandler, IPointerEnte
 		if (_isClicked) return;
 		_isClicked = true;
 		_onClick(_index);
-		_action();
+		_action(_index);
 		Select();
 	}
 

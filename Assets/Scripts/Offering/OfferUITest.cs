@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace TH.Core {
 
@@ -13,6 +14,7 @@ public class OfferUITest : MonoBehaviour
 
 	#region PrivateVariables
 	[SerializeField] private OfferCardUITest[] _cardUI;
+	[SerializeField] private GameObject _confirmButton;
 	#endregion
 
 	#region PublicMethod
@@ -22,11 +24,12 @@ public class OfferUITest : MonoBehaviour
 			_cardUI[i].SetText(
 				OfferingManager.Instance.OfferingData.GetTierPresents(1)[i].GetName(), 
 				OfferingManager.Instance.OfferingData.GetTierPresents(1)[i].GetDescription(),
-				() => OfferingManager.Instance.OfferingData.GetTierPresents(1)[2].InvokePresent(),
+				(k) => OfferingManager.Instance.OfferingData.GetTierPresents(1)[k].InvokePresent(),
 				UnselectOther,
 				i
 			);
 		}
+		_confirmButton.SetActive(false);
 	}
 
 	public void UnselectOther(int idx) {
@@ -35,6 +38,7 @@ public class OfferUITest : MonoBehaviour
 				_cardUI[i].Unselect();
 			}
 		}
+		_confirmButton.SetActive(true);
 	}
 
 	public void Deactivate() {
