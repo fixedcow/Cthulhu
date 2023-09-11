@@ -19,7 +19,7 @@ public class PlayerItemHandler : MonoBehaviour
 	/// <summary>
 	/// 인벤토리에 선택한 개체가 없을 경우 -1 반환.
 	/// </summary>
-	private int _inventoryIndex;
+	private int _inventoryIndex = -1;
 
 	private bool _handleSomething;
 	#endregion

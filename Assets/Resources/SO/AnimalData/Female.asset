@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71adaf5656db9e49b6b186a2b64f388, type: 3}
+  m_Name: Female
+  m_EditorClassIdentifier: 
+  objectData:
+    objectID: Female
+    objectName: "\uC5EC\uC790 \uC0AC\uB78C"
+    hpMax: 50
+    objectPrefab: {fileID: 1884942414340115748, guid: 512983a367b521f4f84a72854edfb92d, type: 3}
+    dropItem: {fileID: 7775789133191640094, guid: 9e06aaaedf68ceb4eb2353a944cf2629, type: 3}
+    dropQuantityMin: 1
+    dropQuantityMax: 1
+    speedIdle: 3
+    speedAttack: 5
+    damage: 0
+    recognitionRangeIn: 9
+    recognitionRangeOut: 16
+    attackRange: 1.5

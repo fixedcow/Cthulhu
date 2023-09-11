@@ -10,25 +10,32 @@ public class PlayerInteract : MonoBehaviour
 
 	#region PrivateVariables
 	private PlayerTarget _target;
-	private PlayerItemHandler _handler;
+	private PlayerItemHandler _itemHandler;
 	#endregion
 
 	#region PublicMethod
 	public void Interact()
 	{
 		ITargetable target = _target.GetTarget();
-		if (target is IHittable)
+		if (target is IInteractable)
 		{
 			IInteractable targetInteract = target as IInteractable;
-			int currentIndex = _handler.GetCurrentInventoryIndex();
+			int currentIndex = _itemHandler.GetCurrentInventoryIndex();
             if (currentIndex != -1)
             {
-				targetInteract.Interact(_handler.GetCurrentInventoryIndex());
+				targetInteract.Interact(_itemHandler.GetCurrentInventoryIndex());
+				EffectManager.Instance.SpawnDropEffect(_itemHandler.transform.position);
+				_itemHandler.PutIn();
 			}
 		}
 	}
 	#endregion
 
 	#region PrivateMethod
+	private void Awake()
+	{
+		TryGetComponent(out _target);
+		transform.Find("Item Handler").TryGetComponent(out _itemHandler);
+	}
 	#endregion
 }
