@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using Unity.IO.LowLevel.Unsafe;
+using Unity.VisualScripting;
 
 namespace TH.Core {
 
@@ -68,6 +70,30 @@ public class UIPlayerInventory : UIInventory
 			0.5f
 		).SetEase(Ease.OutBack);
 		_showingLine = showLine;
+	}
+
+	protected override void Update() {
+		base.Update();
+
+		if (_hasInitialized == true) {
+			if (Input.GetKeyDown(InventorySystem.NEXT_KEYCODE)) {
+				_inventory.SelectNextItem();
+			}
+
+			for (int i = 1; i < Mathf.Min(_inventory.MaxItemNumber + 1, 11); i++) {
+				if (Input.GetKeyDown(InventorySystem.KEY_CODE_TABLE[i])) {
+					_inventory.SelectItemIdx(i - 1);
+				}
+			}
+
+			for (int i = 0; i < _inventory.MaxItemNumber; i++) {
+				if (_inventory.SelectedItemIdx == i) {
+					_slotList[i].Select();
+				} else {
+					_slotList[i].UnSelect();
+				}
+			}
+		}
 	}
 	#endregion
 }

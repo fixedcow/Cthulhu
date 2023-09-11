@@ -6,6 +6,7 @@ using SectionSetting = TH.Core.WorldSetting.SectionSetting;
 using SpawnObjectSetting = TH.Core.WorldSetting.SpawnObjectSetting;
 using AnimalSpawnObjectSetting = TH.Core.WorldSetting.AnimalSpawnObjectSetting;
 using UnityEngine.Tilemaps;
+using DG.Tweening;
 
 namespace TH.Core {
 
@@ -55,7 +56,8 @@ public class Area : MonoBehaviour
 	public void Open() {
 		_hasOpened = true;
 		_areaTilemap.gameObject.SetActive(true);
-		StartSpawn();
+		_areaTilemap.transform.localScale = Vector3.zero;
+		StartCoroutine(OpenAnimCoroutine());
 	}
 
 	public void StartSpawn() {
@@ -200,6 +202,14 @@ public class Area : MonoBehaviour
 	private void OnObjectDestroyed(string objectID, Vector2Int areaPos) {
 		_spawnObjectData[areaPos.x][areaPos.y] = null;
 	}
+
+	private IEnumerator OpenAnimCoroutine() {
+		_areaTilemap.transform.DOJump(_areaTilemap.transform.position, 1f, 1, 0.5f);
+		_areaTilemap.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+		yield return new WaitForSeconds(0.5f);
+		StartSpawn();
+	}
+
 	#endregion
 }
 
