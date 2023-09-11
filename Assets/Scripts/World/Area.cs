@@ -10,6 +10,7 @@ using DG.Tweening;
 
 namespace TH.Core {
 
+[System.Serializable]
 public class Area : MonoBehaviour
 {
     #region PublicVariables 
@@ -35,6 +36,7 @@ public class Area : MonoBehaviour
 	[SerializeField] private Tilemap _areaTilemap;
 	private TileTradeTriggerGroup _triggerGroup;
 	private TileTradeText _tradeText;
+	private BridgeController _bridgeController;
 
 	private bool _hasOpened = false;
 
@@ -60,7 +62,8 @@ public class Area : MonoBehaviour
 		transform.Find("Trigger").TryGetComponent(out _triggerGroup);
 		_triggerGroup.SetArea(_unitPos);
 		transform.Find("TradeText").TryGetComponent(out _tradeText);
-		//_tradeText.SetPrice();
+		_tradeText.SetPrice(WorldManager.Instance.AREA_TIER_COST[section]);
+		transform.Find("Bridge").TryGetComponent(out _bridgeController);
 
 		_hasOpened = false;
 		_areaTilemap.gameObject.SetActive(false);
@@ -149,6 +152,14 @@ public class Area : MonoBehaviour
 	public void HideTradeText()
 	{
 		_tradeText.SetAlpha(0f);
+	}
+	public void OpenGate(BridgeController.EDirection dir)
+	{
+		_bridgeController.OpenGate(dir);
+	}
+	public void CloseGate(BridgeController.EDirection dir)
+	{
+		_bridgeController.CloseGate(dir);
 	}
 
 	public float GetMinSpawnCycle(string objectID) {

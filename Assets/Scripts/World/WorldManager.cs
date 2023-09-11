@@ -11,6 +11,7 @@ public class WorldManager : Singleton<WorldManager>
 {
 	#region PublicVariables
 	public readonly Dictionary<int, int> AREA_TIER_COST = new Dictionary<int, int>() {
+		{0, 0 },
 		{1, 30},
 		{2, 60},
 		{3, 100},
@@ -35,7 +36,7 @@ public class WorldManager : Singleton<WorldManager>
 	private WorldSetting _worldSetting;
 
 	[ShowInInspector] private Dictionary<int, List<Area>> _areaDict;
-	[SerializeField, ReadOnly] private List<List<Area>> _areaList;
+	[ShowInInspector] private List<List<Area>> _areaList;
 	#endregion
 
 	#region PublicMethod
@@ -111,6 +112,10 @@ public class WorldManager : Singleton<WorldManager>
 	public Area GetAreaByUnitPos(Vector2Int unitPos) {
 		return _areaList[unitPos.x][unitPos.y];
 	}
+	public void Rescan()
+	{
+		_aStar.Scan();
+	}
 	#endregion
     
 	#region PrivateMethod
@@ -122,7 +127,7 @@ public class WorldManager : Singleton<WorldManager>
 	private void GenerateWorld() {
 		LoadInitialSettings();
 		GenerateTiles();
-		_aStar.Scan();
+		Rescan();
 		_areaDict[0][0].Open();
 	}
 

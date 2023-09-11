@@ -23,6 +23,10 @@ public class PlayerStat : MonoBehaviour
 	{
 		maxValue += amount;
 	}
+	public void FullHeal()
+	{
+		currentValue = maxValue;
+	}
 	#endregion
 
 	#region PrivateMethod

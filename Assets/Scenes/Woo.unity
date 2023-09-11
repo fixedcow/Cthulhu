@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 2109631438}
-  _gold: 0
+  _gold: 500
   _point: 0
 --- !u!4 &347111868
 Transform:
@@ -303,15 +303,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1553219334848849851, guid: 5d153f6796b366b4f879fcb74357e19d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.64388454
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1553219334848849851, guid: 5d153f6796b366b4f879fcb74357e19d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.030662205
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1553219334848849851, guid: 5d153f6796b366b4f879fcb74357e19d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.5128527
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1553219334848849851, guid: 5d153f6796b366b4f879fcb74357e19d, type: 3}
       propertyPath: m_LocalRotation.w
