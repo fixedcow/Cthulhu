@@ -65,12 +65,12 @@ public class Inventory : MonoBehaviour
 		{
 			if (_inventoryData.IsNull(slotIdx)) 
 			{
-				appliedQuantity = Mathf.Min(initQuantity, item.MaxStackableNumber);
+				appliedQuantity = Mathf.Min(initQuantity, WorldManager.Instance.GetItemData(item.ItemID).MaxStackableNumber);
 				_inventoryData.AddNewItem(slotIdx, new InventoryItem(item, appliedQuantity));
 			} 
 			else 
 			{
-				appliedQuantity = Mathf.Min(initQuantity, item.MaxStackableNumber - _inventoryData.StackedItemNumber(slotIdx));
+				appliedQuantity = Mathf.Min(initQuantity, WorldManager.Instance.GetItemData(item.ItemID).MaxStackableNumber - _inventoryData.StackedItemNumber(slotIdx));
 				_inventoryData.AddToExistingItem(slotIdx, appliedQuantity);
 			}
 			slotIdx = FindAvailableItemSlotIdx(item, quantity);
@@ -269,7 +269,7 @@ public class Inventory : MonoBehaviour
 
 				if (slotList[i].TargetItem.ItemID != item.ItemID) { continue; }
 
-				if (slotList[i].StackedNumber < item.MaxStackableNumber) 
+				if (slotList[i].StackedNumber < WorldManager.Instance.GetItemData(item.ItemID).MaxStackableNumber) 
 				{
 					return i;
 				}

@@ -10,9 +10,13 @@ namespace TH.Core {
 public class OfferingData : ScriptableObject
 {
 	const string EXPAND_INVENTORY_BY_ONE = "Expand Inventory +1";
+	const string EXPAND_INVENTORY_BY_TWO = "Expand Inventory +2";
+	const string EXPAND_INVENTORY_BY_FOUR = "Expand Inventory +4";
+	const string MULTIPLY_MAX_STACKABLE_OBJECT_ALL = "Multiply Max Stackable Object All";
 
 	readonly static Dictionary<string, Func<PresentFunction.Inner>> presentFunctionPool = new Dictionary<string, Func<PresentFunction.Inner>>() {
 		{ EXPAND_INVENTORY_BY_ONE, OfferingManager.ExpandInventoryByOne },
+		{ MULTIPLY_MAX_STACKABLE_OBJECT_ALL, OfferingManager.DoubleMaxStackableObjectAll },
 	};
 
     #region PublicVariables
@@ -62,6 +66,7 @@ public class OfferingData : ScriptableObject
 
 		public static readonly List<string> presentPool = new List<string>() {
 			EXPAND_INVENTORY_BY_ONE,
+			MULTIPLY_MAX_STACKABLE_OBJECT_ALL,
 		};
 
 		private PresentFunction GetPresentFunction() {
