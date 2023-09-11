@@ -9,6 +9,8 @@ public class PlayerInteract : MonoBehaviour
 	#endregion
 
 	#region PrivateVariables
+	private PlayerTarget _target;
+	private PlayerItemHandler _handler;
 	#endregion
 
 	#region PublicMethod

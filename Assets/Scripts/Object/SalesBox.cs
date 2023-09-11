@@ -3,25 +3,21 @@ using System.Collections.Generic;
 using TH.Core;
 using UnityEngine;
 
-public class SalesBox : MonoBehaviour
+public class SalesBox : MonoBehaviour, IInteractable
 {
 	#region PublicVariables
 	#endregion
 
 	#region PrivateVariables
-	private Animator _animator; 
 	#endregion
 
 	#region PublicMethod
-	public void PrintInteractableAnimation()
-	{
-
-	}
-	public void StopInteractableAnimation()
-	{
-
-	}
 	public void Sell(ItemData item)
+	{
+		
+	}
+	public Vector2 GetPosition() => transform.position;
+	public void Interact(int inventoryIndex)
 	{
 
 	}

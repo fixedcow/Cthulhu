@@ -13,22 +13,31 @@ public class PlayerItemHandler : MonoBehaviour
 	#region PrivateVariables
 	private SpriteRenderer _sr;
 	private Sequence _handleSeq;
+	private Inventory _inventory;
+	private int _inventoryIndex;
 
 	private bool _handleSomething;
 	#endregion
 
 	#region PublicMethod
+	/// <summary>
+	/// 설명입니다.
+	/// </summary>
+	/// <returns>이건 반환값 ㅋㅋ.</returns>
+	public int GetCurrentInventoryIndex() => _inventoryIndex;
 	public bool IsHandleSomething() => _handleSomething;
 	[Button]
-	public void Handle(ItemData data)
+	public void Handle(int inventoryIndex)
 	{
-		//_sr.sprite = data.ItemSprite;
+		_inventoryIndex = inventoryIndex;
+		_sr.sprite = _inventory.GetItem(_inventoryIndex).TargetItem.ItemSprite;
 		_handleSomething = true;
 		_handleSeq.Restart();
 	}
 	[Button]
 	public void PutIn()
 	{
+		_inventoryIndex = -1;
 		_sr.sprite = null;
 		_handleSomething = false;
 	}
