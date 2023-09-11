@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 437a29b5ca7e24840ab037b908d81936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxItemNumber: 2
+  _maxItemNumber: 20
 --- !u!114 &4835345706159445001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -662,15 +662,9 @@ MonoBehaviour:
   inventoryPacks:
   - inventory: {fileID: 4835345706159445006}
     uiInventory: {fileID: 4835345706159445001}
-    inventoryOwner:
-      rid: -2
+    inventoryOwner: {fileID: 0}
   _draggingItem: {fileID: 0}
   _itemInfoPanel: {fileID: 0}
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
 --- !u!1 &4835345707169048346
 GameObject:
   m_ObjectHideFlags: 0

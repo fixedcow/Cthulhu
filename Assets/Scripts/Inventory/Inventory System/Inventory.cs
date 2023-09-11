@@ -137,7 +137,11 @@ public class Inventory : MonoBehaviour
 			return null;
 		}
 
-		return _inventoryData.ExtractItem(targetIdx);
+		InventoryItem inventoryItem = _inventoryData.ExtractItem(targetIdx);
+		if (targetIdx == _selectedItemIdx) {
+			_selectedItemIdx = -1;
+		}
+		return inventoryItem;
 	}
 
 	public int DeleteItem(int targetIdx, int quantity, out ItemData targetItemData) 
