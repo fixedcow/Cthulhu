@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 1920428971703422094}
   - component: {fileID: 1920428971703422089}
   m_Layer: 0
-  m_Name: Hittable Target UI
+  m_Name: UI Hittable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
