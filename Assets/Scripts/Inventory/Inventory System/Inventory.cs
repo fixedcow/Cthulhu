@@ -96,12 +96,18 @@ public class Inventory : MonoBehaviour
 		// 대상 슬롯이 비어있는 경우
 		if (_inventoryData.IsNull(targetIdx)) {
 			_inventoryData.MoveItem(originalIdx, targetIdx);
+			if (originalIdx == _selectedItemIdx) {
+				_selectedItemIdx = -1;
+			}
 			return true;
 		}
 
 		// 대상 슬롯의 아이템이 다른 경우
 		if (_inventoryData.HasSameItemType(targetIdx, originalIdx) == false) {
 			_inventoryData.SwapItem(targetIdx, originalIdx);
+			if (originalIdx == _selectedItemIdx) {
+				_selectedItemIdx = -1;
+			}
 			return true;
 		}
 
@@ -116,6 +122,9 @@ public class Inventory : MonoBehaviour
 			return true;
 		} else {
 			_inventoryData.MergeItems(originalIdx, targetIdx);
+			if (originalIdx == _selectedItemIdx) {
+				_selectedItemIdx = -1;
+			}
 			return true;
 		}
 	}
