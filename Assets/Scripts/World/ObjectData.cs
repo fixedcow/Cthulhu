@@ -31,7 +31,7 @@ namespace TH.Core
 			dropItem = data.dropItem;
 			dropQuantityMin = data.dropQuantityMin;
 			dropQuantityMax = data.dropQuantityMax;
-
+			hpMax = data.hpMax;
 		}
 		#endregion
 
