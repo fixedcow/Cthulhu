@@ -43,7 +43,6 @@ public class Animal : WorldObject
 	{
 		_animator.SetTrigger("attack");
 		target.GetComponent<Player>().Hit(_damage);
-		Debug.Log("hit!");
 	}
 	#endregion
 
