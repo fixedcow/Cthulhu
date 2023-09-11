@@ -10,7 +10,17 @@ namespace TH.Core {
 public class WorldManager : Singleton<WorldManager>
 {
 	#region PublicVariables
-		#endregion
+	public readonly Dictionary<int, int> AREA_TIER_COST = new Dictionary<int, int>() {
+		{0, 0 },
+		{1, 30},
+		{2, 60},
+		{3, 100},
+		{4, 150},
+		{5, 200},
+		{6, 300},
+		{7, 500}
+	};
+	#endregion
 
 	#region PrivateVariables
 	[SerializeField] private AstarPath _aStar;
@@ -26,7 +36,7 @@ public class WorldManager : Singleton<WorldManager>
 	private WorldSetting _worldSetting;
 
 	[ShowInInspector] private Dictionary<int, List<Area>> _areaDict;
-	[SerializeField, ReadOnly] private List<List<Area>> _areaList;
+	[ShowInInspector] private List<List<Area>> _areaList;
 	#endregion
 
 	#region PublicMethod
@@ -99,8 +109,64 @@ public class WorldManager : Singleton<WorldManager>
 		}
 	}
 
+	public void SetCopperSpawnSilver(bool spawnSilver) {
+		if (spawnSilver == true) {
+			foreach (var data in _objectDataDict) {
+				if (data.Value.objectID == "CopperOre") {
+					data.Value.dropItem = _objectDataDict["SilverOre"].dropItem;
+				}
+			}
+		} else {
+			foreach (var data in _objectDataDict) {
+				if (data.Value.objectID == "CopperOre") {
+					data.Value.dropItem = _originalObjectDataList.Find(o => o.objectData.objectID == "CopperOre").objectData.dropItem;
+				}
+			}
+		}
+	}
+
+	public void MakeOreSpawnFater(float multiplier) {
+		foreach (var s in _worldSetting.sectionSettings) {
+			foreach (var data in s.spawnMineSettings) {
+				data.spawnCycleMin *= multiplier;
+				data.spawnCycleMax *= multiplier;
+			}
+		}
+	}
+
+	public void MakeBerryDropMore(int multiplier) {
+		foreach (var data in _objectDataDict) {
+			if (data.Value.objectID == "BerryBush") {
+				data.Value.dropQuantityMax *= multiplier;
+				data.Value.dropQuantityMin *= multiplier;
+			}
+		}
+	}
+
+	public void MakeOreDropMore(int multiplier) {
+		foreach (var data in _objectDataDict) {
+			if ((data.Value is AnimalData) == false && data.Value.objectID != "BerryBush") {
+				data.Value.dropQuantityMax *= multiplier;
+				data.Value.dropQuantityMin *= multiplier;
+			}
+		}
+	}
+
+	public void MakeAnimalDropMore(int multiplier) {
+		foreach (var data in _objectDataDict) {
+			if (data.Value is AnimalData) {
+				data.Value.dropQuantityMax *= multiplier;
+				data.Value.dropQuantityMin *= multiplier;
+			}
+		}
+	}
+
 	public Area GetAreaByUnitPos(Vector2Int unitPos) {
 		return _areaList[unitPos.x][unitPos.y];
+	}
+	public void Rescan()
+	{
+		_aStar.Scan();
 	}
 	#endregion
     
@@ -113,7 +179,7 @@ public class WorldManager : Singleton<WorldManager>
 	private void GenerateWorld() {
 		LoadInitialSettings();
 		GenerateTiles();
-		_aStar.Scan();
+		Rescan();
 		_areaDict[0][0].Open();
 	}
 
@@ -152,10 +218,10 @@ public class WorldManager : Singleton<WorldManager>
 		
 		List<Area> area0List = new List<Area>();
 		Area area0 = Instantiate(_worldSetting.sectionSettings[0].sectionPrefab).GetComponent<Area>();
-		area0.Init(0, 0, Vector2Int.zero, GetSectionSetting(0));
+		area0.Init(0, 0, new Vector2Int(wholeWorldUnitSize /2, wholeWorldUnitSize / 2), GetSectionSetting(0));
 		area0List.Add(area0);
 		_areaDict.Add(0, area0List);
-		_areaList[0][0] = area0;
+		_areaList[wholeWorldUnitSize / 2][wholeWorldUnitSize / 2] = area0;
 
 		int gap = _worldSetting.areaSize + _areaPadding;
 		int areaIdx;

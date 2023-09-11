@@ -15,6 +15,36 @@ MonoBehaviour:
   tier1Presents:
   - cthulhuPresent: Expand Inventory +1
   - cthulhuPresent: Multiply Max Stackable Object Copper
+  - cthulhuPresent: Double Max Stackable Object Chicken
+  tier2Presents:
+  - cthulhuPresent: Expand Inventory +2
+  - cthulhuPresent: Make Ore Spawn Faster
+  - cthulhuPresent: Make Ore Spawn Faster
+  tier3Presents:
+  - cthulhuPresent: Expand Inventory +2
+  - cthulhuPresent: Expand Inventory +1
+  - cthulhuPresent: Make Berry Drop More
+  tier4Presents:
+  - cthulhuPresent: Expand Inventory +1
+  - cthulhuPresent: Add Player Max HP +20
+  - cthulhuPresent: Double Max Stackable Object All
+  tier5Presents:
+  - cthulhuPresent: Expand Inventory +2
+  - cthulhuPresent: Add Player Max HP +20
+  - cthulhuPresent: Add Player Max SP +20
+  tier6Presents:
+  - cthulhuPresent: Expand Inventory +3
+  - cthulhuPresent: Expand Inventory +1
+  - cthulhuPresent: Make Copper Spawn Silver
+  tier7Presents:
+  - cthulhuPresent: Expand Inventory +3
+  - cthulhuPresent: Expand Inventory +1
+  - cthulhuPresent: Add Player Max SP +20
+  tier8Presents:
+  - cthulhuPresent: Expand Inventory +1
+  - cthulhuPresent: Expand Inventory +3
+  - cthulhuPresent: Triple Max Stackable Object All
+  tier9Presents:
+  - cthulhuPresent: Make Ore Drop More
+  - cthulhuPresent: Make Animal Drop More
   - cthulhuPresent: Make Berry Spawn Gold
-  tier2Presents: []
-  tier3Presents: []

@@ -21,6 +21,30 @@ public class Player : MonoBehaviour
 	#endregion
 
 	#region PublicMethod
+	public void AddMaxHealth(int amount)
+	{
+		_health.AddMaxValue(amount);
+	}
+	public void AddMaxSanity(int amount)
+	{
+		_sanity.AddMaxValue(amount);
+	}
+	public void HealHealth(int amount)
+	{
+		_health.Add(amount);
+	}
+	public void HealSanity(int amount)
+	{
+		_sanity.Add(amount);
+	}
+	public void FullHealHealth()
+	{
+		_health.FullHeal();
+	}
+	public void FullHealSanity()
+	{
+		_sanity.FullHeal();
+	}
 	public void Move(Vector2 inputDirection)
 	{
 		if (_canAct == false)
@@ -47,6 +71,7 @@ public class Player : MonoBehaviour
 	{
 		if (_canAct == false)
 			return;
+		Debug.Log(_interact.name);
 
 		_interact.Interact();
 	}

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: CopperOre
   m_EditorClassIdentifier: 
   objectData:
-    objectID: CopperOre
+    objectID: Copper
     objectName: "\uAD6C\uB9AC \uAD11\uC11D"
     hpMax: 3
     objectPrefab: {fileID: 6527971798572425277, guid: 7e7eb31686d3f0c4aba0deac09ad4cd7, type: 3}
     dropItem: {fileID: 382468548090596387, guid: 6c7cac3084ba8114b9749ea41b39e2fb, type: 3}
-    dropQuantityMin: 0
-    dropQuantityMax: 0
+    dropQuantityMin: 1
+    dropQuantityMax: 2

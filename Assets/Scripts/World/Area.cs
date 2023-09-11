@@ -10,6 +10,7 @@ using DG.Tweening;
 
 namespace TH.Core {
 
+[System.Serializable]
 public class Area : MonoBehaviour
 {
     #region PublicVariables 
@@ -33,6 +34,9 @@ public class Area : MonoBehaviour
 	private List<SpawnData> _animalSpawnDatas = new List<SpawnData>();
 	
 	[SerializeField] private Tilemap _areaTilemap;
+	private TileTradeTriggerGroup _triggerGroup;
+	private TileTradeText _tradeText;
+	private BridgeController _bridgeController;
 
 	private bool _hasOpened = false;
 
@@ -54,6 +58,12 @@ public class Area : MonoBehaviour
 				_spawnObjectData[i].Add(null);
 			}
 		}
+
+		transform.Find("Trigger").TryGetComponent(out _triggerGroup);
+		_triggerGroup.SetArea(_unitPos);
+		transform.Find("TradeText").TryGetComponent(out _tradeText);
+		_tradeText.SetPrice(WorldManager.Instance.AREA_TIER_COST[section]);
+		transform.Find("Bridge").TryGetComponent(out _bridgeController);
 
 		_hasOpened = false;
 		_areaTilemap.gameObject.SetActive(false);
@@ -133,20 +143,39 @@ public class Area : MonoBehaviour
 		}
 	}
 
+	public void ShowTradeText(Vector2Int properPosition)
+	{
+		_tradeText.SetAlpha(1f);
+		_tradeText.gameObject.transform.localPosition = Vector2.zero;
+		_tradeText.gameObject.transform.position -= (Vector3)(Vector2)properPosition * 5;
+	}
+	public void HideTradeText()
+	{
+		_tradeText.SetAlpha(0f);
+	}
+	public void OpenGate(BridgeController.EDirection dir)
+	{
+		_bridgeController.OpenGate(dir);
+	}
+	public void CloseGate(BridgeController.EDirection dir)
+	{
+		_bridgeController.CloseGate(dir);
+	}
+
 	public float GetMinSpawnCycle(string objectID) {
-		return _sectionSetting.GetSpawnObjectSetting(objectID).spawnCycleMin;
+		return WorldManager.Instance.GetSectionSetting(_section).GetSpawnObjectSetting(objectID).spawnCycleMin;
 	}
 
 	public float GetMaxSpawnCycle(string objectID) {
-		return _sectionSetting.GetSpawnObjectSetting(objectID).spawnCycleMax;
+		return WorldManager.Instance.GetSectionSetting(_section).GetSpawnObjectSetting(objectID).spawnCycleMax;
 	}
 
 	public int GetMaxSpawnCount(string objectID) {
-		return _sectionSetting.GetSpawnObjectSetting(objectID).spawnCountMax;
+		return WorldManager.Instance.GetSectionSetting(_section).GetSpawnObjectSetting(objectID).spawnCountMax;
 	}
 
 	public float GetCoefficient(string objectID) {
-		return _sectionSetting.GetSpawnObjectSetting(objectID).cycleCoefficientOnMax;
+		return WorldManager.Instance.GetSectionSetting(_section).GetSpawnObjectSetting(objectID).cycleCoefficientOnMax;
 	}
 	#endregion
     

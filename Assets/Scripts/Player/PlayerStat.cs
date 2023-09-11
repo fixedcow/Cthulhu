@@ -19,6 +19,14 @@ public class PlayerStat : MonoBehaviour
 	{
 		currentValue = Mathf.Clamp(currentValue + amount, minValue, maxValue);
 	}
+	public void AddMaxValue(int amount)
+	{
+		maxValue += amount;
+	}
+	public void FullHeal()
+	{
+		currentValue = maxValue;
+	}
 	#endregion
 
 	#region PrivateMethod

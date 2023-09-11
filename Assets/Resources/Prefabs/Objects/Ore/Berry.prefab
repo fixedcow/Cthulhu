@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e15d2f4b5030b024093f9cd0e6fe5513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectID: Berry
+  _objectID: BerryBush
   hittablePointA: {x: -0.5, y: 0.5}
   hittablePointB: {x: 0.5, y: -0.5}
 --- !u!114 &4835858055553044895
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d886a0b240db3ed43a6cae5275a2d9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectID: Berry
+  _objectID: BerryBush
 --- !u!61 &4835858055553044893
 BoxCollider2D:
   m_ObjectHideFlags: 0
