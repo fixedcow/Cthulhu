@@ -69,14 +69,14 @@ MonoBehaviour:
         isSpawnOnLoad: 0
         initialSpawnCount: 0
         spawnCountMax: 3
-        cycleCoefficientOnMax: 5
-        spawnCycleMin: 15
+        cycleCoefficientOnMax: 7
+        spawnCycleMin: 25
         spawnCycleMax: 30
         distributePrecision: 2
         spawnConditionOnSection: 0
         spawnConditionOnOpenedAreaNumber: 0
       - objectID: Rabbit
-        isSpawnOnLoad: 1
+        isSpawnOnLoad: 0
         initialSpawnCount: 1
         spawnCountMax: 3
         cycleCoefficientOnMax: 6

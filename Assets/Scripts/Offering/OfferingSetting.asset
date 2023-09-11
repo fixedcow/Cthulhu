@@ -22,7 +22,7 @@ MonoBehaviour:
   - cthulhuPresent: Make Ore Spawn Faster
   tier3Presents:
   - cthulhuPresent: Expand Inventory +2
-  - cthulhuPresent: Expand Inventory +1
+  - cthulhuPresent: Add Player Max HP +20
   - cthulhuPresent: Make Berry Drop More
   tier4Presents:
   - cthulhuPresent: Expand Inventory +1
@@ -34,8 +34,8 @@ MonoBehaviour:
   - cthulhuPresent: Add Player Max SP +20
   tier6Presents:
   - cthulhuPresent: Expand Inventory +3
-  - cthulhuPresent: Expand Inventory +1
-  - cthulhuPresent: Make Copper Spawn Silver
+  - cthulhuPresent: Add Player Max HP +20
+  - cthulhuPresent: Add Player Max SP +20
   tier7Presents:
   - cthulhuPresent: Expand Inventory +3
   - cthulhuPresent: Expand Inventory +1

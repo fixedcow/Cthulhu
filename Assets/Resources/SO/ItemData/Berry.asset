@@ -22,4 +22,4 @@ MonoBehaviour:
     IsStackable: 1
     MaxStackableNumber: 5
     Gold: 1
-    Point: 0
+    Point: 1
