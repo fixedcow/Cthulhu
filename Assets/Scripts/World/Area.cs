@@ -15,11 +15,16 @@ public class Area : MonoBehaviour
     #region PublicVariables 
 	public IReadOnlyList<IReadOnlyList<WorldObject>> SpawnObjectData => _spawnObjectData.AsReadOnly();
 	public bool HasOpened => _hasOpened;
+
+	public Vector2Int UnitPos => _unitPos;
+	public int Section { get { return _section; } }
+	public int AreaIdx { get { return _areaIdx; } }
 	#endregion
 
 	#region PrivateVariables
 	private int _section;
 	private int _areaIdx;
+	private Vector2Int _unitPos;
 	private SectionSetting _sectionSetting;
 	private List<List<WorldObject>> _spawnObjectData;
 
@@ -34,10 +39,11 @@ public class Area : MonoBehaviour
 	#endregion
 
 	#region PublicMethod
-	public void Init(int section, int areaIdx, SectionSetting sectionSetting)
+	public void Init(int section, int areaIdx, Vector2Int unitPos, SectionSetting sectionSetting)
 	{
 		_section = section;
 		_areaIdx = areaIdx;
+		_unitPos = unitPos;
 		_sectionSetting = sectionSetting;
 
 		int areaSize = WorldManager.Instance.GetAreaSize();

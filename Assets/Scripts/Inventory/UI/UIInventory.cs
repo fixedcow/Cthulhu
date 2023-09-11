@@ -60,9 +60,13 @@ public class UIInventory : MonoBehaviour
 			_slotContentTransform = transform.Find("UIPack/SlotContents").GetComponent<RectTransform>();
 		}
 
-		GameObject slotPrefab = Resources.Load<GameObject>("Prefabs/UI/UIInventorySlot");
+		GameObject slotPrefab = Resources.Load<GameObject>("Prefabs/UI/UIInventory/UIInventorySlot");
 		
 		if (_slotList == null || _slotList.Length != itemList.Length) {
+			foreach (Transform child in _slotContentTransform) {
+				Destroy(child.gameObject);
+			}
+
 			_slotList = new UIInventorySlot[itemList.Length];
 		}
 

@@ -34,6 +34,9 @@ namespace TH.Core {
 			_onStartDragCallback = onStartDragCallback;
 			_onPointerEnterCallback = onPointerEnterCallback;
 
+			GetComponent<RectTransform>().localScale = Vector3.zero;
+			GetComponent<RectTransform>().DOScale(1f, 0.2f).SetEase(Ease.OutBack);
+
 			SetSlot(true, idx, null);
 		}
 
@@ -42,6 +45,9 @@ namespace TH.Core {
 			_onSelectedCallback = onSelectedCallback;
 			_onStartDragCallback = onStartDragCallback;
 			_onPointerEnterCallback = onPointerEnterCallback;
+
+			GetComponent<RectTransform>().localScale = Vector3.zero;
+			GetComponent<RectTransform>().DOScale(1f, 0.2f).SetEase(Ease.OutBack);
 
 			SetSlot(false, idx, item);
 		}

@@ -9,10 +9,11 @@ namespace TH.Core {
 
 public class WorldManager : Singleton<WorldManager>
 {
-    #region PublicVariables
-	#endregion
+	#region PublicVariables
+		#endregion
 
 	#region PrivateVariables
+	[SerializeField] private AstarPath _aStar;
 	[SerializeField] private int _areaPadding = 2;
 
 	[SerializeField] private List<ObjectDataWrapper> _originalObjectDataList;
@@ -25,6 +26,7 @@ public class WorldManager : Singleton<WorldManager>
 	private WorldSetting _worldSetting;
 
 	[ShowInInspector] private Dictionary<int, List<Area>> _areaDict;
+	[SerializeField, ReadOnly] private List<List<Area>> _areaList;
 	#endregion
 
 	#region PublicMethod
@@ -57,6 +59,24 @@ public class WorldManager : Singleton<WorldManager>
 	public void OpenArea(int section, int areaIdx) {
 		_areaDict[section][areaIdx].Open();
 	}
+
+	public void MultiplyMaxStackableNumber(int multiplier) {
+		foreach (var item in _itemDataDict) {
+			item.Value.MaxStackableNumber *= multiplier;
+		}
+	}
+
+	public void MultiplyMaxStackableNumber(string itemId, int multiplier) {
+		_itemDataDict[itemId].MaxStackableNumber *= multiplier;
+	}
+
+	public void SetMaxStackableNumber(string itemId, int maxStackableNumber) {
+		_itemDataDict[itemId].MaxStackableNumber = maxStackableNumber;
+	}
+
+	public Area GetAreaByUnitPos(Vector2Int unitPos) {
+		return _areaList[unitPos.x][unitPos.y];
+	}
 	#endregion
     
 	#region PrivateMethod
@@ -68,6 +88,7 @@ public class WorldManager : Singleton<WorldManager>
 	private void GenerateWorld() {
 		LoadInitialSettings();
 		GenerateTiles();
+		_aStar.Scan();
 		_areaDict[0][0].Open();
 	}
 
@@ -93,15 +114,28 @@ public class WorldManager : Singleton<WorldManager>
 
 	private void GenerateTiles() {
 		_areaDict = new Dictionary<int, List<Area>>();
+		_areaList = new List<List<Area>>();
+		
+		int wholeWorldUnitSize = _worldSetting.sectionSettings.Length + 1;
+		for (int i = 0; i < (_worldSetting.sectionSettings.Length + 1); i++) {
+			List<Area> areaList = new List<Area>();
+			for (int j = 0; j < (_worldSetting.sectionSettings.Length + 1); j++) {
+				areaList.Add(null);
+			}
+			_areaList.Add(areaList);
+		}
 		
 		List<Area> area0List = new List<Area>();
 		Area area0 = Instantiate(_worldSetting.sectionSettings[0].sectionPrefab).GetComponent<Area>();
-		area0.Init(0, 0, GetSectionSetting(0));
+		area0.Init(0, 0, Vector2Int.zero, GetSectionSetting(0));
 		area0List.Add(area0);
 		_areaDict.Add(0, area0List);
+		_areaList[0][0] = area0;
 
 		int gap = _worldSetting.areaSize + _areaPadding;
 		int areaIdx;
+		int areaUnitPosX;
+		int areaUnitPosY;
 		for (int i = 1; i < _worldSetting.sectionSettings.Length; i++) {
 			List<Area> areaList = new List<Area>();
 			int leftUpperMostX = -(gap * ((i + 1) / 2));
@@ -114,8 +148,13 @@ public class WorldManager : Singleton<WorldManager>
 					int y = leftUpperMostY + (j / 2 == 0 ? 0 : -(gap * i));
 					area.transform.position = new Vector3(x, y, 0);
 
-					area.Init(i, areaIdx, GetSectionSetting(i));
+					areaUnitPosX = x / gap + (wholeWorldUnitSize / 2);
+					areaUnitPosY = y / gap + (wholeWorldUnitSize / 2);
+					_areaList[areaUnitPosX][areaUnitPosY] = area;
+
+					area.Init(i, areaIdx, new Vector2Int(areaUnitPosX, areaUnitPosY), GetSectionSetting(i));
 					areaList.Add(area);
+
 					areaIdx++;
 				} else {
 					int startX;
@@ -140,8 +179,13 @@ public class WorldManager : Singleton<WorldManager>
 						int y = startY + (j / 2 == 0 ? 0 : -gap * k);
 						area.transform.position = new Vector3(x, y, 0);
 						
-						area.Init(i, areaIdx, GetSectionSetting(i));
+						areaUnitPosX = x / gap + (wholeWorldUnitSize / 2);
+						areaUnitPosY = y / gap + (wholeWorldUnitSize / 2);
+						_areaList[areaUnitPosX][areaUnitPosY] = area;
+
+						area.Init(i, areaIdx, new Vector2Int(areaUnitPosX, areaUnitPosY), GetSectionSetting(i));
 						areaList.Add(area);
+
 						areaIdx++;
 					}
 				}	
@@ -153,8 +197,13 @@ public class WorldManager : Singleton<WorldManager>
 					int y = leftUpperMostY + (j / 2 == 0 ? 0 : -(gap * (i+1)));
 					area.transform.position = new Vector3(x, y, 0);
 
-					area.Init(i, areaIdx, GetSectionSetting(i));
+					areaUnitPosX = x / gap + (wholeWorldUnitSize / 2);
+					areaUnitPosY = y / gap + (wholeWorldUnitSize / 2);
+					_areaList[areaUnitPosX][areaUnitPosY] = area;
+
+					area.Init(i, areaIdx, new Vector2Int(areaUnitPosX, areaUnitPosY), GetSectionSetting(i));
 					areaList.Add(area);
+
 					areaIdx++;
 				} 
 			}

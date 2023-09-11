@@ -56,7 +56,7 @@ public class InventoryData
 		 return 
 		 	_slotList[targetIdx].StackedNumber + _slotList[originalIdx].StackedNumber 
 		 	<= 
-			_slotList[targetIdx].TargetItem.MaxStackableNumber;
+			WorldManager.Instance.GetItemData(_slotList[targetIdx].TargetItem.ItemID).MaxStackableNumber;
 	}
 
 	public InventoryItem ExtractItem(int targetIdx) {
@@ -105,7 +105,7 @@ public class InventoryData
 	}
 
 	public int MaxStackableNumber(int targetIdx) {
-		return _slotList[targetIdx].TargetItem.MaxStackableNumber;
+		return WorldManager.Instance.GetItemData(_slotList[targetIdx].TargetItem.ItemID).MaxStackableNumber;
 	}
 
 	public void AddNewItem(int targetIdx, InventoryItem item) {
@@ -242,6 +242,16 @@ public class InventoryData
 
 		_slotList[toIdx].StackedNumber += _slotList[fromIdx].StackedNumber;
 		_slotList[fromIdx] = null;
+
+		_hasModifiedThisFrame = true;
+	}
+
+	public void ExpandInventory(int expandNumber) {
+		InventoryItem[] newSlotList = new InventoryItem[_slotList.Length + expandNumber];
+		for (int i = 0; i < _slotList.Length; i++) {
+			newSlotList[i] = _slotList[i];
+		}
+		_slotList = newSlotList;
 
 		_hasModifiedThisFrame = true;
 	}
