@@ -22,6 +22,8 @@ public class ItemData
 	[SerializeField] public bool IsStackable;
 	[ShowIf("IsStackable", true)]
 	[SerializeField] public int MaxStackableNumber;
+	public int Gold;
+	public int Point;
 	#endregion
 
 	#region PrivateVariables
@@ -37,6 +39,8 @@ public class ItemData
 		ItemSprite = data.ItemSprite;
 		IsStackable = data.IsStackable;
 		MaxStackableNumber = data.MaxStackableNumber;
+		Gold = data.Gold;
+		Point = data.Point;
 	}
 	#endregion
     

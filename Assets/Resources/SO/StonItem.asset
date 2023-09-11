@@ -20,3 +20,5 @@ MonoBehaviour:
     ItemSprite: {fileID: 21300000, guid: 46e5fb4664d3eb64f90984bd23ac1cca, type: 3}
     IsStackable: 1
     MaxStackableNumber: 5
+    Gold: 5
+    Point: 1

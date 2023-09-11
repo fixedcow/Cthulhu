@@ -51,6 +51,7 @@ public class WorldObject : MonoBehaviour, IHittable
 	}
 	public virtual void Die()
 	{
+		CameraManager.Instance.Shake(CameraShaker.EShakingType.crash);
 		_drop.Drop();
 		Destroy(gameObject);
 	}
