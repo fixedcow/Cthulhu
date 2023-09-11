@@ -96,12 +96,18 @@ public class Inventory : MonoBehaviour
 		// 대상 슬롯이 비어있는 경우
 		if (_inventoryData.IsNull(targetIdx)) {
 			_inventoryData.MoveItem(originalIdx, targetIdx);
+			if (originalIdx == _selectedItemIdx) {
+				_selectedItemIdx = -1;
+			}
 			return true;
 		}
 
 		// 대상 슬롯의 아이템이 다른 경우
 		if (_inventoryData.HasSameItemType(targetIdx, originalIdx) == false) {
 			_inventoryData.SwapItem(targetIdx, originalIdx);
+			if (originalIdx == _selectedItemIdx) {
+				_selectedItemIdx = -1;
+			}
 			return true;
 		}
 
@@ -116,6 +122,9 @@ public class Inventory : MonoBehaviour
 			return true;
 		} else {
 			_inventoryData.MergeItems(originalIdx, targetIdx);
+			if (originalIdx == _selectedItemIdx) {
+				_selectedItemIdx = -1;
+			}
 			return true;
 		}
 	}
@@ -169,12 +178,15 @@ public class Inventory : MonoBehaviour
 			_selectedItemIdx++;
 			if (_selectedItemIdx == _maxItemNumber) {
 				_selectedItemIdx = -1;
+
+				InventorySystem.Instance.GetInventoryOwner(this).OnSelectItem(_selectedItemIdx);
 				break;
 			}
 			if (_inventoryData.IsNull(_selectedItemIdx)) {
 				continue;
 			}
 			
+			InventorySystem.Instance.GetInventoryOwner(this).OnSelectItem(_selectedItemIdx);
 			break;
 		}
 		Debug.Log(SelectedItemIdx);
@@ -190,6 +202,7 @@ public class Inventory : MonoBehaviour
 
 		if (_selectedItemIdx == idx) {
 			_selectedItemIdx = -1;
+			InventorySystem.Instance.GetInventoryOwner(this).OnSelectItem(_selectedItemIdx);
 			return;
 		}
 
@@ -198,6 +211,7 @@ public class Inventory : MonoBehaviour
 		}
 
 		_selectedItemIdx = idx;
+		InventorySystem.Instance.GetInventoryOwner(this).OnSelectItem(_selectedItemIdx);
 	}
 	#endregion
     

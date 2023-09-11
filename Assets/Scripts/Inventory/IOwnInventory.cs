@@ -26,6 +26,8 @@ public interface IOwnInventory
 	/// <param name="item">사용된 아이템</param>
 	/// <param name="quantity">사용된 아이템 수량</param>
 	public void OnUseItem(ItemData item, int quantity);
+
+	public void OnSelectItem(int idx);
 	#endregion
     
 	#region PrivateMethod
