@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IInteractable : ITargetable
 {
-	public void Interact();
+	public void Interact(int inventoryIndex);
 }

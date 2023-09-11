@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 	private PlayerAttack _attack;
 	private PlayerInteract _interact;
 	private PlayerTarget _target;
+	private PlayerItemHandler _itemHandler;
 
 	private bool _canAct = true;
 	#endregion
@@ -33,7 +34,7 @@ public class Player : MonoBehaviour
 	}
 	public void Attack()
 	{
-		if (_canAct == false)
+		if (_canAct == false || _itemHandler.IsHandleSomething() == true)
 			return;
 
 		_attack.Attack();
@@ -57,6 +58,10 @@ public class Player : MonoBehaviour
 	{
 
 	}
+	public void HandleItem(int index)
+	{
+		_itemHandler.HandleItem(index);
+	}
 	#endregion
 
 	#region PrivateMethod
@@ -68,15 +73,24 @@ public class Player : MonoBehaviour
 		TryGetComponent(out _attack);
 		TryGetComponent(out _interact);
 		TryGetComponent(out _target);
+		transform.Find("Item Handler").TryGetComponent(out _itemHandler);
 	}
 	private void Update()
 	{
+		SetDirectionX();
 		_target.CheckTarget();
 		_target.HighlightTarget();
 		if (_canAct == false)
 			return;
 		_attack.HandleInput();
 		_move.HandleInput();
+	}
+	private void SetDirectionX()
+	{
+		int dirX = Utils.MousePosition.x > transform.position.x ? -1 : 1;
+		Vector3 dir = new Vector3(dirX, 1, 1);
+		transform.localScale = dir;
+		_itemHandler.SetDirectionX(dir);
 	}
 	#endregion
 }

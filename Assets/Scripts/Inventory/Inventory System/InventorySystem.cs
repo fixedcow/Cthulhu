@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -17,6 +16,22 @@ namespace TH.Core
 
 		public const int NULL_ITEM_ID = -1;
 		public const int TRASH_ITEM_ID = -2;
+
+		public static readonly Dictionary<int, KeyCode> KEY_CODE_TABLE = new Dictionary<int, KeyCode>()
+		{
+			{10, KeyCode.Alpha0},
+			{1, KeyCode.Alpha1},
+			{2, KeyCode.Alpha2},
+			{3, KeyCode.Alpha3},
+			{4, KeyCode.Alpha4},
+			{5, KeyCode.Alpha5},
+			{6, KeyCode.Alpha6},
+			{7, KeyCode.Alpha7},
+			{8, KeyCode.Alpha8},
+			{9, KeyCode.Alpha9},
+		};
+
+		public static readonly KeyCode NEXT_KEYCODE = KeyCode.Tab;
 		#endregion
 
 		#region PrivateVariables
@@ -82,6 +97,17 @@ namespace TH.Core
 				if (inventoryPacks[i].inventoryOwner == inventoryOwner)
 				{
 					return inventoryPacks[i].inventory;
+				}
+			}
+			return null;
+		}
+
+		public IOwnInventory GetInventoryOwner(Inventory inventory) {
+			for (int i = 0; i < inventoryPacks.Length; i++)
+			{
+				if (inventoryPacks[i].inventory == inventory)
+				{
+					return inventoryPacks[i].inventoryOwner;
 				}
 			}
 			return null;
