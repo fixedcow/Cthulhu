@@ -18,6 +18,6 @@ MonoBehaviour:
     ItemDescription: "\uC0C8\uCF64\uB2EC\uCF64\uD55C \uBCA0\uB9AC\uC785\uB2C8\uB2E4.
       \uC12D\uCDE8 \uC2DC \uCCB4\uB825\uC774 \uD68C\uBCF5\uB429\uB2C8\uB2E4."
     ItemFlavorText: "\"\uBCA0\uB9AC\uBCA0\uB9AC \uB2EC\uCF64\uD574\""
-    ItemSprite: {fileID: 0}
+    ItemSprite: {fileID: -488834573, guid: 11034deeea8b1174eabcb4270842246d, type: 3}
     IsStackable: 0
     MaxStackableNumber: 0

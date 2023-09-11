@@ -15,8 +15,8 @@ MonoBehaviour:
   objectData:
     objectID: CopperOre
     objectName: "\uAD6C\uB9AC \uAD11\uC11D"
-    hpMax: 0
+    hpMax: 3
     objectPrefab: {fileID: 0}
-    dropItem: {fileID: 0}
+    dropItem: {fileID: 382468548090596387, guid: 6c7cac3084ba8114b9749ea41b39e2fb, type: 3}
     dropQuantityMin: 0
     dropQuantityMax: 0
