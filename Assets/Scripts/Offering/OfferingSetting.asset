@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tier1Presents:
   - cthulhuPresent: Expand Inventory +1
+  - cthulhuPresent: Multiply Max Stackable Object All
   tier2Presents: []
   tier3Presents: []
