@@ -10,7 +10,16 @@ namespace TH.Core {
 public class WorldManager : Singleton<WorldManager>
 {
 	#region PublicVariables
-		#endregion
+	public readonly Dictionary<int, int> AREA_TIER_COST = new Dictionary<int, int>() {
+		{1, 30},
+		{2, 60},
+		{3, 100},
+		{4, 150},
+		{5, 200},
+		{6, 300},
+		{7, 500}
+	};
+	#endregion
 
 	#region PrivateVariables
 	[SerializeField] private AstarPath _aStar;

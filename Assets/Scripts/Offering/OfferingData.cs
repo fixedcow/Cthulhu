@@ -14,6 +14,8 @@ public class OfferingData : ScriptableObject
 	const string EXPAND_INVENTORY_BY_FOUR = "Expand Inventory +4";
 	const string MULTIPLY_MAX_STACKABLE_OBJECT_ALL = "Multiply Max Stackable Object All";
 	const string MULTIPLY_MAX_STACKABLE_OBJECT_COPPER = "Multiply Max Stackable Object Copper";
+	const string ADD_PLAYER_MAX_HP = "Add Player Max HP +20";
+	const string ADD_PLAYER_MAX_SP = "Add Player Max SP +20";
 	const string MAKE_BERRY_SPAWN_GOLD = "Make Berry Spawn Gold";
 
 	readonly static Dictionary<string, Func<PresentFunction.Inner>> presentFunctionPool = new Dictionary<string, Func<PresentFunction.Inner>>() {
@@ -22,6 +24,8 @@ public class OfferingData : ScriptableObject
 		{ EXPAND_INVENTORY_BY_FOUR, OfferingManager.ExpandInventoryByFour },
 		{ MULTIPLY_MAX_STACKABLE_OBJECT_ALL, OfferingManager.DoubleMaxStackableObjectAll },
 		{ MULTIPLY_MAX_STACKABLE_OBJECT_COPPER, OfferingManager.DoubleMaxStackableCopper },
+		{ ADD_PLAYER_MAX_HP, OfferingManager.AddPlayerMaxHealth },
+		{ ADD_PLAYER_MAX_SP, OfferingManager.AddPlayerMaxSanity },
 		{ MAKE_BERRY_SPAWN_GOLD, OfferingManager.MakeBerrySpawnGold },
 	};
 
@@ -76,6 +80,8 @@ public class OfferingData : ScriptableObject
 			EXPAND_INVENTORY_BY_FOUR,
 			MULTIPLY_MAX_STACKABLE_OBJECT_ALL,
 			MULTIPLY_MAX_STACKABLE_OBJECT_COPPER,
+			ADD_PLAYER_MAX_HP,
+			ADD_PLAYER_MAX_SP,
 			MAKE_BERRY_SPAWN_GOLD,
 		};
 
