@@ -99,7 +99,7 @@ public class OfferingManager : Singleton<OfferingManager>
 		}
 
 		static void RealAction() {
-			WorldManager.Instance.MultiplyMaxStackableNumber("Chicken", 2);
+			WorldManager.Instance.MultiplyMaxStackableNumber("DeadChicken", 2);
 		}
 
 		return new PresentFunction.Inner(Name, Description, RealAction);
