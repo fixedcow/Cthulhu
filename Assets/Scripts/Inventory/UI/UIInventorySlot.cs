@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
+using DG.Tweening;
 
 namespace TH.Core {
 
@@ -22,6 +23,7 @@ namespace TH.Core {
 		private bool _isPointerDown;
 		private float _selectedTime;
 		private bool _isNull;
+		private bool _isSelected;
 		private Image _itemImage;
 		private TextMeshProUGUI _stackedNumberText;
 		#endregion
@@ -93,6 +95,18 @@ namespace TH.Core {
 		public void OnPointerExit(PointerEventData eventData)
 		{
 			_onPointerEnterCallback(InventorySystem.NULL_ITEM_ID);
+		}
+
+		public void Select() {
+			if (_isSelected == true) return;
+			transform.DOScale(1.2f, 0.2f).SetEase(Ease.OutBack);
+			_isSelected = true;
+		}
+
+		public void UnSelect() {
+			if (_isSelected == false) return;
+			transform.DOScale(1f, 0.2f).SetEase(Ease.OutBack);
+			_isSelected = false;
 		}
         #endregion
 

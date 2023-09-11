@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 2135731266628951720}
   - component: {fileID: 8389650273433418068}
   m_Layer: 5
-  m_Name: HP
+  m_Name: San
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.27843133, g: 0.5637468, b: 0.93333334, a: 1}
+  m_Color: {r: 0.23529413, g: 0.62352943, b: 0.6117647, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
