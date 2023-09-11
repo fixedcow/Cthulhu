@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cf0ddad42a91124bb03417bc30de0c2, type: 3}
+  m_Name: REALTESTWORLDSETTINGFINALLAST
+  m_EditorClassIdentifier: 
+  worldSetting:
+    areaSize: 12
+    sectionSettings:
+    - sectionPrefab: {fileID: 2156253339605112777, guid: 744a0f4c2ee8d6b439f8229cb65c4a74, type: 3}
+      spawnBerrySettings:
+      - objectID: Stone
+        isSpawnOnLoad: 1
+        initialSpawnCount: 5
+        spawnCountMax: 7
+        cycleCoefficientOnMax: 100
+        spawnCycleMin: 1
+        spawnCycleMax: 1
+        distributePrecision: 2
+      spawnMineSettings: []
+      spawnAnimalSettings:
+      - objectID: Rabbit
+        isSpawnOnLoad: 1
+        initialSpawnCount: 1
+        spawnCountMax: 3
+        cycleCoefficientOnMax: 100
+        spawnCycleMin: 2
+        spawnCycleMax: 2
+        distributePrecision: 6
+        spawnConditionOnSection: 0
+        spawnConditionOnOpenedAreaNumber: 0
+      - objectID: Cow
+        isSpawnOnLoad: 1
+        initialSpawnCount: 1
+        spawnCountMax: 3
+        cycleCoefficientOnMax: 100
+        spawnCycleMin: 2
+        spawnCycleMax: 2
+        distributePrecision: 6
+        spawnConditionOnSection: 0
+        spawnConditionOnOpenedAreaNumber: 0
+      - objectID: Dog
+        isSpawnOnLoad: 1
+        initialSpawnCount: 1
+        spawnCountMax: 3
+        cycleCoefficientOnMax: 100
+        spawnCycleMin: 2
+        spawnCycleMax: 2
+        distributePrecision: 6
+        spawnConditionOnSection: 0
+        spawnConditionOnOpenedAreaNumber: 0
+      - objectID: Chicken
+        isSpawnOnLoad: 1
+        initialSpawnCount: 1
+        spawnCountMax: 3
+        cycleCoefficientOnMax: 100
+        spawnCycleMin: 2
+        spawnCycleMax: 2
+        distributePrecision: 6
+        spawnConditionOnSection: 0
+        spawnConditionOnOpenedAreaNumber: 0
+    - sectionPrefab: {fileID: 4285130682464014634, guid: 882c9ad74262f6641a967d249e4c57d2, type: 3}
+      spawnBerrySettings:
+      - objectID: Stone
+        isSpawnOnLoad: 1
+        initialSpawnCount: 3
+        spawnCountMax: 10
+        cycleCoefficientOnMax: 100
+        spawnCycleMin: 1
+        spawnCycleMax: 1
+        distributePrecision: 2
+      spawnMineSettings: []
+      spawnAnimalSettings:
+      - objectID: Cow
+        isSpawnOnLoad: 0
+        initialSpawnCount: 0
+        spawnCountMax: 10
+        cycleCoefficientOnMax: 100
+        spawnCycleMin: 1
+        spawnCycleMax: 1
+        distributePrecision: 2
+        spawnConditionOnSection: 1
+        spawnConditionOnOpenedAreaNumber: 1
+    - sectionPrefab: {fileID: 6305996840126458707, guid: 03f6f449bd078a24ea5cbb39efe022bc, type: 3}
+      spawnBerrySettings: []
+      spawnMineSettings: []
+      spawnAnimalSettings: []
+    - sectionPrefab: {fileID: 4285130682464014634, guid: 882c9ad74262f6641a967d249e4c57d2, type: 3}
+      spawnBerrySettings: []
+      spawnMineSettings: []
+      spawnAnimalSettings: []
+    - sectionPrefab: {fileID: 281087186028740551, guid: e3238060a85b1824fb6f1022253795d5, type: 3}
+      spawnBerrySettings: []
+      spawnMineSettings: []
+      spawnAnimalSettings: []
+    - sectionPrefab: {fileID: 6305996840126458707, guid: 03f6f449bd078a24ea5cbb39efe022bc, type: 3}
+      spawnBerrySettings: []
+      spawnMineSettings: []
+      spawnAnimalSettings: []
+    - sectionPrefab: {fileID: 281087186028740551, guid: e3238060a85b1824fb6f1022253795d5, type: 3}
+      spawnBerrySettings: []
+      spawnMineSettings: []
+      spawnAnimalSettings: []
+    - sectionPrefab: {fileID: 4285130682464014634, guid: 882c9ad74262f6641a967d249e4c57d2, type: 3}
+      spawnBerrySettings: []
+      spawnMineSettings: []
+      spawnAnimalSettings: []
