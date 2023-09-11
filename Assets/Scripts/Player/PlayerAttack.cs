@@ -13,7 +13,6 @@ public class PlayerAttack : MonoBehaviour
 	private PlayerTarget _target;
 
 	[SerializeField] private int _damage;
-	[SerializeField] private float _speed;
 
 	private bool _inputExist;
 	#endregion

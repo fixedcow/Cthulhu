@@ -4,6 +4,7 @@ using TH.Core;
 using UnityEngine;
 using DG.Tweening;
 using TMPro;
+using System.Data.SqlTypes;
 
 public class DropItem : MonoBehaviour
 {
@@ -23,11 +24,16 @@ public class DropItem : MonoBehaviour
 	private Player _player;
 	private PlayerItemGetter _getter;
 	private float _speed;
+	private float _pickDelayTimer = 0f;
+	private static float _pickDelay = 0.5f;
+	private bool _canPick = false;
 	#endregion
 
 	#region PublicMethod
 	public void PickedBy(PlayerItemGetter getter, float speed)
 	{
+		if (_canPick == false)
+			return;
 		transform.DOKill();
 		if(getter.IsItemAvailableToInventory(WorldManager.Instance.GetItemData(itemID), _quantity))
 		{
@@ -44,6 +50,16 @@ public class DropItem : MonoBehaviour
 			Initialize();
 		}
 	}
+	public void Initialize()
+	{
+		_player = GameManager.Instance.GetPlayer();
+		_isPicked = false;
+		_speed = 0f;
+		_getter = null;
+		_shineTimer = 0f;
+		_canPick = false;
+		_pickDelayTimer = 0f;
+	}
 	#endregion
 
 	#region PrivateMethod
@@ -59,6 +75,7 @@ public class DropItem : MonoBehaviour
 	}
 	private void Update()
 	{
+		CheckPickDelay();
 		UpdateQuantity();
 		ShineSelf();
 		PickedByPlayer();
@@ -67,13 +84,16 @@ public class DropItem : MonoBehaviour
 			RunToPlayer();
 		}
 	}
-	private void Initialize()
+	private void CheckPickDelay()
 	{
-		_player = GameManager.Instance.GetPlayer();
-		_isPicked = false;
-		_speed = 0f;
-		_getter = null;
-		_shineTimer = 0f;
+		if(_canPick == false)
+		{
+			_pickDelayTimer += Time.deltaTime;
+			if( _pickDelayTimer > _pickDelay)
+			{
+				_canPick = true;
+			}
+		}
 	}
 	private void RunToPlayer()
 	{

@@ -15,45 +15,247 @@ MonoBehaviour:
   worldSetting:
     areaSize: 12
     sectionSettings:
-    - sectionPrefab: {fileID: 0}
-      spawnBerrySettings: []
-      spawnMineSettings: []
-      spawnAnimalSettings: []
-    - sectionPrefab: {fileID: 0}
-      spawnBerrySettings: []
-      spawnMineSettings: []
-      spawnAnimalSettings: []
-    - sectionPrefab: {fileID: 0}
-      spawnBerrySettings: []
-      spawnMineSettings: []
-      spawnAnimalSettings: []
-    - sectionPrefab: {fileID: 0}
-      spawnBerrySettings: []
-      spawnMineSettings: []
+    - sectionPrefab: {fileID: 2156253339605112777, guid: c51b7d6bb0a615d44a362a9abcd248db, type: 3}
+      spawnBerrySettings:
+      - objectID: Berry
+        isSpawnOnLoad: 1
+        initialSpawnCount: 2
+        spawnCountMax: 5
+        cycleCoefficientOnMax: 3
+        spawnCycleMin: 20
+        spawnCycleMax: 60
+        distributePrecision: 2
+      spawnMineSettings:
+      - objectID: Copper
+        isSpawnOnLoad: 1
+        initialSpawnCount: 1
+        spawnCountMax: 5
+        cycleCoefficientOnMax: 2.5
+        spawnCycleMin: 20
+        spawnCycleMax: 50
+        distributePrecision: 2
       spawnAnimalSettings:
-      - objectID: 
+      - objectID: Chicken
         isSpawnOnLoad: 0
         initialSpawnCount: 0
-        spawnCountMax: 0
-        cycleCoefficientOnMax: 1
-        spawnCycleMin: 0
-        spawnCycleMax: 0
+        spawnCountMax: 2
+        cycleCoefficientOnMax: 7
+        spawnCycleMin: 20
+        spawnCycleMax: 40
         distributePrecision: 0
         spawnConditionOnSection: 0
         spawnConditionOnOpenedAreaNumber: 0
-    - sectionPrefab: {fileID: 0}
+    - sectionPrefab: {fileID: 2156253339605112777, guid: 744a0f4c2ee8d6b439f8229cb65c4a74, type: 3}
+      spawnBerrySettings:
+      - objectID: Berry
+        isSpawnOnLoad: 1
+        initialSpawnCount: 1
+        spawnCountMax: 2
+        cycleCoefficientOnMax: 7
+        spawnCycleMin: 30
+        spawnCycleMax: 60
+        distributePrecision: 2
+      spawnMineSettings:
+      - objectID: Copper
+        isSpawnOnLoad: 1
+        initialSpawnCount: 2
+        spawnCountMax: 5
+        cycleCoefficientOnMax: 2
+        spawnCycleMin: 10
+        spawnCycleMax: 30
+        distributePrecision: 2
+      spawnAnimalSettings:
+      - objectID: Chicken
+        isSpawnOnLoad: 0
+        initialSpawnCount: 0
+        spawnCountMax: 3
+        cycleCoefficientOnMax: 5
+        spawnCycleMin: 15
+        spawnCycleMax: 30
+        distributePrecision: 0
+        spawnConditionOnSection: 0
+        spawnConditionOnOpenedAreaNumber: 0
+      - objectID: Rabbit
+        isSpawnOnLoad: 1
+        initialSpawnCount: 1
+        spawnCountMax: 3
+        cycleCoefficientOnMax: 6
+        spawnCycleMin: 20
+        spawnCycleMax: 30
+        distributePrecision: 2
+        spawnConditionOnSection: 1
+        spawnConditionOnOpenedAreaNumber: 0
+    - sectionPrefab: {fileID: 3124035656356974953, guid: d7c132e90aa32d94fb3d807aa4c9e195, type: 3}
+      spawnBerrySettings:
+      - objectID: Berry
+        isSpawnOnLoad: 1
+        initialSpawnCount: 0
+        spawnCountMax: 2
+        cycleCoefficientOnMax: 2.5
+        spawnCycleMin: 40
+        spawnCycleMax: 50
+        distributePrecision: 2
+      spawnMineSettings:
+      - objectID: Copper
+        isSpawnOnLoad: 1
+        initialSpawnCount: 2
+        spawnCountMax: 6
+        cycleCoefficientOnMax: 4
+        spawnCycleMin: 15
+        spawnCycleMax: 40
+        distributePrecision: 2
+      - objectID: Silver
+        isSpawnOnLoad: 1
+        initialSpawnCount: 0
+        spawnCountMax: 3
+        cycleCoefficientOnMax: 5
+        spawnCycleMin: 30
+        spawnCycleMax: 45
+        distributePrecision: 0
+      spawnAnimalSettings:
+      - objectID: Chicken
+        isSpawnOnLoad: 0
+        initialSpawnCount: 0
+        spawnCountMax: 2
+        cycleCoefficientOnMax: 2.5
+        spawnCycleMin: 20
+        spawnCycleMax: 35
+        distributePrecision: 2
+        spawnConditionOnSection: 0
+        spawnConditionOnOpenedAreaNumber: 0
+      - objectID: Rabbit
+        isSpawnOnLoad: 1
+        initialSpawnCount: 1
+        spawnCountMax: 3
+        cycleCoefficientOnMax: 2
+        spawnCycleMin: 15
+        spawnCycleMax: 30
+        distributePrecision: 2
+        spawnConditionOnSection: 1
+        spawnConditionOnOpenedAreaNumber: 0
+    - sectionPrefab: {fileID: 4285130682464014634, guid: 882c9ad74262f6641a967d249e4c57d2, type: 3}
+      spawnBerrySettings:
+      - objectID: Berry
+        isSpawnOnLoad: 1
+        initialSpawnCount: 0
+        spawnCountMax: 2
+        cycleCoefficientOnMax: 2.5
+        spawnCycleMin: 35
+        spawnCycleMax: 40
+        distributePrecision: 3
+      spawnMineSettings:
+      - objectID: Copper
+        isSpawnOnLoad: 1
+        initialSpawnCount: 2
+        spawnCountMax: 8
+        cycleCoefficientOnMax: 2
+        spawnCycleMin: 15
+        spawnCycleMax: 20
+        distributePrecision: 2
+      - objectID: Silver
+        isSpawnOnLoad: 1
+        initialSpawnCount: 1
+        spawnCountMax: 4
+        cycleCoefficientOnMax: 5
+        spawnCycleMin: 20
+        spawnCycleMax: 30
+        distributePrecision: 0
+      spawnAnimalSettings:
+      - objectID: Chicken
+        isSpawnOnLoad: 0
+        initialSpawnCount: 0
+        spawnCountMax: 2
+        cycleCoefficientOnMax: 1
+        spawnCycleMin: 30
+        spawnCycleMax: 40
+        distributePrecision: 3
+        spawnConditionOnSection: 0
+        spawnConditionOnOpenedAreaNumber: 0
+      - objectID: Rabbit
+        isSpawnOnLoad: 0
+        initialSpawnCount: 1
+        spawnCountMax: 3
+        cycleCoefficientOnMax: 2
+        spawnCycleMin: 15
+        spawnCycleMax: 30
+        distributePrecision: 2
+        spawnConditionOnSection: 1
+        spawnConditionOnOpenedAreaNumber: 0
+      - objectID: Dog
+        isSpawnOnLoad: 0
+        initialSpawnCount: 0
+        spawnCountMax: 2
+        cycleCoefficientOnMax: 5
+        spawnCycleMin: 30
+        spawnCycleMax: 35
+        distributePrecision: 3
+        spawnConditionOnSection: 3
+        spawnConditionOnOpenedAreaNumber: 3
+    - sectionPrefab: {fileID: 281087186028740551, guid: e3238060a85b1824fb6f1022253795d5, type: 3}
+      spawnBerrySettings:
+      - objectID: Berry
+        isSpawnOnLoad: 0
+        initialSpawnCount: 0
+        spawnCountMax: 2
+        cycleCoefficientOnMax: 7
+        spawnCycleMin: 30
+        spawnCycleMax: 50
+        distributePrecision: 2
+      spawnMineSettings:
+      - objectID: Copper
+        isSpawnOnLoad: 0
+        initialSpawnCount: 3
+        spawnCountMax: 6
+        cycleCoefficientOnMax: 1
+        spawnCycleMin: 15
+        spawnCycleMax: 20
+        distributePrecision: 2
+      - objectID: Silver
+        isSpawnOnLoad: 1
+        initialSpawnCount: 1
+        spawnCountMax: 5
+        cycleCoefficientOnMax: 2.5
+        spawnCycleMin: 20
+        spawnCycleMax: 30
+        distributePrecision: 0
+      - objectID: Gold
+        isSpawnOnLoad: 1
+        initialSpawnCount: 1
+        spawnCountMax: 4
+        cycleCoefficientOnMax: 3
+        spawnCycleMin: 25
+        spawnCycleMax: 30
+        distributePrecision: 2
+      spawnAnimalSettings:
+      - objectID: Dog
+        isSpawnOnLoad: 0
+        initialSpawnCount: 0
+        spawnCountMax: 2
+        cycleCoefficientOnMax: 10
+        spawnCycleMin: 20
+        spawnCycleMax: 30
+        distributePrecision: 0
+        spawnConditionOnSection: 3
+        spawnConditionOnOpenedAreaNumber: 3
+      - objectID: Cow
+        isSpawnOnLoad: 0
+        initialSpawnCount: 0
+        spawnCountMax: 2
+        cycleCoefficientOnMax: 4
+        spawnCycleMin: 40
+        spawnCycleMax: 60
+        distributePrecision: 3
+        spawnConditionOnSection: 4
+        spawnConditionOnOpenedAreaNumber: 1
+    - sectionPrefab: {fileID: 6305996840126458707, guid: 03f6f449bd078a24ea5cbb39efe022bc, type: 3}
       spawnBerrySettings: []
       spawnMineSettings: []
       spawnAnimalSettings: []
-    - sectionPrefab: {fileID: 0}
+    - sectionPrefab: {fileID: 2156253339605112777, guid: 744a0f4c2ee8d6b439f8229cb65c4a74, type: 3}
       spawnBerrySettings: []
       spawnMineSettings: []
       spawnAnimalSettings: []
-    - sectionPrefab: {fileID: 0}
-      spawnBerrySettings: []
-      spawnMineSettings: []
-      spawnAnimalSettings: []
-    - sectionPrefab: {fileID: 0}
+    - sectionPrefab: {fileID: 281087186028740551, guid: e3238060a85b1824fb6f1022253795d5, type: 3}
       spawnBerrySettings: []
       spawnMineSettings: []
       spawnAnimalSettings: []

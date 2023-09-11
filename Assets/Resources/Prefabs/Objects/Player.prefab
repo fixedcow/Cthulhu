@@ -355,7 +355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minValue: 0
-  maxValue: 0
+  maxValue: 100
   currentValue: 0
 --- !u!114 &5713167191898180063
 MonoBehaviour:
@@ -370,7 +370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minValue: 0
-  maxValue: 0
+  maxValue: 100
   currentValue: 0
 --- !u!114 &5713167191898180059
 MonoBehaviour:
@@ -397,8 +397,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c9fd1776e4e5a84eb3f6ed5a11e3d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickedRadius: 2
-  _pickedSpeed: 10
+  _pickedRadius: 1.5
+  _pickedSpeed: 12
 --- !u!114 &5713167191898180062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,7 +413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hittableUI: {fileID: 0}
   _interactableUI: {fileID: 0}
-  interactableDistance: 3
+  interactableDistance: 2
 --- !u!114 &5713167191898180058
 MonoBehaviour:
   m_ObjectHideFlags: 0

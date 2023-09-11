@@ -17,6 +17,8 @@ public class Area : MonoBehaviour
 	public bool HasOpened => _hasOpened;
 
 	public Vector2Int UnitPos => _unitPos;
+	public int Section { get { return _section; } }
+	public int AreaIdx { get { return _areaIdx; } }
 	#endregion
 
 	#region PrivateVariables
