@@ -8,41 +8,41 @@ using DG.Tweening;
 public class UIButton : MonoBehaviour
 {
 	#region PublicVariables
-	public UnityEvent onButtonClicked;
+	public UnityEvent _onButtonClicked;
 	#endregion
 
 	#region PrivateVariables
-	private bool mouseOver;
-	private bool mouseDown;
-	#endregion
+	private bool _mouseOver;
+	private bool _mouseDown;
+    #endregion
 
-	#region PublicMethod
-	#endregion
+    #region PublicMethod
+    #endregion
 
-	#region PrivateMethod
-	private void OnMouseEnter()
+    #region PrivateMethod
+    private void OnMouseEnter()
 	{
-		mouseOver = true;
+		_mouseOver = true;
 		transform.DOScale(1.05f, 0.1f);
 	}
 	private void OnMouseExit()
 	{
-		mouseOver = false;
+		_mouseOver = false;
 		transform.DOScale(1f, 0.1f);
 	}
 	private void OnMouseDown()
 	{
-		mouseDown = true;
+		_mouseDown = true;
 		transform.DOScale(0.95f, 0.1f);
 	}
 	private void OnMouseUp()
 	{
-		if(mouseDown && mouseOver)
+		if(_mouseDown && _mouseOver)
 		{
 			transform.DOScale(1f, 0.1f).From(1.1f);
-			onButtonClicked.Invoke();
+			_onButtonClicked.Invoke();
 		}
-		mouseDown = false;
+		_mouseDown = false;
 	}
 	#endregion
 }
