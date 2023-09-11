@@ -272,6 +272,8 @@ GameObject:
   - component: {fileID: 7343217465367530483}
   - component: {fileID: 7343217465367530492}
   - component: {fileID: 7343217465367530493}
+  - component: {fileID: 4911720765588425884}
+  - component: {fileID: 5833570800145702055}
   m_Layer: 0
   m_Name: BuyAreaText
   m_TagString: Untagged
@@ -435,3 +437,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 7343217465367530492}
   m_maskType: 0
+--- !u!33 &4911720765588425884
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7343217465367530494}
+  m_Mesh: {fileID: 0}
+--- !u!210 &5833570800145702055
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7343217465367530494}
+  m_Enabled: 1
+  m_SortingLayerID: 956351981
+  m_SortingLayer: 4
+  m_SortingOrder: 0
