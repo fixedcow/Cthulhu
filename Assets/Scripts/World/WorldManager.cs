@@ -71,7 +71,11 @@ public class WorldManager : Singleton<WorldManager>
 
 	public void SetMaxStackableNumber(string itemId, int maxStackableNumber) {
 		_itemDataDict[itemId].MaxStackableNumber = maxStackableNumber;
-	} 
+	}
+
+	public Area GetAreaByUnitPos(Vector2Int unitPos) {
+		return _areaList[unitPos.x][unitPos.y];
+	}
 	#endregion
     
 	#region PrivateMethod
@@ -110,6 +114,7 @@ public class WorldManager : Singleton<WorldManager>
 		_areaDict = new Dictionary<int, List<Area>>();
 		_areaList = new List<List<Area>>();
 		
+		int wholeWorldUnitSize = _worldSetting.sectionSettings.Length + 1;
 		for (int i = 0; i < (_worldSetting.sectionSettings.Length + 1); i++) {
 			List<Area> areaList = new List<Area>();
 			for (int j = 0; j < (_worldSetting.sectionSettings.Length + 1); j++) {
@@ -141,8 +146,8 @@ public class WorldManager : Singleton<WorldManager>
 					int y = leftUpperMostY + (j / 2 == 0 ? 0 : -(gap * i));
 					area.transform.position = new Vector3(x, y, 0);
 
-					areaUnitPosX = x / gap;
-					areaUnitPosY = y / gap;
+					areaUnitPosX = x / gap + (wholeWorldUnitSize / 2);
+					areaUnitPosY = y / gap + (wholeWorldUnitSize / 2);
 					_areaList[areaUnitPosX][areaUnitPosY] = area;
 
 					area.Init(i, areaIdx, new Vector2Int(areaUnitPosX, areaUnitPosY), GetSectionSetting(i));
@@ -172,8 +177,8 @@ public class WorldManager : Singleton<WorldManager>
 						int y = startY + (j / 2 == 0 ? 0 : -gap * k);
 						area.transform.position = new Vector3(x, y, 0);
 						
-						areaUnitPosX = x / gap;
-						areaUnitPosY = y / gap;
+						areaUnitPosX = x / gap + (wholeWorldUnitSize / 2);
+						areaUnitPosY = y / gap + (wholeWorldUnitSize / 2);
 						_areaList[areaUnitPosX][areaUnitPosY] = area;
 
 						area.Init(i, areaIdx, new Vector2Int(areaUnitPosX, areaUnitPosY), GetSectionSetting(i));
@@ -190,8 +195,8 @@ public class WorldManager : Singleton<WorldManager>
 					int y = leftUpperMostY + (j / 2 == 0 ? 0 : -(gap * (i+1)));
 					area.transform.position = new Vector3(x, y, 0);
 
-					areaUnitPosX = x / gap;
-					areaUnitPosY = y / gap;
+					areaUnitPosX = x / gap + (wholeWorldUnitSize / 2);
+					areaUnitPosY = y / gap + (wholeWorldUnitSize / 2);
 					_areaList[areaUnitPosX][areaUnitPosY] = area;
 
 					area.Init(i, areaIdx, new Vector2Int(areaUnitPosX, areaUnitPosY), GetSectionSetting(i));
