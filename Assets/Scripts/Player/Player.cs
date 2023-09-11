@@ -21,6 +21,14 @@ public class Player : MonoBehaviour
 	#endregion
 
 	#region PublicMethod
+	public void AddMaxHealth(int amount)
+	{
+		_health.AddMaxValue(amount);
+	}
+	public void AddMaxSanity(int amount)
+	{
+		_sanity.AddMaxValue(amount);
+	}
 	public void Move(Vector2 inputDirection)
 	{
 		if (_canAct == false)

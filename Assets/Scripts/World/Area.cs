@@ -33,6 +33,7 @@ public class Area : MonoBehaviour
 	private List<SpawnData> _animalSpawnDatas = new List<SpawnData>();
 	
 	[SerializeField] private Tilemap _areaTilemap;
+	private TileTradeTriggerGroup _triggerGroup;
 
 	private bool _hasOpened = false;
 
@@ -54,6 +55,9 @@ public class Area : MonoBehaviour
 				_spawnObjectData[i].Add(null);
 			}
 		}
+
+		transform.Find("Trigger").TryGetComponent(out _triggerGroup);
+		_triggerGroup.SetArea(_unitPos);
 
 		_hasOpened = false;
 		_areaTilemap.gameObject.SetActive(false);
