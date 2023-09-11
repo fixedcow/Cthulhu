@@ -80,13 +80,13 @@ public class UIPlayerInventory : UIInventory
 				_inventory.SelectNextItem();
 			}
 
-			for (int i = 1; i < Mathf.Min(_inventory.MaxItemNumber + 1, _horizontalSlotNumber + 1, 11); i++) {
+			for (int i = 1; i < Mathf.Min(_slotList.Length + 1, _horizontalSlotNumber + 1, 11); i++) {
 				if (Input.GetKeyDown(InventorySystem.KEY_CODE_TABLE[i])) {
 					_inventory.SelectItemIdx(i - 1);
 				}
 			}
 
-			for (int i = 0; i < _inventory.MaxItemNumber; i++) {
+			for (int i = 0; i < _slotList.Length; i++) {
 				if (_inventory.SelectedItemIdx == i) {
 					_slotList[i].Select();
 				} else {
