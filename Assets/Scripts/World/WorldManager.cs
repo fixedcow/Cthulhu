@@ -67,10 +67,19 @@ public class WorldManager : Singleton<WorldManager>
 	}
 
 	public void MultiplyMaxStackableNumber(string itemId, int multiplier) {
+		if (_itemDataDict[itemId].IsStackable == false) {
+			SetMaxStackableNumber(itemId, multiplier);
+			return;
+		}
 		_itemDataDict[itemId].MaxStackableNumber *= multiplier;
 	}
 
 	public void SetMaxStackableNumber(string itemId, int maxStackableNumber) {
+		if (maxStackableNumber == 1) {
+			_itemDataDict[itemId].IsStackable = false;
+		} else {
+			_itemDataDict[itemId].IsStackable = true;
+		}
 		_itemDataDict[itemId].MaxStackableNumber = maxStackableNumber;
 	}
 

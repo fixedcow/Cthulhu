@@ -16,6 +16,8 @@ public class OfferingData : ScriptableObject
 
 	readonly static Dictionary<string, Func<PresentFunction.Inner>> presentFunctionPool = new Dictionary<string, Func<PresentFunction.Inner>>() {
 		{ EXPAND_INVENTORY_BY_ONE, OfferingManager.ExpandInventoryByOne },
+		{ EXPAND_INVENTORY_BY_TWO, OfferingManager.ExpandInventoryByTwo },
+		{ EXPAND_INVENTORY_BY_FOUR, OfferingManager.ExpandInventoryByFour },
 		{ MULTIPLY_MAX_STACKABLE_OBJECT_ALL, OfferingManager.DoubleMaxStackableObjectAll },
 	};
 
@@ -66,6 +68,8 @@ public class OfferingData : ScriptableObject
 
 		public static readonly List<string> presentPool = new List<string>() {
 			EXPAND_INVENTORY_BY_ONE,
+			EXPAND_INVENTORY_BY_TWO,
+			EXPAND_INVENTORY_BY_FOUR,
 			MULTIPLY_MAX_STACKABLE_OBJECT_ALL,
 		};
 
