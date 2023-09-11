@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: PlatinumOre
   m_EditorClassIdentifier: 
   objectData:
-    objectID: PlatinumOre
+    objectID: Platinum
     objectName: "\uBC31\uAE08 \uAD11\uC11D"
-    hpMax: 0
+    hpMax: 16
     objectPrefab: {fileID: 1972470628956216589, guid: e02a05a8e22977b4586729ad3f4bd37f, type: 3}
     dropItem: {fileID: 9047232175213187658, guid: ed2309072151d80429f097f143733d7f, type: 3}
-    dropQuantityMin: 0
-    dropQuantityMax: 0
+    dropQuantityMin: 1
+    dropQuantityMax: 2

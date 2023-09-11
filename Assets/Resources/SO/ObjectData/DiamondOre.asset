@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: DiamondOre
   m_EditorClassIdentifier: 
   objectData:
-    objectID: DiamondOre
+    objectID: Diamond
     objectName: "\uB2E4\uC774\uC544\uBAAC\uB4DC \uAD11\uC11D"
-    hpMax: 0
+    hpMax: 20
     objectPrefab: {fileID: 7041558337920343598, guid: 652f4646a40d82d4484369b238b3fe48, type: 3}
     dropItem: {fileID: 4759755106217076460, guid: 07fff864b623dcc4f93b0e40d77a465c, type: 3}
-    dropQuantityMin: 0
-    dropQuantityMax: 0
+    dropQuantityMin: 1
+    dropQuantityMax: 2

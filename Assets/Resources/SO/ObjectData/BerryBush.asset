@@ -15,8 +15,8 @@ MonoBehaviour:
   objectData:
     objectID: BerryBush
     objectName: "\uBCA0\uB9AC \uB364\uBD88"
-    hpMax: 0
-    objectPrefab: {fileID: 4200398557421104230, guid: e23eed1bbe448e24ebbb787f871c4f35, type: 3}
+    hpMax: 1
+    objectPrefab: {fileID: 4835858055553044886, guid: 94ae3063137c2ba4195b484a8d6fd510, type: 3}
     dropItem: {fileID: 2936616885018506885, guid: 635798af23014fd4eb4c52404eab9ffd, type: 3}
-    dropQuantityMin: 0
-    dropQuantityMax: 0
+    dropQuantityMin: 1
+    dropQuantityMax: 1
