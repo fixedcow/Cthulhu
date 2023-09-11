@@ -5,6 +5,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using UnityEngine.Events;
 using Sirenix.Utilities;
+using System.Runtime.CompilerServices;
 
 namespace TH.Core {
 
@@ -24,19 +25,22 @@ public class OfferingManager : MonoBehaviour
 	#endregion
     
 	#region PrivateMethod
-	private static void A() {
-		Debug.Log("A");
-	}
+	private static PresentFunction.Inner ExpandInventoryByOne() {
+		static string Name() {
+			return "인벤토리 +1";
+		}
 
-	private static void B() {
-		Debug.Log("B");
-	}
+		static string Description() {
+			return "인벤토리를 1칸 확장합니다.";
+		}
 
-	private static void ExpandInventoryMaximumSize() {
-		InventoryOwner player = FindObjectOfType<InventoryOwner>();
-		//InventorySystem.Instance.GetInventory(player).ExpandMaximumSize(1);
-	}
+		static void RealAction() {
+			InventoryOwner player = FindObjectOfType<InventoryOwner>();
+			InventorySystem.Instance.GetInventory(player).ExpandInventory(1);
+		}
 
+		return new PresentFunction.Inner(Name, Description, RealAction);
+	}
 
 	private List<PresentOfCthulhu> GetTierPresents(int tier) {
 		switch (tier) {
@@ -63,27 +67,54 @@ public class OfferingManager : MonoBehaviour
 		[SerializeField] private PresentFunction presentFunction;
 
 		public void InvokePresent() {
-			presentFunction.presentAction();
+			presentFunction.Run().RealAction();
+		}
+
+		public string GetDescription() {
+			return presentFunction.Run().Description();
+		}
+
+		public string GetName() {
+			return presentFunction.Run().Name();
 		}
 
 		public static IEnumerable presentPool = new ValueDropdownList<PresentFunction>()
 		{
-			{ "A", new PresentFunction(A) },
-			{ "B", new PresentFunction(B) },
+			{ "Expand Inventory +1", new PresentFunction(ExpandInventoryByOne) },
 		};
 	}
 
 	[Serializable]
 	public class PresentFunction {
-		public Action presentAction;
+		private Func<Inner> presentAction;
 
-		public PresentFunction(Action action) {
-			presentAction = action;
-			int a = 1;
+		private string defaultMsg = "";
+
+		public PresentFunction(Func<Inner> action) {
+			this.presentAction = action;
+		}
+
+		public Inner Run() {
+			return presentAction.Invoke();
 		}
 
 		public override string ToString() {
-			return presentAction.Method.Name;
+			if (presentAction != null) {
+				return presentAction.Method.Name;
+			}
+			return defaultMsg;
+		}
+
+		public class Inner {
+			public Func<string> Name;
+			public Func<string> Description;
+			public Action RealAction;
+
+			public Inner(Func<string> name, Func<string> description, Action realAction) {
+				Name = name;
+				Description = description;
+				RealAction = realAction;
+			}
 		}
 	}
 	#endregion
