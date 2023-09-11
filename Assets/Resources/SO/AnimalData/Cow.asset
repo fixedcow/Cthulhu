@@ -22,7 +22,7 @@ MonoBehaviour:
     dropQuantityMax: 2
     speedIdle: 3
     speedAttack: 12
-    damage: 0
+    damage: 16
     recognitionRangeIn: 5
     recognitionRangeOut: 12
     attackRange: 1

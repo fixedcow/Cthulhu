@@ -15,7 +15,8 @@ public class PlayerHealth : PlayerStat
 	public override void Add(int value)
 	{
 		base.Add(value);
-		if(currentValue == minValue)
+		UIManager.Instance.Health.UpdateGauge(currentValue);
+		if (currentValue == minValue)
 		{
 			_player.Die();
 		}

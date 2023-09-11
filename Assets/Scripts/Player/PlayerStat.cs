@@ -27,8 +27,16 @@ public class PlayerStat : MonoBehaviour
 	{
 		currentValue = maxValue;
 	}
+	public void Iniialize()
+	{
+		currentValue = maxValue;
+	}
 	#endregion
 
 	#region PrivateMethod
+	private void Start()
+	{
+		Iniialize();
+	}
 	#endregion
 }
