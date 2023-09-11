@@ -57,6 +57,22 @@ public class OfferingManager : Singleton<OfferingManager>
 		return new PresentFunction.Inner(Name, Description, RealAction);
 	}
 
+	public static PresentFunction.Inner TripleMaxStackableObjectAll() {
+		static string Name() {
+			return "인벤토리 스택 개수 x3";
+		}
+
+		static string Description() {
+			return "더욱 풍성한 삶을 선물해 주시기를 간청하나이다.";
+		}
+
+		static void RealAction() {
+			WorldManager.Instance.MultiplyMaxStackableNumber(3);
+		}
+
+		return new PresentFunction.Inner(Name, Description, RealAction);
+	}
+
 	public static PresentFunction.Inner DoubleMaxStackableCopper() {
 		static string Name() {
 			return "구리 스택 개수 x2";
@@ -68,6 +84,22 @@ public class OfferingManager : Singleton<OfferingManager>
 
 		static void RealAction() {
 			WorldManager.Instance.MultiplyMaxStackableNumber("Copper", 2);
+		}
+
+		return new PresentFunction.Inner(Name, Description, RealAction);
+	}
+
+	public static PresentFunction.Inner DoubleMaxStackableChicken() {
+		static string Name() {
+			return "닭 스택 개수 x2";
+		}
+
+		static string Description() {
+			return "그분은 불가능한 것도 가능케 만드시니.";
+		}
+
+		static void RealAction() {
+			WorldManager.Instance.MultiplyMaxStackableNumber("Chicken", 2);
 		}
 
 		return new PresentFunction.Inner(Name, Description, RealAction);
@@ -90,9 +122,9 @@ public class OfferingManager : Singleton<OfferingManager>
 		return new PresentFunction.Inner(Name, Description, RealAction);
 	}
 
-	public static PresentFunction.Inner ExpandInventoryByFour() {
+	public static PresentFunction.Inner ExpandInventoryByThree() {
 		static string Name() {
-			return "인벤토리 +4";
+			return "인벤토리 +3";
 		}
 
 		static string Description() {
@@ -101,7 +133,7 @@ public class OfferingManager : Singleton<OfferingManager>
 
 		static void RealAction() {
 			InventoryOwner player = FindObjectOfType<InventoryOwner>();
-			InventorySystem.Instance.GetInventory(player).ExpandInventory(4);
+			InventorySystem.Instance.GetInventory(player).ExpandInventory(3);
 		}
 
 		return new PresentFunction.Inner(Name, Description, RealAction);
@@ -118,6 +150,22 @@ public class OfferingManager : Singleton<OfferingManager>
 
 		static void RealAction() {
 			WorldManager.Instance.SetBerrySpawnGold(true);
+		}
+
+		return new PresentFunction.Inner(Name, Description, RealAction);
+	}
+
+	public static PresentFunction.Inner MakeCopperSpawnSilver() {
+		static string Name() {
+			return "구리 대신 은";
+		}
+
+		static string Description() {
+			return "그분만이 천지만물을 절대적으로 다루며 그것이 세상의 이치다.";
+		}
+
+		static void RealAction() {
+			WorldManager.Instance.SetCopperSpawnSilver(true);
 		}
 
 		return new PresentFunction.Inner(Name, Description, RealAction);
@@ -150,6 +198,70 @@ public class OfferingManager : Singleton<OfferingManager>
 
 		static void RealAction() {
 			GameManager.Instance.GetPlayer().AddMaxSanity(20);
+		}
+
+		return new PresentFunction.Inner(Name, Description, RealAction);
+	}
+
+	public static PresentFunction.Inner MakeOreSpawnFaster() {
+		static string Name() {
+			return "광석 스폰 속도 증가";
+		}
+
+		static string Description() {
+			return "그분에 비하면 우리 모두는 전부 작고 미약한 존재다.";
+		}
+
+		static void RealAction() {
+			WorldManager.Instance.MakeOreSpawnFater(0.8f);
+		}
+
+		return new PresentFunction.Inner(Name, Description, RealAction);
+	}
+
+	public static PresentFunction.Inner MakeBerryDropMore() {
+		static string Name() {
+			return "베리 채집 x2";
+		}
+
+		static string Description() {
+			return "그분은 불가능한 것도 가능케 만드시니.";
+		}
+
+		static void RealAction() {
+			WorldManager.Instance.MakeBerryDropMore(2);
+		}
+
+		return new PresentFunction.Inner(Name, Description, RealAction);
+	}
+
+	public static PresentFunction.Inner MakeOreDropMore() {
+		static string Name() {
+			return "광석 채집 x2";
+		}
+
+		static string Description() {
+			return "나의 삶은 그분의 은총으로 영원에 도달할 것이다.";
+		}
+
+		static void RealAction() {
+			WorldManager.Instance.MakeOreDropMore(2);
+		}
+
+		return new PresentFunction.Inner(Name, Description, RealAction);
+	}
+
+	public static PresentFunction.Inner MakeAnimalDropMore() {
+		static string Name() {
+			return "동물 채집 x2";
+		}
+
+		static string Description() {
+			return "그분에게 불능한 것은 없나니 곧 영원을 노래하리라.";
+		}
+
+		static void RealAction() {
+			WorldManager.Instance.MakeAnimalDropMore(2);
 		}
 
 		return new PresentFunction.Inner(Name, Description, RealAction);
