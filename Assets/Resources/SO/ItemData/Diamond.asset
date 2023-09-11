@@ -19,5 +19,7 @@ MonoBehaviour:
       \uAC70\uB798\uB429\uB2C8\uB2E4."
     ItemFlavorText: "\"\uC544\uBAAC\uB4DC\uAC00 \uC8FD\uC73C\uBA74?\""
     ItemSprite: {fileID: -1089606675, guid: 58c56a54a91be204da22b5324ae0b8b9, type: 3}
-    IsStackable: 0
-    MaxStackableNumber: 0
+    IsStackable: 1
+    MaxStackableNumber: 5
+    Gold: 35
+    Point: 15

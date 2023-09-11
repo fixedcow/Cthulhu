@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
+public class UIManager : Singleton<UIManager>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	public UIGold Gold => _gold;
+	public UIHealth Health => _health;
+	public UISanity Sanity => _sanity;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	[SerializeField] private UIGold _gold;
+	[SerializeField] private UIHealth _health;
+	[SerializeField] private UISanity _sanity;
 }
