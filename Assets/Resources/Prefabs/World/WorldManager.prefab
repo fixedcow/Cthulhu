@@ -46,13 +46,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _areaPadding: 2
   _originalObjectDataList:
+  - {fileID: 11400000, guid: 97a954850bd759b40aab3f520b7d398f, type: 2}
   - {fileID: 11400000, guid: ba1c0cb41d6ce6a45b80acbed32e499f, type: 2}
+  - {fileID: 11400000, guid: 8ea3f2e9d9dfc9a44b92641f2bc4adc2, type: 2}
+  - {fileID: 11400000, guid: a3c8ccc8b7f0bc04a9c96a88ef983261, type: 2}
+  - {fileID: 11400000, guid: 45aff0713f19ab04fbbc2c8b98c8ada1, type: 2}
+  - {fileID: 11400000, guid: a76811ba139335440821a41ac2043abf, type: 2}
+  - {fileID: 11400000, guid: 845de8423c456284594637dafd5e9bc1, type: 2}
   _originalAnimalDataList:
   - {fileID: 11400000, guid: 9e7f0dded2a97f64bb8bc2613c45477a, type: 2}
   - {fileID: 11400000, guid: 573e531d84a243d41869e784d8633e7a, type: 2}
   - {fileID: 11400000, guid: ea1cce35d0818f24e8d4c88f46af789d, type: 2}
   - {fileID: 11400000, guid: a6b67a938dc7ef34b83d2ef3e3258bb7, type: 2}
   - {fileID: 11400000, guid: d32375b5dfe93f44ba119e2c9a916479, type: 2}
+  - {fileID: 11400000, guid: cf93f18d2fc9af942865adad0aecd309, type: 2}
   _originalItemDataList:
   - {fileID: 11400000, guid: 4cdb0d28636d5584c95fe2af3ea085d6, type: 2}
+  - {fileID: 11400000, guid: 66eec025a0d33894d9d2ba48a4fed81a, type: 2}
+  - {fileID: 11400000, guid: f4d9d9fef3796594097b449f63828d06, type: 2}
+  - {fileID: 11400000, guid: a8ab02a32689e4a4797b703b3a0d0d2d, type: 2}
+  - {fileID: 11400000, guid: 5243bc3c5f7815b45915b64ca1321902, type: 2}
+  - {fileID: 11400000, guid: 545abe5f0bfa62742b806fcb78687eeb, type: 2}
+  - {fileID: 11400000, guid: e14b9c9a118587643a62ea2059837baa, type: 2}
+  - {fileID: 11400000, guid: 343d30bc9e946044389affc3e8bb1a77, type: 2}
+  - {fileID: 11400000, guid: 5b42bb851c22a2642b6666f043d37a88, type: 2}
+  - {fileID: 11400000, guid: 0f6e4cfb731351c418e443d3d23d2e80, type: 2}
+  - {fileID: 11400000, guid: 556d5682cf2a37347a5348da1a2d3431, type: 2}
+  - {fileID: 11400000, guid: 52be183755b753b4aa3ecc3cadcc7a04, type: 2}
+  - {fileID: 11400000, guid: ce6d0f5ccc54bec4b8b4aad4630eec20, type: 2}
   _originalWorldSetting: {fileID: 11400000, guid: 606f3e451b3cc29439d62e399d2e708b, type: 2}
