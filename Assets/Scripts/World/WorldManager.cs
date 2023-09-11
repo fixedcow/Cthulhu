@@ -83,6 +83,22 @@ public class WorldManager : Singleton<WorldManager>
 		_itemDataDict[itemId].MaxStackableNumber = maxStackableNumber;
 	}
 
+	public void SetBerrySpawnGold(bool spawnGold) {
+		if (spawnGold == true) {
+			foreach (var data in _objectDataDict) {
+				if (data.Value.objectID == "BerryBush") {
+					data.Value.dropItem = _objectDataDict["GoldOre"].dropItem;
+				}
+			}
+		} else {
+			foreach (var data in _objectDataDict) {
+				if (data.Value.objectID == "BerryBush") {
+					data.Value.dropItem = _originalObjectDataList.Find(o => o.objectData.objectID == "BerryBush").objectData.dropItem;
+				}
+			}
+		}
+	}
+
 	public Area GetAreaByUnitPos(Vector2Int unitPos) {
 		return _areaList[unitPos.x][unitPos.y];
 	}
