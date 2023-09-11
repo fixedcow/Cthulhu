@@ -80,7 +80,7 @@ public class UIPlayerInventory : UIInventory
 				_inventory.SelectNextItem();
 			}
 
-			for (int i = 1; i < Mathf.Min(_inventory.MaxItemNumber + 1, 11); i++) {
+			for (int i = 1; i < Mathf.Min(_inventory.MaxItemNumber + 1, _horizontalSlotNumber + 1, 11); i++) {
 				if (Input.GetKeyDown(InventorySystem.KEY_CODE_TABLE[i])) {
 					_inventory.SelectItemIdx(i - 1);
 				}
