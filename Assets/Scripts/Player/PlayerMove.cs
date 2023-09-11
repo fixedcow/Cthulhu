@@ -31,8 +31,6 @@ public class PlayerMove : MonoBehaviour
 	}
 	public void HandleInput()
 	{
-		int dirX = Utils.MousePosition.x > transform.position.x ? -1 : 1;
-		transform.localScale = new Vector3(dirX, 1, 1);
 		_rb.velocity = _direction * _speed;
 		_playerItemGetter.PickItem();
 	}

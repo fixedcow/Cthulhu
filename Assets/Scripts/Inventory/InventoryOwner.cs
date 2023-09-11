@@ -1,16 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace TH.Core {
 
     public class InventoryOwner : MonoBehaviour, IOwnInventory
     {
-        #region PublicVariables
-        #endregion
+		#region PublicVariables
+		#endregion
 
-        #region PrivateVariables
+		#region PrivateVariables
+		private Player _player;
         #endregion
 
         #region PublicMethod
@@ -27,8 +30,12 @@ namespace TH.Core {
 		public virtual bool IsItemAvailableToInventory(ItemData item, int quantity) {
 			return InventorySystem.Instance.GetInventory(this).IsItemAvailableToInventory(item, quantity);
 		}
-
         public virtual void OnUseItem(ItemData item, int quantity) { }
-    }
 
+		public void OnSelectItem(int idx)
+		{
+			_player ??= GameManager.Instance.GetPlayer();
+			_player.HandleItem(idx);
+		}
+	}
 }
