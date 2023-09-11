@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39057ca3a9170184989d5b51b8014acb, type: 3}
+  m_Name: Stone
+  m_EditorClassIdentifier: 
+  objectData:
+    objectID: Stone
+    objectName: "\uB3CC \uAD11\uC11D"
+    hpMax: 0
+    objectPrefab: {fileID: 4140599075507272636, guid: cac3c7a5c33a6ca4881cb29a0f732e3d, type: 3}
+    dropItem: {fileID: 2028844412345052050, guid: 44ffc0984fc77484d8199d01a0a46f68, type: 3}
+    dropQuantityMin: 2
+    dropQuantityMax: 3
