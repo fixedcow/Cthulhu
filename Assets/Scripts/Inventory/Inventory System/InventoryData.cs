@@ -245,6 +245,16 @@ public class InventoryData
 
 		_hasModifiedThisFrame = true;
 	}
+
+	public void ExpandInventory(int expandNumber) {
+		InventoryItem[] newSlotList = new InventoryItem[_slotList.Length + expandNumber];
+		for (int i = 0; i < _slotList.Length; i++) {
+			newSlotList[i] = _slotList[i];
+		}
+		_slotList = newSlotList;
+
+		_hasModifiedThisFrame = true;
+	}
 	#endregion
     
 	#region PrivateMethod

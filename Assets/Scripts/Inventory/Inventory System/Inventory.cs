@@ -217,6 +217,11 @@ public class Inventory : MonoBehaviour
 		_selectedItemIdx = idx;
 		InventorySystem.Instance.GetInventoryOwner(this).OnSelectItem(_selectedItemIdx);
 	}
+
+	public void ExpandInventory(int expandNumber) {
+		_maxItemNumber += expandNumber;
+		_inventoryData.ExpandInventory(expandNumber);
+	}
 	#endregion
     
 	#region PrivateMethod
