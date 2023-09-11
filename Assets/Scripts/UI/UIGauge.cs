@@ -12,7 +12,7 @@ public abstract class UIGauge : MonoBehaviour
 
     #region PrivateVariables
     private Image image;
-	private TextMeshProUGUI _text;
+	[SerializeField] private TextMeshProUGUI _text;
 
     protected int currentValue;
     protected int minValue = 0;
