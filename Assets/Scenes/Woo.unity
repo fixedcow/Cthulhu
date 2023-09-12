@@ -476,6 +476,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OfferPanelUI
       objectReference: {fileID: 0}
+    - target: {fileID: 4218328429328403416, guid: 17b99b1d90b899f4eb010224eb63ae7f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4218328429328403417, guid: 17b99b1d90b899f4eb010224eb63ae7f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1482,7 +1486,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.4316038, g: 0.5754717, b: 0.56295353, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
