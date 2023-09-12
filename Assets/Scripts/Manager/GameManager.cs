@@ -26,6 +26,7 @@ public class GameManager : Singleton<GameManager>
 	[ReadOnly, SerializeField] private int _tier = 0;
 
 	[SerializeField] private OfferUITest _offerui;
+	[SerializeField] private GameObject _gameoverui;
 	#endregion
 
 	#region PublicMethod
