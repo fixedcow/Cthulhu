@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
 	}
 	public void Die()
 	{
-
+		GameManager.Instance.GameOver();
 	}
 	public void HandleItem(int index)
 	{

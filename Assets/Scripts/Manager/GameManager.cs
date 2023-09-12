@@ -39,6 +39,10 @@ public class GameManager : Singleton<GameManager>
 	{
 		_point += amount;
 	}
+	public void GameOver()
+	{
+
+	}
 	#endregion
 
 	#region PrivateMethod

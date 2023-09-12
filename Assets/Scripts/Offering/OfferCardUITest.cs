@@ -18,6 +18,7 @@ public class OfferCardUITest : MonoBehaviour, IPointerClickHandler, IPointerEnte
 	private Action<int> _onClick;
 	private int _index;
 	private bool _isClicked;
+	private bool _unselect;
 	#endregion
 
 	#region PublicMethod
@@ -26,6 +27,7 @@ public class OfferCardUITest : MonoBehaviour, IPointerClickHandler, IPointerEnte
 		_onClick = onClick;
 		_index = index;
 		_isClicked = false;
+		_unselect = false;
 		transform.Find("CardTitle").GetComponent<TMPro.TextMeshProUGUI>().text = title;
 		transform.Find("CardMiddleTitle").GetComponent<TMPro.TextMeshProUGUI>().text = description;
 		GetComponent<Image>().material.SetFloat("_FadeAmount", 0);
@@ -34,6 +36,7 @@ public class OfferCardUITest : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
+		if (_unselect) return;
 		if (_isClicked) return;
 		_isClicked = true;
 		_onClick(_index);
@@ -57,10 +60,12 @@ public class OfferCardUITest : MonoBehaviour, IPointerClickHandler, IPointerEnte
 		DOTween.To(() => GetComponent<Image>().material.GetFloat("_FadeAmount"), x => GetComponent<Image>().material.SetFloat("_FadeAmount", x), 1, 1f);
 		transform.Find("CardTitle").GetComponent<TMPro.TextMeshProUGUI>().text = "";
 		transform.Find("CardMiddleTitle").GetComponent<TMPro.TextMeshProUGUI>().text = "";
+		_unselect = true;
 	}
 
 	public void Select () {
 		GetComponent<Image>().material.SetFloat("_InnerOutlineThickness", 1);
+		_unselect = true;
 	}
 	#endregion
     
