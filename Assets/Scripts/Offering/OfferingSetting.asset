@@ -25,7 +25,7 @@ MonoBehaviour:
   - cthulhuPresent: Add Player Max HP +20
   - cthulhuPresent: Make Berry Drop More
   tier4Presents:
-  - cthulhuPresent: Expand Inventory +1
+  - cthulhuPresent: Upgrade Pickaxe
   - cthulhuPresent: Add Player Max HP +20
   - cthulhuPresent: Double Max Stackable Object All
   tier5Presents:
@@ -34,14 +34,14 @@ MonoBehaviour:
   - cthulhuPresent: Add Player Max SP +20
   tier6Presents:
   - cthulhuPresent: Expand Inventory +3
-  - cthulhuPresent: Add Player Max HP +20
-  - cthulhuPresent: Add Player Max SP +20
+  - cthulhuPresent: Upgrade Pickaxe
+  - cthulhuPresent: Make Copper Spawn Silver
   tier7Presents:
   - cthulhuPresent: Expand Inventory +3
   - cthulhuPresent: Expand Inventory +1
   - cthulhuPresent: Add Player Max SP +20
   tier8Presents:
-  - cthulhuPresent: Expand Inventory +1
+  - cthulhuPresent: Upgrade Pickaxe
   - cthulhuPresent: Expand Inventory +3
   - cthulhuPresent: Triple Max Stackable Object All
   tier9Presents:

@@ -24,6 +24,7 @@ public class OfferingData : ScriptableObject
 	const string MAKE_BERRY_DROP_MORE = "Make Berry Drop More";
 	const string MAKE_ORE_DROP_MORE = "Make Ore Drop More";
 	const string MAKE_ANIMAL_DROP_MORE = "Make Animal Drop More";
+	const string UPGRADE_PICKAXE = "Upgrade Pickaxe";
 
 	readonly static Dictionary<string, Func<PresentFunction.Inner>> presentFunctionPool = new Dictionary<string, Func<PresentFunction.Inner>>() {
 		{ EXPAND_INVENTORY_BY_ONE, OfferingManager.ExpandInventoryByOne },
@@ -41,6 +42,7 @@ public class OfferingData : ScriptableObject
 		{ MAKE_BERRY_DROP_MORE, OfferingManager.MakeBerryDropMore },
 		{ MAKE_ORE_DROP_MORE, OfferingManager.MakeOreDropMore },
 		{ MAKE_ANIMAL_DROP_MORE, OfferingManager.MakeAnimalDropMore },
+		{ UPGRADE_PICKAXE, OfferingManager.UpdatePickAxe },
 	};
 
     #region PublicVariables
@@ -122,6 +124,7 @@ public class OfferingData : ScriptableObject
 			MAKE_BERRY_DROP_MORE,
 			MAKE_ORE_DROP_MORE,
 			MAKE_ANIMAL_DROP_MORE,
+			UPGRADE_PICKAXE
 		};
 
 		private PresentFunction GetPresentFunction() {
