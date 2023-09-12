@@ -35,6 +35,7 @@ public class PlayerAttack : MonoBehaviour
 		ITargetable target = _target.GetTarget();
 		if(target is IHittable)
 		{
+			CameraManager.Instance.Shake(CameraShaker.EShakingType.hit);
 			IHittable targetHit = target as IHittable;
 			targetHit.Hit(_damage);
 		}

@@ -75,6 +75,7 @@ public class Player : MonoBehaviour
 	}
 	public void Hit(int amount)
 	{
+		CameraManager.Instance.Shake(CameraShaker.EShakingType.hit);
 		_health.Add(-amount);
 	}
 	public void Die()
