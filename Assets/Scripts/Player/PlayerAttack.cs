@@ -39,6 +39,11 @@ public class PlayerAttack : MonoBehaviour
 			targetHit.Hit(_damage);
 		}
 	}
+
+	public void AddDamage(int damage)
+	{
+		_damage += damage;
+	}
 	#endregion
 
 	#region PrivateMethod
