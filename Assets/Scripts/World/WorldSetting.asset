@@ -70,8 +70,8 @@ MonoBehaviour:
         initialSpawnCount: 0
         spawnCountMax: 3
         cycleCoefficientOnMax: 7
-        spawnCycleMin: 25
-        spawnCycleMax: 30
+        spawnCycleMin: 35
+        spawnCycleMax: 40
         distributePrecision: 2
         spawnConditionOnSection: 0
         spawnConditionOnOpenedAreaNumber: 0
