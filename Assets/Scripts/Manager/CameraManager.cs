@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +24,7 @@ public class CameraManager : Singleton<CameraManager>
 	{
 		_shaker.Shake(type);
 	}
+	[Button]
 	public void SetVignetteAlpha(float percentage01)
 	{
 		_vignette.DOFade(percentage01, 1f);

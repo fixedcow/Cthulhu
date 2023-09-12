@@ -83,7 +83,9 @@ public class PlayerItemHandler : MonoBehaviour
 		if (_inventoryIndex != -1 && Input.GetKeyDown(KeyCode.E)) {
 			InventoryItem item = GetInventory().GetItem(_inventoryIndex);
 			if (item.TargetItem.ItemID == "Berry") {
-				GameManager.Instance.GetPlayer().HealHealth(10);
+				GameManager.Instance.GetPlayer().HealHealth(10 * item.StackedNumber);
+				GetInventory().DeleteItem(_inventoryIndex);
+				PutIn();
 			}
 		}
 	}

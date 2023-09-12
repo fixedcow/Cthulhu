@@ -39,7 +39,7 @@ public class TileTradeTrigger : MonoBehaviour
 				WorldManager.Instance.Rescan();
 				return;
 			}
-			if (Input.GetKeyDown(KeyCode.F))
+			if (Input.GetKeyDown(KeyCode.F) && targetArea.HasOpened == false)
 			{
 				int price = WorldManager.Instance.AREA_TIER_COST[targetArea.Section];
 				if (GameManager.Instance.Gold >= price)

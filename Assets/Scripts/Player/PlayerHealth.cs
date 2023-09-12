@@ -28,5 +28,10 @@ public class PlayerHealth : PlayerStat
 	{
 		TryGetComponent(out _player);
 	}
+	protected override void Start()
+	{
+		base.Start();
+		UIManager.Instance.Health.Initialize(maxValue);
+	}
 	#endregion
 }

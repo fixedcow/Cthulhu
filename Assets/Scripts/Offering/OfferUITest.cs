@@ -22,12 +22,12 @@ public class OfferUITest : MonoBehaviour
 	public void SetCardUI() {
 		for (int i = 0; i < _cardUI.Length; i++) {
 			_cardUI[i].SetText(
-				OfferingManager.Instance.OfferingData.GetTierPresents(1)[i].GetName(), 
-				OfferingManager.Instance.OfferingData.GetTierPresents(1)[i].GetDescription(),
-				(k) => OfferingManager.Instance.OfferingData.GetTierPresents(1)[k].InvokePresent(),
+				OfferingManager.Instance.OfferingData.GetTierPresents(GameManager.Instance.Level)[i].GetName(), 
+				OfferingManager.Instance.OfferingData.GetTierPresents(GameManager.Instance.Level)[i].GetDescription(),
+				(k) => OfferingManager.Instance.OfferingData.GetTierPresents(GameManager.Instance.Level)[k].InvokePresent(),
 				UnselectOther,
 				i
-			);
+			);;
 		}
 		_confirmButton.SetActive(false);
 	}

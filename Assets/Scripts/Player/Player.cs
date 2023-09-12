@@ -71,8 +71,6 @@ public class Player : MonoBehaviour
 	{
 		if (_canAct == false)
 			return;
-		Debug.Log(_interact.name);
-
 		_interact.Interact();
 	}
 	public void Hit(int amount)
@@ -81,7 +79,7 @@ public class Player : MonoBehaviour
 	}
 	public void Die()
 	{
-
+		GameManager.Instance.GameOver();
 	}
 	public void HandleItem(int index)
 	{

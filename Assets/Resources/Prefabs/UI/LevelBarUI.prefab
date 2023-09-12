@@ -357,6 +357,7 @@ GameObject:
   - component: {fileID: 1192666519390536805}
   - component: {fileID: 2410158818380451067}
   - component: {fileID: 341352850568520453}
+  - component: {fileID: 1480717122}
   m_Layer: 5
   m_Name: LevelValue
   m_TagString: Untagged
@@ -422,6 +423,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1480717122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4699488268728003458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderTypes: 0
+  normalStrength: 5
+  normalSmoothing: 1
+  computingNormal: 0
 --- !u!1 &4706365350607864260
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,6 +450,7 @@ GameObject:
   - component: {fileID: 5531023356330872108}
   - component: {fileID: 6709442245255953962}
   - component: {fileID: 6396988685813827976}
+  - component: {fileID: 88381400}
   m_Layer: 5
   m_Name: LevelBarUI
   m_TagString: Untagged
@@ -502,3 +520,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &88381400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4706365350607864260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29bbee843fccf664a86be373e607a0f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftPointText: {fileID: 6712559762569646564}
+  levelText: {fileID: 8116235939040896950}
+  img: {fileID: 341352850568520453}
