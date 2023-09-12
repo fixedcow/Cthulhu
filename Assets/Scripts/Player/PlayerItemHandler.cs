@@ -79,6 +79,15 @@ public class PlayerItemHandler : MonoBehaviour
 			.SetLoops(-1, LoopType.Yoyo);
 	}
 
+	private void Update() {
+		if (_inventoryIndex != -1 && Input.GetKeyDown(KeyCode.E)) {
+			InventoryItem item = GetInventory().GetItem(_inventoryIndex);
+			if (item.TargetItem.ItemID == "Berry") {
+				GameManager.Instance.GetPlayer().HealHealth(10);
+			}
+		}
+	}
+
 	private Inventory GetInventory()
 	{
 		_inventory ??= InventorySystem.Instance.GetInventory(GetComponentInParent<InventoryOwner>());
