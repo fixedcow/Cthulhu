@@ -20,10 +20,16 @@ public abstract class UIGauge : MonoBehaviour
     #endregion
 
     #region PublicMethod
+	public void Initialize(int maxValue)
+	{
+		this.maxValue = maxValue;
+		currentValue = this.maxValue;
+	}
     public void UpdateGauge(int currentValue)
     {
         this.currentValue = currentValue;
         float modifiedValue = 1 - ((float)currentValue / maxValue);
+		Debug.Log(currentValue + " / " + maxValue);
         image.material.SetFloat("_ClipUvRight", modifiedValue);
 		_text.text = currentValue.ToString();
     }

@@ -71,8 +71,6 @@ public class Player : MonoBehaviour
 	{
 		if (_canAct == false)
 			return;
-		Debug.Log(_interact.name);
-
 		_interact.Interact();
 	}
 	public void Hit(int amount)

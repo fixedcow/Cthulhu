@@ -34,7 +34,7 @@ public class PlayerStat : MonoBehaviour
 	#endregion
 
 	#region PrivateMethod
-	private void Start()
+	protected virtual void Start()
 	{
 		Iniialize();
 	}
