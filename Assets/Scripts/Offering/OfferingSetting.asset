@@ -22,7 +22,7 @@ MonoBehaviour:
   - cthulhuPresent: Make Ore Spawn Faster
   tier3Presents:
   - cthulhuPresent: Expand Inventory +2
-  - cthulhuPresent: Expand Inventory +1
+  - cthulhuPresent: Add Player Max HP +20
   - cthulhuPresent: Make Berry Drop More
   tier4Presents:
   - cthulhuPresent: Upgrade Pickaxe
