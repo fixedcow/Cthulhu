@@ -267,6 +267,22 @@ public class OfferingManager : Singleton<OfferingManager>
 		return new PresentFunction.Inner(Name, Description, RealAction);
 	}
 
+	public static PresentFunction.Inner UpdatePickAxe() {
+		static string Name() {
+			return "곡괭이 +3";
+		}
+
+		static string Description() {
+			return "그분의 뜻으로 개척의 힘은 보존되어 그 속의 영광을 찾게되나니.";
+		}
+
+		static void RealAction() {
+			GameManager.Instance.GetPlayer().GetComponent<PlayerAttack>().AddDamage(3);
+		}
+
+		return new PresentFunction.Inner(Name, Description, RealAction);
+	}
+
 	[Button]
 	private void wow(int tier, int idx) {
 		_offeringData.GetTierPresents(tier)[idx].InvokePresent();
