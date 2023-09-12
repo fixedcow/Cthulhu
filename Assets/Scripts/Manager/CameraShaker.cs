@@ -13,7 +13,7 @@ public class CameraShaker : MonoBehaviour
 	public enum EShakingType
 	{
 		crash = 0,
-
+		hit = 1
 	}
 	#endregion
 
