@@ -26,6 +26,7 @@ public class GameManager : Singleton<GameManager>
 	[ReadOnly, SerializeField] private int _tier = 0;
 
 	[SerializeField] private OfferUITest _offerui;
+	[SerializeField] private GameObject _gameoverui;
 	#endregion
 
 	#region PublicMethod
@@ -41,7 +42,7 @@ public class GameManager : Singleton<GameManager>
 	}
 	public void GameOver()
 	{
-
+		_gameoverui.SetActive(true);
 	}
 	#endregion
 
