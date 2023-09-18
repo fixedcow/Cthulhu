@@ -28,6 +28,8 @@ public class GameManager : Singleton<GameManager>
 	[SerializeField] private OfferUITest _offerui;
 	[SerializeField] private GameObject _gameoverui;
     [SerializeField] private GameObject _DayUI;
+
+    [SerializeField] private DayTimeController dayTimeController;
     #endregion
 
     #region PublicMethod
@@ -44,7 +46,12 @@ public class GameManager : Singleton<GameManager>
 	public void GameOver()
 	{
 		_gameoverui.SetActive(true);
-		_DayUI.SetActive(false);
+		//_DayUI.SetActive(false);
+
+        if (dayTimeController != null)
+        {
+            dayTimeController.PauseTime();
+        }
 
     }
 	#endregion

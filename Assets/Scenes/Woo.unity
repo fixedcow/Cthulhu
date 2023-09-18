@@ -683,6 +683,7 @@ MonoBehaviour:
   _offerui: {fileID: 1157404591}
   _gameoverui: {fileID: 599279976}
   _DayUI: {fileID: 893515134}
+  dayTimeController: {fileID: 61153013}
 --- !u!4 &347111868
 Transform:
   m_ObjectHideFlags: 0

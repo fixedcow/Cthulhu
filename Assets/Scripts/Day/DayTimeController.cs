@@ -51,6 +51,10 @@ public class DayTimeController : MonoBehaviour
     #endregion
 
     #region PublicMethod
+    public void PauseTime()
+    {
+        Time.timeScale = 0f;
+    }
     #endregion
     #region PrivateMethod
     private void Start()
