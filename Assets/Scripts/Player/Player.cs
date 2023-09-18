@@ -86,10 +86,14 @@ public class Player : MonoBehaviour
 	{
 		_itemHandler.HandleItem(index);
 	}
-	#endregion
+    public void MinusSanity(int amount)
+    {
+        _sanity.Add(-amount);
+    }
+    #endregion
 
-	#region PrivateMethod
-	private void Awake()
+    #region PrivateMethod
+    private void Awake()
 	{
 		TryGetComponent(out _health);
 		TryGetComponent(out _sanity);

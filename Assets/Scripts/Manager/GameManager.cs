@@ -27,10 +27,11 @@ public class GameManager : Singleton<GameManager>
 
 	[SerializeField] private OfferUITest _offerui;
 	[SerializeField] private GameObject _gameoverui;
-	#endregion
+    [SerializeField] private GameObject _DayUI;
+    #endregion
 
-	#region PublicMethod
-	public Player GetPlayer() => _player;
+    #region PublicMethod
+    public Player GetPlayer() => _player;
 	public void AddGold(int amount)
 	{
 		_gold += amount;
@@ -43,14 +44,17 @@ public class GameManager : Singleton<GameManager>
 	public void GameOver()
 	{
 		_gameoverui.SetActive(true);
-	}
+		_DayUI.SetActive(false);
+
+    }
 	#endregion
 
 	#region PrivateMethod
 	private void Start()
 	{
 		UIManager.Instance.Gold.UpdateAmount(_gold);
-	}
+        StartCoroutine(nameof(MinusSanity));
+    }
 
 	private void Update()
 	{
@@ -58,9 +62,19 @@ public class GameManager : Singleton<GameManager>
 		{
 			_point = 0;
 			_tier++;
-			_player.HealSanity(20);
+			_player.HealSanity(40);
 			_offerui.gameObject.SetActive(true);
 		}
+
 	}
-	#endregion
+
+	public IEnumerator MinusSanity()
+	{
+		while (true)
+		{
+			yield return new WaitForSeconds(3f); //3초에 
+			_player.MinusSanity(1); //1씩 정신력 닳음
+		}
+	}
 }
+    #endregion

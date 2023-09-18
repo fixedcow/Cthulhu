@@ -13,8 +13,10 @@ public class TileTradeText : MonoBehaviour
 	private TextMeshPro _text;
 	private TextMeshPro _priceText;
 	private SpriteRenderer _coin;
+	private TextMeshPro _InterText;
 
-	private int _price;
+
+    private int _price;
 	#endregion
 
 	#region PublicMethod
@@ -33,7 +35,8 @@ public class TileTradeText : MonoBehaviour
 		_text.DOFade(percentage01, 0.4f);
 		_priceText.DOFade(percentage01, 0.4f);
 		_coin.DOFade(percentage01, 0.4f);
-	}
+        _InterText.DOFade(percentage01, 0.4f);
+    }
 	#endregion
 
 	#region PrivateMethod
@@ -42,7 +45,8 @@ public class TileTradeText : MonoBehaviour
 		transform.Find("Text/TradeText").TryGetComponent(out _text);
 		transform.Find("Text/PriceText").TryGetComponent(out _priceText);
 		transform.Find("Text/Coin").TryGetComponent(out _coin);
-		SetAlpha(0);
+        transform.Find("Text/InterText").TryGetComponent(out _InterText);
+        SetAlpha(0);
 	}
 	#endregion
 }
