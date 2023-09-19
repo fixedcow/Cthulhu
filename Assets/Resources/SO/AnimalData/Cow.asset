@@ -15,14 +15,14 @@ MonoBehaviour:
   objectData:
     objectID: Cow
     objectName: "\uC18C"
-    hpMax: 32
+    hpMax: 22
     objectPrefab: {fileID: 7289200842314205206, guid: 2daa122e56597d94fa2ff9900c51803c, type: 3}
     dropItem: {fileID: 2638038373307908879, guid: 9a4e40825fce06f4896179e85830c3e2, type: 3}
     dropQuantityMin: 1
     dropQuantityMax: 2
     speedIdle: 3
     speedAttack: 12
-    damage: 16
+    damage: 9
     recognitionRangeIn: 5
     recognitionRangeOut: 12
     attackRange: 1

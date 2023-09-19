@@ -69,7 +69,7 @@ public class GameManager : Singleton<GameManager>
 		{
 			_point = 0;
 			_tier++;
-			_player.HealSanity(40);
+			_player.HealSanity(70);
 			_offerui.gameObject.SetActive(true);
 		}
 
@@ -79,7 +79,7 @@ public class GameManager : Singleton<GameManager>
 	{
 		while (true)
 		{
-			yield return new WaitForSeconds(3f); //3초에 
+			yield return new WaitForSeconds(5f); //3초에 
 			_player.MinusSanity(1); //1씩 정신력 닳음
 		}
 	}

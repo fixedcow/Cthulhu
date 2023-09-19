@@ -19,9 +19,9 @@ MonoBehaviour:
       spawnBerrySettings:
       - objectID: BerryBush
         isSpawnOnLoad: 1
-        initialSpawnCount: 2
-        spawnCountMax: 5
-        cycleCoefficientOnMax: 3
+        initialSpawnCount: 1
+        spawnCountMax: 2
+        cycleCoefficientOnMax: 8
         spawnCycleMin: 20
         spawnCycleMax: 60
         distributePrecision: 2
@@ -29,26 +29,26 @@ MonoBehaviour:
       - objectID: Copper
         isSpawnOnLoad: 1
         initialSpawnCount: 1
-        spawnCountMax: 5
+        spawnCountMax: 3
         cycleCoefficientOnMax: 2.5
         spawnCycleMin: 20
         spawnCycleMax: 50
         distributePrecision: 2
       spawnAnimalSettings:
       - objectID: Chicken
-        isSpawnOnLoad: 0
-        initialSpawnCount: 0
+        isSpawnOnLoad: 1
+        initialSpawnCount: 1
         spawnCountMax: 2
-        cycleCoefficientOnMax: 7
-        spawnCycleMin: 20
-        spawnCycleMax: 40
+        cycleCoefficientOnMax: 15
+        spawnCycleMin: 30
+        spawnCycleMax: 50
         distributePrecision: 2
         spawnConditionOnSection: 0
         spawnConditionOnOpenedAreaNumber: 0
     - sectionPrefab: {fileID: 2156253339605112777, guid: 744a0f4c2ee8d6b439f8229cb65c4a74, type: 3}
       spawnBerrySettings:
       - objectID: BerryBush
-        isSpawnOnLoad: 1
+        isSpawnOnLoad: 0
         initialSpawnCount: 1
         spawnCountMax: 2
         cycleCoefficientOnMax: 7
@@ -60,8 +60,8 @@ MonoBehaviour:
         isSpawnOnLoad: 1
         initialSpawnCount: 2
         spawnCountMax: 5
-        cycleCoefficientOnMax: 2
-        spawnCycleMin: 10
+        cycleCoefficientOnMax: 5
+        spawnCycleMin: 20
         spawnCycleMax: 30
         distributePrecision: 2
       spawnAnimalSettings:
@@ -79,7 +79,7 @@ MonoBehaviour:
         isSpawnOnLoad: 0
         initialSpawnCount: 1
         spawnCountMax: 3
-        cycleCoefficientOnMax: 6
+        cycleCoefficientOnMax: 9
         spawnCycleMin: 20
         spawnCycleMax: 30
         distributePrecision: 2
@@ -105,12 +105,12 @@ MonoBehaviour:
         spawnCycleMax: 40
         distributePrecision: 2
       - objectID: Silver
-        isSpawnOnLoad: 1
+        isSpawnOnLoad: 0
         initialSpawnCount: 0
         spawnCountMax: 3
-        cycleCoefficientOnMax: 5
-        spawnCycleMin: 30
-        spawnCycleMax: 45
+        cycleCoefficientOnMax: 9
+        spawnCycleMin: 20
+        spawnCycleMax: 30
         distributePrecision: 2
       spawnAnimalSettings:
       - objectID: Chicken
@@ -127,7 +127,7 @@ MonoBehaviour:
         isSpawnOnLoad: 1
         initialSpawnCount: 1
         spawnCountMax: 3
-        cycleCoefficientOnMax: 2
+        cycleCoefficientOnMax: 5
         spawnCycleMin: 15
         spawnCycleMax: 30
         distributePrecision: 2

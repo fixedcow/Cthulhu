@@ -196,6 +196,35 @@ public class Inventory : MonoBehaviour
 		Debug.Log(SelectedItemIdx);
 	}
 
+	public void SelectPreviousItem()
+	{
+        for (int i = _maxItemNumber; i > 0; i--)
+        {
+            if (_selectedItemIdx == -1)
+            {
+                _selectedItemIdx = _maxItemNumber - 1;
+            } else if (_selectedItemIdx == 0)
+			{
+                _selectedItemIdx = -1;
+
+                InventorySystem.Instance.GetInventoryOwner(this).OnSelectItem(_selectedItemIdx);
+                break;
+            } else
+			{
+                _selectedItemIdx--;
+            }
+			
+            if (_inventoryData.IsNull(_selectedItemIdx))
+            {
+                continue;
+            }
+
+            InventorySystem.Instance.GetInventoryOwner(this).OnSelectItem(_selectedItemIdx);
+            break;
+        }
+        Debug.Log(SelectedItemIdx);
+        }
+
 	public void SelectItemIdx(int idx) {
 		if (idx > _maxItemNumber - 1) {
 			if (InventorySystem.Instance.showErrorMsg) {
@@ -239,7 +268,7 @@ public class Inventory : MonoBehaviour
 
 			_inventoryData = new InventoryData(_maxItemNumber);
 		}
-	}
+    }
 
 	private int FindAvailableItemSlotIdx(ItemData item, int quantity) 
 	{

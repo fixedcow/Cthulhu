@@ -6,7 +6,6 @@ using TMPro;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using Unity.VisualScripting;
-using UnityEditor.ShaderGraph.Internal;
 using Sirenix.OdinInspector;
 using static UnityEngine.Rendering.PostProcessing.PostProcessResources;
 
@@ -80,11 +79,11 @@ public class DayTimeController : MonoBehaviour
         }
 
         //³·°ú ¹ã ±âÁØ ¼¼¿ì±â
-        if (time > secondsInDay * 19 / 24 && isDay)
+        if (time > secondsInDay * 22 / 24 && isDay)
         {
             DayToNight();
         }
-        else if (time > secondsInDay * 6 / 24 && time < secondsInDay * 19 / 24 && !isDay)
+        else if (time > secondsInDay * 5 / 24 && time < secondsInDay * 22 / 24 && !isDay)
         {
             NightToDay();
         }

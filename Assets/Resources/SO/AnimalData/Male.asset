@@ -15,14 +15,14 @@ MonoBehaviour:
   objectData:
     objectID: Male
     objectName: "\uB0A8\uC790 \uC0AC\uB78C"
-    hpMax: 50
+    hpMax: 30
     objectPrefab: {fileID: 2832221964150691131, guid: e5c99837516370e4a9131da0f2ce4e26, type: 3}
     dropItem: {fileID: 8299652079250648202, guid: 12012e05ca52e71409417184dcf49aab, type: 3}
     dropQuantityMin: 1
     dropQuantityMax: 1
     speedIdle: 3
     speedAttack: 5
-    damage: 20
+    damage: 10
     recognitionRangeIn: 9
     recognitionRangeOut: 16
     attackRange: 1.5
